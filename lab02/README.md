@@ -1,6 +1,6 @@
 # Lab 02 · Large-Scale Clinical Data Processing
 
-**Memory-efficient processing, data-quality validation, and performance benchmarking on 17.3M synthetic EHR observations.**
+**Memory-efficient EHR processing, clinical data-quality validation, and performance benchmarking across pandas, Polars, and PySpark.**
 
 `Python` · `pandas` · `Polars` · `PySpark` · `PyArrow` · `Synthea`
 
@@ -17,25 +17,38 @@
 | Initial `observations.csv` memory | **9.96 GB** |
 | Optimized memory | **704.18 MB** |
 | Memory reduction | **92.93%** |
+| Chunk-processing memory budget | **200 MB** |
+
+This project explores how data representation, validation strategy, and processing engine affect the analysis of large synthetic electronic health records.
 
 ---
 
-## What This Lab Demonstrates
+## Objectives
 
-- Explicit dtype design and memory profiling
-- Clinical data-quality auditing
-- Temporal consistency validation
-- Safe `many_to_one` joins
-- Longitudinal EHR analysis
-- Long-to-wide clinical transformations
-- Processing under a fixed memory budget
-- pandas vs Polars vs PySpark benchmarking
+The lab evaluates:
+
+- explicit dtype selection and memory usage
+- ≥70% memory reduction on `observations.csv`
+- clinical data-quality auditing
+- temporal consistency
+- validated table cardinalities
+- patient-level clinical analysis
+- long-to-wide transformations
+- physiological plausibility checks
+- full-file processing under a fixed memory budget
+- equivalent implementations in pandas, Polars, and PySpark
+
+The complete implementation and methodological discussion are available in:
+
+### [`analisis_pacientes.ipynb`](./analisis_pacientes.ipynb)
 
 ---
 
 ## Dataset
 
-Synthetic electronic health record data were generated with **Synthea** using a target population of 20,000 patients and CSV export.
+Data were generated with **Synthea**, a synthetic longitudinal EHR generator.
+
+The dataset was created locally using:
 
 ```bash
 java -jar synthea-with-dependencies.jar \
@@ -45,29 +58,23 @@ java -jar synthea-with-dependencies.jar \
   --exporter.baseDirectory=output
 ```
 
-Main datasets:
+Main files used:
 
-| File | Rows |
-|---|---:|
-| `patients.csv` | 22,851 |
-| `encounters.csv` | 1,353,311 |
-| `observations.csv` | 17,340,070 |
+| File | Description | Rows |
+|---|---|---:|
+| `patients.csv` | Patient demographics | 22,851 |
+| `encounters.csv` | Clinical encounters | 1,353,311 |
+| `observations.csv` | Laboratory and clinical measurements | 17,340,070 |
 
-Large generated files are excluded from the repository and can be reproduced using the command above.
+The complete generated CSV output occupies approximately **16 GB**.
+
+Large generated files are excluded from GitHub and can be recreated using the command above.
 
 ---
 
 ## Memory Optimization
 
-The initial pandas representation of `observations.csv` required approximately **9.96 GB of memory**.
-
-By selecting more appropriate data representations:
-
-- repeated values → `category`
-- temporal fields → `datetime`
-- mixed textual values → `string[pyarrow]`
-
-memory usage was reduced to **704.18 MB**.
+The datasets were first loaded using pandas with inferred data types and then reloaded using explicit representations.
 
 | Dataset | Initial Memory | Optimized Memory | Reduction |
 |---|---:|---:|---:|
@@ -75,60 +82,76 @@ memory usage was reduced to **704.18 MB**.
 | Encounters | 1,046.21 MB | 601.45 MB | 42.51% |
 | Observations | 9,960.77 MB | **704.18 MB** | **92.93%** |
 
-### Main Result
+For `observations.csv`, the main optimizations were:
 
-**9.96 GB → 704.18 MB**
+- repeated string values → `category`
+- temporal fields → `datetime`
+- mixed textual values → `string[pyarrow]`
 
-**92.93% reduction in memory usage**
+### Column-Level Memory Decisions
+
+| Column | Before | After | MB Before | MB After | Trade-off |
+|---|---|---|---:|---:|---|
+| CATEGORY | object | category | 942.69 | 16.54 | Less flexible when adding new categories |
+| CODE | object | category | 916.87 | 33.10 | Text manipulation becomes less direct |
+| DATE | object | datetime64 | 1,141.04 | 132.29 | Requires valid temporal interpretation |
+| DESCRIPTION | object | category | 1,518.73 | 33.11 | Less flexible for arbitrary string edits |
+| ENCOUNTER | object | category | 1,374.08 | 141.50 | New identifiers require category expansion |
+| PATIENT | object | category | 1,405.63 | 35.43 | New identifiers require category expansion |
+| TYPE | object | category | 907.08 | 16.54 | Less flexible for unseen values |
+| UNITS | object | category | 797.52 | 16.54 | New units require category expansion |
+| VALUE | object | string[pyarrow] | 957.14 | 279.13 | Some string operations may require conversion |
+
+**Final reduction: 92.93%**, exceeding the required 70%.
 
 ---
 
 ## Data Quality Audit
 
-The datasets were evaluated for missing values, duplicate identifiers, mixed clinical values, and temporal inconsistencies.
+The three datasets were audited before clinical analysis.
 
-| Quality Check | Result |
+| Check | Result |
 |---|---:|
 | Duplicate patient IDs | **0** |
-| Observations without encounter reference | **3.60%** |
-| Missing units | **27.27%** |
+| Missing `ENCOUNTER` in observations | **3.60%** |
+| Missing `UNITS` | **27.27%** |
 | Non-numeric `VALUE` | **36.80%** |
 | Encounters before birth | **0** |
 | Encounters after recorded death date | **2,734** |
 
-Non-numeric values were not automatically treated as errors.
-
-Examples included valid clinical responses such as:
+The non-numeric values were not automatically considered errors. Examples included valid clinical responses such as:
 
 - `No`
 - `Unsure`
 - `Never smoked tobacco`
 
-This illustrates why clinical data quality requires semantic interpretation rather than automatic numerical coercion.
+This is important because blindly coercing the entire `VALUE` column to numeric would destroy valid categorical clinical information.
 
 ### Temporal Consistency
 
-An initial timestamp comparison identified **3,161 encounters after death**.
+A timestamp-level comparison initially detected **3,161 encounters after death**.
 
-However, `DEATHDATE` contains day-level information and was interpreted as midnight. Encounters later on the same calendar day could therefore be incorrectly flagged.
+Because `DEATHDATE` contains day-level information, same-day encounters could be incorrectly classified as post-death events.
 
-After comparing calendar dates instead of full timestamps:
+After comparing calendar dates instead of timestamps:
 
-**2,734 encounters remained genuinely later than the recorded death date.**
+**2,734 encounters remained on dates after the recorded death date.**
 
-This prevented **427 same-day encounters** from being incorrectly classified as inconsistencies.
+This removed **427 false positives** caused by temporal granularity.
 
 ---
 
 ## Join Validation
 
-The main analytical relationship was:
+The analytical relationship was:
 
 ```text
 observations → encounters → patients
 ```
 
-Both joins were expected to follow a `many_to_one` relationship and were explicitly validated using:
+Both joins were expected to be `many_to_one`.
+
+Each merge used:
 
 ```python
 validate="many_to_one"
@@ -144,8 +167,6 @@ indicator=True
 | Matched | 16,715,962 |
 | Without encounter match | 624,108 |
 
-Approximately **3.60%** of observations did not contain a valid encounter reference.
-
 ### Observations / Encounters → Patients
 
 | Metric | Rows |
@@ -155,11 +176,22 @@ Approximately **3.60%** of observations did not contain a valid encounter refere
 | Matched to patient | 17,340,070 |
 | Without patient match | 0 |
 
-The stable row count confirmed that the joins did not introduce unintended row multiplication.
+The stable row counts confirmed that the joins did not introduce unintended row multiplication.
 
 ---
 
 ## Clinical Analysis
+
+### Patients by Ethnicity and Sex
+
+| Ethnicity | Sex | Patients |
+|---|---|---:|
+| nonhispanic | M | 10,225 |
+| nonhispanic | F | 10,192 |
+| hispanic | F | 1,254 |
+| hispanic | M | 1,180 |
+
+The original Synthea categories were preserved rather than creating artificial demographic groups.
 
 ### Encounters per Patient
 
@@ -168,9 +200,7 @@ The stable row count confirmed that the joins did not introduce unintended row m
 | Mean | **59.22** |
 | Median | **36** |
 
-The difference between the mean and median indicates that some patients have substantially more encounters than the typical patient.
-
-### Most Frequent Clinical Observations
+### Most Frequent Observations
 
 | LOINC Code | Observation | Frequency |
 |---|---|---:|
@@ -185,11 +215,9 @@ The difference between the mean and median indicates that some patients have sub
 | 39156-5 | BMI | 277,810 |
 | 33914-3 | Glomerular filtration rate | 233,209 |
 
----
+### Longitudinal Example · Systolic Blood Pressure
 
-## Clinical Example · Systolic Blood Pressure
-
-Systolic blood pressure (`LOINC 8480-6`) was selected for longitudinal analysis.
+LOINC `8480-6`
 
 | Metric | Result |
 |---|---:|
@@ -200,13 +228,13 @@ Systolic blood pressure (`LOINC 8480-6`) was selected for longitudinal analysis.
 | Maximum | **186 mmHg** |
 | Patients with ≥3 measurements | **22,793** |
 
-The high number of repeated measurements provides a dense longitudinal signal for patient-level analysis.
+The analysis operates directly on the individual observations rather than averaging patient-level averages, avoiding a mean-of-means error.
 
 ---
 
 ## Long-to-Wide Transformation
 
-Six frequently measured clinical variables were transformed into patient-date wide format:
+Six frequently measured variables were transformed into patient-date wide format:
 
 - systolic blood pressure
 - diastolic blood pressure
@@ -219,22 +247,22 @@ The resulting table contained:
 
 **334,269 patient-date rows**
 
-Before aggregation, repeated measurements were explicitly audited.
+Before aggregation:
 
-| Metric | Result |
+| Check | Result |
 |---|---:|
 | Patient/date/analyte combinations with multiple measurements | **2,349** |
 | Maximum measurements in one combination | **3** |
 
-This check is important because `pivot_table()` can silently aggregate repeated measurements.
+This audit was performed because `pivot_table()` can silently aggregate multiple observations for the same patient, date, and analyte.
 
-For this workflow, the aggregation function was explicitly defined as the mean.
+Physiologically implausible values were flagged for review rather than automatically removed. The notebook contains the complete detection logic and the references used to justify the selected limits.
 
 ---
 
-## Processing Under a Memory Constraint
+## Processing Under a Memory Budget
 
-The complete `observations.csv` dataset was also processed without loading the entire file into memory.
+The complete `observations.csv` file was processed incrementally under an artificial memory constraint.
 
 ```python
 chunksize = 100_000
@@ -242,72 +270,90 @@ chunksize = 100_000
 
 | Metric | Result |
 |---|---:|
-| Artificial memory budget | **200 MB** |
+| Memory budget | **200 MB** |
 | Measured peak with `tracemalloc` | **12.79 MB** |
 | Budget satisfied | **Yes** |
 
-Each chunk generated partial counts and sums by clinical code.
+Each chunk generated partial counts and sums by clinical observation code.
 
-The final means were calculated using:
+Global means were calculated as:
 
 ```text
 total sum / total count
 ```
 
-instead of averaging chunk-level means, avoiding a **mean-of-means error**.
+rather than averaging chunk-level means.
 
 ---
 
 ## pandas vs Polars vs PySpark
 
-The same analytical workflow was reproduced using three processing engines.
+The clinical pipeline from Activity 5 was reproduced in all three engines and checked for equivalent analytical results.
 
-### Full Pipeline
-
-| Engine | Runtime | Clinical Result | Main Consideration |
-|---|---:|---|---|
-| pandas | 18.69 s | Equivalent | Higher memory usage |
-| **Polars** | **4.77 s** | Equivalent | Different API |
-| PySpark | 7.74 s | Equivalent | Spark/JVM initialization overhead |
-
-All three engines reproduced:
+All implementations reproduced:
 
 - mean encounters per patient: **59.22**
 - median encounters per patient: **36**
 - patients with ≥3 systolic measurements: **22,793**
+- equivalent demographic and observation-frequency results
 
-### Controlled 1M-Row Memory Comparison
+### Required Engine Comparison
 
-| Engine | Time | Memory |
+| Tool | Lines of Code | Time (s) | Peak Memory (MB) | Hardest Part |
+|---|---:|---:|---:|---|
+| pandas | **TBD** | 18.69 | **TBD** | Higher memory consumption |
+| Polars | **TBD** | 4.77 | **TBD** | Adapting grouping and expression syntax |
+| PySpark | **TBD** | 7.74 | **TBD** | Spark/JVM initialization and distributed API |
+
+> `TBD` values should be replaced with the final measured LOC and peak-memory values from the notebook before submission. The course specification requires measured values rather than estimates.
+
+### Controlled 1M-Row Memory Experiment
+
+A secondary experiment was also performed on the same 1M-row subset:
+
+| Engine | Time | DataFrame Memory |
 |---|---:|---:|
 | pandas | 0.76 s | 189.27 MB |
-| **Polars** | **0.05 s** | **49.08 MB** |
+| Polars | **0.05 s** | **49.08 MB** |
 | PySpark | 5.15 s | JVM-managed |
 
-For this workload on a single machine, **Polars provided the best balance between execution speed and memory efficiency**.
-
-PySpark becomes more attractive when the workload requires distributed computation across multiple machines.
+This secondary table is useful for portfolio comparison, but it does **not replace the required peak-memory measurements above**.
 
 ---
 
-## Key Takeaways
+## Recommendation
 
-- Explicit dtype selection can dramatically reduce memory usage.
-- Clinical data quality requires semantic interpretation.
-- Join cardinalities should be validated explicitly.
-- Mixed clinical values should not be blindly converted to numeric data.
-- Wide transformations can hide repeated measurements through aggregation.
-- Chunk-based processing allows large datasets to remain within strict memory constraints.
-- Runtime and memory should be measured rather than assumed.
-- Tool selection should depend on dataset scale and execution environment.
+For this dataset — approximately **17.3 million observations** and a workload dominated by filtering, grouping, aggregation, and clinical transformations on a single machine — **Polars provided the best balance of speed and memory efficiency**.
+
+pandas remains highly practical for smaller and medium-scale analyses because of its mature ecosystem and straightforward API.
+
+PySpark introduces additional overhead in local execution and becomes more compelling when the workload grows beyond the memory or computational capacity of a single machine and can benefit from distributed execution.
 
 ---
 
-## Notebook
+## Reproducibility
 
-The complete implementation, outputs, validation steps, and methodological discussion are available in:
+Repository structure:
 
-### [`analisis_pacientes.ipynb`](./analisis_pacientes.ipynb)
+```text
+lab02/
+├── analisis_pacientes.ipynb
+├── README.md
+└── .gitignore
+```
+
+Large Synthea outputs and local environments are excluded from version control.
+
+To reproduce the analysis:
+
+1. Install the required Python packages:
+   `pandas`, `numpy`, `pyarrow`, `polars`, and `pyspark`.
+2. Generate the Synthea CSV files using the command shown above.
+3. Place the generated files under `output/csv/`.
+4. Open `analisis_pacientes.ipynb`.
+5. Run the notebook from a clean kernel using **Restart & Run All**.
+
+The implementation avoids `iterrows()` and `inplace=True`.
 
 ---
 
@@ -317,13 +363,13 @@ Developed for the graduate course:
 
 **Applied Data Science in Biomedicine and the Pharmaceutical/Healthcare Industry: From Academia to Industry**
 
-**Universidad Nacional Autónoma de México (UNAM)**  
+Universidad Nacional Autónoma de México (UNAM)  
 Biomedical Sciences PhD Program · Semester 2027-1
 
 ---
 
 ## Portfolio Context
 
-This lab is part of the **Healthcare Data Science & AI Engineering Portfolio**, a growing collection of projects covering clinical analytics, data engineering, SQL, OMOP CDM, machine learning, cloud computing, APIs, Docker, LLM applications, and healthcare AI workflows.
+This project is part of the **Healthcare Data Science & AI Engineering Portfolio**, a growing collection of hands-on projects in clinical analytics, data engineering, SQL, OMOP CDM, machine learning, cloud computing, APIs, deployment, and applied AI.
 
 [← Back to Healthcare Data Science & AI Engineering Portfolio](../README.md)
