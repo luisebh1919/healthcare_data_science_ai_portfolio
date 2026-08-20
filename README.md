@@ -1,92 +1,91 @@
-# Biomedical Data Science Portfolio
+# Healthcare Data Science & AI Engineering Portfolio
 
-A professional portfolio showcasing scalable data engineering, clinical analytics, and reproducible machine learning workflows in biomedical contexts.
+Technical portfolio focused on **clinical analytics, healthcare data engineering, machine learning, clinical informatics, and applied AI**.
 
-## Overview
+## Scope
 
-This portfolio demonstrates end-to-end data science capabilities applied to real-world biomedical challenges:
+The labs in this repository cover:
 
-- **Clinical Analytics**: EHR data processing, patient cohort analysis, temporal event modeling
-- **Data Engineering**: Memory-optimized workflows, distributed processing, data quality assurance
-- **Performance Optimization**: Benchmark comparisons across pandas, Polars, and PySpark
-- **Reproducibility**: Version-controlled workflows, containerized environments, documented methodologies
+* EHR data processing and longitudinal analysis
+* Memory-efficient analytics with pandas, Polars, and PySpark
+* SQL and OMOP CDM
+* LOINC, SNOMED CT, ICD-10, and RxNorm
+* Machine learning with scikit-learn, XGBoost, and LightGBM
+* Model evaluation, calibration, and SHAP
+* FastAPI, Docker, testing, and deployment
+* AWS S3, EC2, IAM, and cloud workflows
+* LLMs, biomedical NER, NL2SQL, embeddings, and RAG
 
-## Tech Stack
+The objective is to build reproducible workflows that connect biomedical analysis with practical data engineering and production-oriented decisions.
 
-- **Data Processing**: pandas, Polars, PySpark
-- **Analytics & ML**: scikit-learn, statsmodels, scipy
-- **Visualization**: matplotlib, seaborn, plotly
-- **Engineering**: Python, SQL, Git, Docker
-- **Environments**: Jupyter, VS Code, cloud platforms
+## Labs
 
-## Projects
+This repository will contain multiple progressively more advanced labs.
 
-### [Lab 02: Clinical Analytics & Data Quality](./lab02/)
-*Biomedical Data Quality Analysis and Optimization*
+### [Lab 02 — Large-Scale Synthetic EHR Analytics](./lab02/)
 
-- **Objective**: Demonstrate scalable clinical data processing with emphasis on data quality metrics
-- **Dataset**: Real EHR data patterns with missing values, duplicates, and temporal inconsistencies
-- **Methods**: Data profiling, quality assessment frameworks, memory-optimized transformations
-- **Tools**: pandas, Polars comparison for performance; custom validation pipelines
-- **Outcomes**: Measurable data quality improvements, reproducible cleaning workflows
+Analysis of synthetic longitudinal EHR data generated with **Synthea**.
 
-## Performance Benchmarks
+**Dataset**
 
-| Task | Dataset Size | pandas | Polars | PySpark |
-|------|--------------|--------|--------|---------|
-| (Coming soon) | | | | |
+* 22,851 patients
+* 1.35M encounters
+* 17.34M clinical observations
+* ~16 GB of generated CSV data
 
-## Getting Started
+**Work performed**
 
-### Prerequisites
-```bash
-python >= 3.9
-pip install -r requirements.txt
-```
+* explicit dtype selection
+* memory profiling and optimization
+* missing-data and duplicate auditing
+* temporal consistency checks
+* validated `many_to_one` joins
+* longitudinal blood-pressure analysis
+* long-to-wide transformations
+* processing by chunks under a memory budget
+* pandas vs Polars vs PySpark benchmarking
 
-### Installation
-```bash
-git clone https://github.com/luisebh1919/biomedical-data-science-portfolio.git
-cd biomedical-data-science-portfolio
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-pip install -r requirements.txt
-```
+### Main result
 
-### Running Analyses
-Each project directory contains:
-- `notebooks/` - Jupyter notebooks with full analysis walkthroughs
-- `scripts/` - Reproducible Python scripts for automated pipelines
-- `data/` - Dataset descriptions and processing instructions
-- `results/` - Output figures, tables, and performance reports
+`observations.csv` memory usage was reduced from:
 
-## Reproducibility
+**9,960.77 MB → 704.18 MB**
 
-All analyses include:
-- ✅ Versioned environments (`requirements.txt`, `environment.yml`)
-- ✅ Documented data sources and preprocessing steps
-- ✅ Commented code with clear engineering decisions
-- ✅ Runtime performance metrics and resource usage
-- ✅ Validation and sanity checks
+Equivalent to a **92.93% reduction**.
 
-## Key Competencies Demonstrated
+### Engine benchmark
 
-| Competency | Evidence |
-|------------|----------|
-| Data Engineering | Scalable ETL pipelines, memory optimization, distributed processing |
-| Clinical Domain Knowledge | EHR conventions, temporal data, patient cohorts, data quality standards |
-| Software Engineering | Version control, reproducible workflows, documentation, testing |
-| Performance Analysis | Benchmark comparisons, algorithmic optimization, resource profiling |
-| Data Quality | Validation frameworks, anomaly detection, systematic cleaning |
+| Engine  | Full pipeline |
+| ------- | ------------: |
+| pandas  |       18.69 s |
+| Polars  |    **4.77 s** |
+| PySpark |        7.74 s |
 
-## Contact & Further Information
+All three reproduced the same results: **59.22 mean encounters per patient, median 36, and 22,793 patients with ≥3 systolic blood-pressure measurements**.
 
-For detailed technical discussions or to explore potential collaborations:
-- 📧 Email: [Your email]
-- 💼 LinkedIn: [Your LinkedIn]
-- 🔗 GitHub: [@luisebh1919](https://github.com/luisebh1919)
+For a controlled 1M-row test, pandas used **189.27 MB**, while Polars used **49.08 MB**.
+
+## Technical Areas
+
+`Python` · `pandas` · `Polars` · `PySpark` · `PyArrow` · `SQL` · `OMOP CDM` · `scikit-learn` · `XGBoost` · `LightGBM` · `SHAP` · `FastAPI` · `Docker` · `AWS` · `LLMs` · `RAG`
+
+## Principles
+
+Projects emphasize:
+
+* reproducibility
+* explicit data-quality checks
+* measured runtime and memory
+* validated joins and transformations
+* clinical interpretation
+* documented technical trade-offs
+
+Large datasets are not stored directly in GitHub; each lab documents how to obtain or regenerate them.
+
+## Contact
+
+GitHub: [@luisebh1919](https://github.com/luisebh1919)
 
 ---
 
-*Last Updated: August 2026*
-*This portfolio is continuously updated with new analyses and optimizations.*
+*Additional labs will be added as the portfolio develops.*
