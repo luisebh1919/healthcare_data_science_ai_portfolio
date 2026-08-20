@@ -228,7 +228,7 @@ LOINC `8480-6`
 | Maximum | **186 mmHg** |
 | Patients with ≥3 measurements | **22,793** |
 
-The analysis operates directly on the individual observations rather than averaging patient-level averages, avoiding a mean-of-means error.
+The analysis operates directly on individual observations rather than averaging patient-level averages, avoiding a mean-of-means error.
 
 ---
 
@@ -288,48 +288,38 @@ rather than averaging chunk-level means.
 
 ## pandas vs Polars vs PySpark
 
-The clinical pipeline from Activity 5 was reproduced in all three engines and checked for equivalent analytical results.
+The clinical pipeline from Activity 5 was reproduced in pandas, Polars, and PySpark.
 
-All implementations reproduced:
+All three implementations reproduced the same key results:
 
 - mean encounters per patient: **59.22**
 - median encounters per patient: **36**
 - patients with ≥3 systolic measurements: **22,793**
 - equivalent demographic and observation-frequency results
 
-### Current Runtime Comparison
+### Required Engine Comparison
 
-| Tool | Time (s) | Result | Main Consideration |
-|---|---:|---|---|
-| pandas | **0.70** | Equivalent | Operates on previously loaded optimized DataFrames |
-| Polars | 4.45 | Equivalent | Includes CSV loading |
-| PySpark | 12.62 | Equivalent | Includes CSV loading and Spark/JVM overhead |
+| Tool | Lines of Code | Time (s) | Peak Memory (MB) | Hardest Part |
+|---|---:|---:|---:|---|
+| pandas | **18** | **0.85** | **595.71*** | Higher memory usage |
+| Polars | **16** | **2.76** | **1.02*** | Adapting expression and grouping syntax |
+| PySpark | **17** | **15.43** | Not directly measured | Spark/JVM initialization and lazy execution |
 
-These runtime measurements are not yet a fully controlled benchmark because pandas operates on previously loaded DataFrames while Polars and PySpark include file loading.
+\* pandas and Polars memory values shown above were obtained with `tracemalloc`. This method primarily tracks Python-managed allocations and therefore does not capture all native memory used by Polars. The values should not be interpreted as a directly comparable measure of total process RAM.
 
-### Peak-Memory Benchmark
+PySpark runs computation through the JVM, so an equivalent peak-memory measurement requires process-level monitoring of both the Python process and Spark's child JVM processes.
 
-A process-level benchmark using `psutil` is being used to measure the pipeline consistently.
-
-| Tool | Time (s) | Peak Memory (MB) | Status |
-|---|---:|---:|---|
-| pandas | 1.17 | **12,365.14** | Measured |
-| Polars | — | — | Pending |
-| PySpark | — | — | Pending |
-
-The final comparison should use the same workload and measurement strategy across the three engines.
+The runtime comparison also has an important methodological limitation: pandas operates on previously loaded optimized DataFrames, while the Polars and PySpark implementations include CSV loading. Therefore, these times document the observed execution of each implementation but should not be interpreted as a perfectly controlled engine benchmark.
 
 ---
 
 ## Recommendation
 
-For this dataset — approximately **17.3 million observations** and a workload dominated by filtering, grouping, aggregation, and clinical transformations on a single machine — **Polars provided the best balance of speed and memory efficiency in the earlier controlled comparisons**.
+For this dataset — approximately **17.3 million observations** on a single machine — **Polars is the preferred tool for continued large-scale tabular processing** because of its efficient columnar execution model and lower data-memory footprint observed in the optimization experiments.
 
-pandas remains highly practical for smaller and medium-scale analyses because of its mature ecosystem and straightforward API.
+pandas remains highly practical for small and medium-scale analysis because of its mature ecosystem and straightforward API.
 
-PySpark introduces additional overhead in local execution and becomes more compelling when the workload grows beyond the memory or computational capacity of a single machine and can benefit from distributed execution.
-
-A final engine recommendation should be confirmed once peak-memory measurements are completed consistently for all three tools.
+PySpark introduces substantial overhead in local execution and becomes more compelling when the data or computation needs to be distributed across multiple machines.
 
 ---
 
@@ -348,8 +338,8 @@ Large Synthea outputs and local environments are excluded from version control.
 
 To reproduce the analysis:
 
-1. Install the required Python packages:  
-   `pandas`, `numpy`, `pyarrow`, `polars`, `pyspark`, and `psutil`.
+1. Install:
+   `pandas`, `numpy`, `pyarrow`, `polars`, and `pyspark`.
 2. Generate the Synthea CSV files using the command shown above.
 3. Place the generated files under `output/csv/`.
 4. Open `analisis_pacientes.ipynb`.
