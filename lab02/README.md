@@ -256,7 +256,7 @@ Before aggregation:
 
 This audit was performed because `pivot_table()` can silently aggregate multiple observations for the same patient, date, and analyte.
 
-Physiologically implausible values were flagged for review rather than automatically removed. The notebook contains the complete detection logic and the references used to justify the selected limits.
+Physiologically implausible values were flagged for review rather than automatically removed.
 
 ---
 
@@ -297,37 +297,39 @@ All implementations reproduced:
 - patients with ≥3 systolic measurements: **22,793**
 - equivalent demographic and observation-frequency results
 
-### Required Engine Comparison
+### Current Runtime Comparison
 
-| Tool | Lines of Code | Time (s) | Peak Memory (MB) | Hardest Part |
-|---|---:|---:|---:|---|
-| pandas | **TBD** | 18.69 | **TBD** | Higher memory consumption |
-| Polars | **TBD** | 4.77 | **TBD** | Adapting grouping and expression syntax |
-| PySpark | **TBD** | 7.74 | **TBD** | Spark/JVM initialization and distributed API |
+| Tool | Time (s) | Result | Main Consideration |
+|---|---:|---|---|
+| pandas | **0.70** | Equivalent | Operates on previously loaded optimized DataFrames |
+| Polars | 4.45 | Equivalent | Includes CSV loading |
+| PySpark | 12.62 | Equivalent | Includes CSV loading and Spark/JVM overhead |
 
-> `TBD` values should be replaced with the final measured LOC and peak-memory values from the notebook before submission. The course specification requires measured values rather than estimates.
+These runtime measurements are not yet a fully controlled benchmark because pandas operates on previously loaded DataFrames while Polars and PySpark include file loading.
 
-### Controlled 1M-Row Memory Experiment
+### Peak-Memory Benchmark
 
-A secondary experiment was also performed on the same 1M-row subset:
+A process-level benchmark using `psutil` is being used to measure the pipeline consistently.
 
-| Engine | Time | DataFrame Memory |
-|---|---:|---:|
-| pandas | 0.76 s | 189.27 MB |
-| Polars | **0.05 s** | **49.08 MB** |
-| PySpark | 5.15 s | JVM-managed |
+| Tool | Time (s) | Peak Memory (MB) | Status |
+|---|---:|---:|---|
+| pandas | 1.17 | **12,365.14** | Measured |
+| Polars | — | — | Pending |
+| PySpark | — | — | Pending |
 
-This secondary table is useful for portfolio comparison, but it does **not replace the required peak-memory measurements above**.
+The final comparison should use the same workload and measurement strategy across the three engines.
 
 ---
 
 ## Recommendation
 
-For this dataset — approximately **17.3 million observations** and a workload dominated by filtering, grouping, aggregation, and clinical transformations on a single machine — **Polars provided the best balance of speed and memory efficiency**.
+For this dataset — approximately **17.3 million observations** and a workload dominated by filtering, grouping, aggregation, and clinical transformations on a single machine — **Polars provided the best balance of speed and memory efficiency in the earlier controlled comparisons**.
 
 pandas remains highly practical for smaller and medium-scale analyses because of its mature ecosystem and straightforward API.
 
 PySpark introduces additional overhead in local execution and becomes more compelling when the workload grows beyond the memory or computational capacity of a single machine and can benefit from distributed execution.
+
+A final engine recommendation should be confirmed once peak-memory measurements are completed consistently for all three tools.
 
 ---
 
@@ -346,8 +348,8 @@ Large Synthea outputs and local environments are excluded from version control.
 
 To reproduce the analysis:
 
-1. Install the required Python packages:
-   `pandas`, `numpy`, `pyarrow`, `polars`, and `pyspark`.
+1. Install the required Python packages:  
+   `pandas`, `numpy`, `pyarrow`, `polars`, `pyspark`, and `psutil`.
 2. Generate the Synthea CSV files using the command shown above.
 3. Place the generated files under `output/csv/`.
 4. Open `analisis_pacientes.ipynb`.
