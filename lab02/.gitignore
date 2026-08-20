@@ -1,0 +1,5 @@
+output/
+synthea-with-dependencies.jar
+.venv/
+__pycache__/
+.ipynb_checkpoints/
