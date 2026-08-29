@@ -1,7 +1,7 @@
 import pandas as pd
 import pytest
 
-from lab04.src.clinical_summary import median_age, validate_required_columns
+from lab04.src.clinical_summary import median_age, sex_counts, validate_required_columns
 
 
 def test_validate_required_columns_accepts_valid_dataframe():
@@ -48,3 +48,18 @@ def test_median_age_raises_when_age_column_is_missing():
 
     with pytest.raises(ValueError, match="edad"):
         median_age(df)
+
+
+def test_sex_counts_returns_counts_by_category():
+    df = pd.DataFrame({"sexo": ["F", "M", "F", "F", "M"]})
+
+    result = sex_counts(df)
+
+    assert result == {"F": 3, "M": 2}
+
+
+def test_sex_counts_raises_when_sex_column_is_missing():
+    df = pd.DataFrame({"patient_id": [1, 2, 3]})
+
+    with pytest.raises(ValueError, match="sexo"):
+        sex_counts(df)

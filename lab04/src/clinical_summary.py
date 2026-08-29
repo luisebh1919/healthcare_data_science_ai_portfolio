@@ -23,3 +23,10 @@ def median_age(df, age_column="edad"):
     validate_required_columns(df, [age_column])
 
     return float(df[age_column].median())
+
+
+def sex_counts(df, sex_column="sexo"):
+    """Cuenta pacientes por categoria de sexo."""
+    validate_required_columns(df, [sex_column])
+
+    return df[sex_column].value_counts().to_dict()
