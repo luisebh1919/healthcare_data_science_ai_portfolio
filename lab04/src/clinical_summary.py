@@ -16,3 +16,10 @@ def validate_required_columns(df, required_columns):
     if missing_columns:
         missing_text = ", ".join(missing_columns)
         raise ValueError(f"Faltan columnas requeridas: {missing_text}")
+
+
+def median_age(df, age_column="edad"):
+    """Calcula la mediana de edad de una cohorte clinica."""
+    validate_required_columns(df, [age_column])
+
+    return float(df[age_column].median())

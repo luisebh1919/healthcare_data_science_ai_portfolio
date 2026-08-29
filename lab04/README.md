@@ -22,3 +22,11 @@ Las pruebas con `pytest` cubren tres casos:
 - Commit:
 - PR:
 - Issue cerrado con `fixes #1`:
+
+## 2. Issue #3 — Resumen de cohorte
+
+### 2.1 Edad mediana
+
+Se agregó la función `median_age(df, age_column="edad")` para calcular la mediana de edad de una cohorte clínica. Antes de calcular, la función valida que exista la columna de edad usando `validate_required_columns()`. El resultado se devuelve como `float`, lo que facilita usarlo después en reportes o resúmenes numéricos.
+
+Las pruebas cubren el cálculo correcto de la mediana y el error esperado cuando falta la columna de edad.
