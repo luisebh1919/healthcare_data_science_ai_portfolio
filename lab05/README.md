@@ -1,5 +1,7 @@
 # Lab 05 — clinlab
 
+[![Lab 05 CI](https://github.com/luisebh1919/healthcare_data_science_ai_portfolio/actions/workflows/lab05-ci.yml/badge.svg)](https://github.com/luisebh1919/healthcare_data_science_ai_portfolio/actions/workflows/lab05-ci.yml)
+
 ## 1. Esqueleto del paquete
 
 ### 1.1 Objetivo
@@ -587,3 +589,41 @@ evidence/precommit_passed.txt
 ```
 
 Con el error corregido, el commit fue aceptado por los hooks.
+
+## 9. Integración continua
+
+### 9.1 Workflow
+
+Se agregó `.github/workflows/lab05-ci.yml` para ejecutar validaciones automáticas
+en `push` y `pull_request`. El workflow usa `actions/checkout@v4`,
+`actions/setup-python@v5` y Python 3.11.
+
+La configuración se mantiene mínima para esta actividad: un solo job instala el
+paquete desde `lab05/clinlab` y ejecuta las verificaciones del paquete.
+
+### 9.2 Validaciones automáticas
+
+CI instala `clinlab` desde cero en modo editable con las dependencias de
+desarrollo:
+
+```bash
+python -m pip install -e ".[dev]"
+```
+
+Después ejecuta Ruff y pytest con cobertura desde `lab05/clinlab`:
+
+```bash
+ruff check src tests
+pytest --cov=clinlab --cov-report=term-missing
+```
+
+Esto comprueba que el paquete no depende del entorno local previo y que las
+pruebas pueden correr en un ambiente limpio.
+
+### 9.3 Badge de CI
+
+El badge ubicado debajo del título apunta al workflow `lab05-ci.yml`. Su estado
+refleja el resultado publicado por GitHub Actions para ese workflow.
+
+La corrida remota de GitHub Actions queda pendiente hasta que el commit sea
+empujado y GitHub ejecute el workflow.
