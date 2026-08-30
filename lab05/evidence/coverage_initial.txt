@@ -1,0 +1,26 @@
+============================= test session starts ==============================
+platform linux -- Python 3.14.2, pytest-9.1.1, pluggy-1.6.0
+rootdir: /home/luis-enrique/Desktop/Datascience_BIomedicas/Labs - Clase - Tareas/lab05/clinlab
+configfile: pyproject.toml
+testpaths: tests
+plugins: Faker-40.8.0, cov-7.1.0, anyio-4.12.0, typeguard-4.5.2
+collected 27 items
+
+tests/test_data.py ....                                                  [ 14%]
+tests/test_egfr.py .............                                         [ 62%]
+tests/test_lab02_edge_cases.py .....                                     [ 81%]
+tests/test_malicious_cohort.py .                                         [ 85%]
+tests/test_validation.py ....                                            [100%]
+
+================================ tests coverage ================================
+_______________ coverage: platform linux, python 3.14.2-final-0 ________________
+
+Name                        Stmts   Miss  Cover   Missing
+---------------------------------------------------------
+src/clinlab/__init__.py         1      0   100%
+src/clinlab/clinical.py        47     10    79%   10, 20, 29, 44-50, 60-61, 94-95
+src/clinlab/data.py            14      1    93%   56
+src/clinlab/validation.py      25     11    56%   29-36, 56-61
+---------------------------------------------------------
+TOTAL                          87     22    75%
+============================== 27 passed in 0.08s ==============================

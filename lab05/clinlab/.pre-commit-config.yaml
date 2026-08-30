@@ -1,0 +1,23 @@
+repos:
+  - repo: local
+    hooks:
+      - id: ruff
+        name: ruff
+        entry: bash -lc 'cd lab05/clinlab && ruff check src tests'
+        language: system
+        pass_filenames: false
+        files: ^lab05/clinlab/(src|tests)/.*\.py$
+
+      - id: ruff-format
+        name: ruff-format
+        entry: bash -lc 'cd lab05/clinlab && ruff format --check src tests'
+        language: system
+        pass_filenames: false
+        files: ^lab05/clinlab/(src|tests)/.*\.py$
+
+      - id: mypy
+        name: mypy
+        entry: bash -lc 'cd lab05/clinlab && mypy src'
+        language: system
+        pass_filenames: false
+        files: ^lab05/clinlab/src/.*\.py$

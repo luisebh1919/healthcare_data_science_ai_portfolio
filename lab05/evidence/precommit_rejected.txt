@@ -1,0 +1,26 @@
+ruff.....................................................................Failed
+- hook id: ruff
+- exit code: 1
+
+F401 [*] `os` imported but unused
+ --> src/clinlab/clinical.py:5:8
+  |
+3 | from __future__ import annotations
+4 |
+5 | import os
+  |        ^^
+6 |
+7 | import pandas as pd
+  |
+help: Remove unused import: `os`
+  |
+4 |
+  - import os
+5 |
+  |
+
+Found 1 error.
+[*] 1 fixable with the `--fix` option.
+
+ruff-format..............................................................Passed
+mypy.....................................................................Passed
