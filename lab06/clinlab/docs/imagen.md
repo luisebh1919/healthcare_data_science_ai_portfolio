@@ -76,3 +76,43 @@ RUN uv sync --frozen --extra dev
 estaba después de `COPY . .`, Docker tuvo que repetirla aunque las dependencias del proyecto no habían cambiado.
 
 Esto demuestra que colocar el código antes de instalar las dependencias genera rebuilds innecesariamente lentos. En la siguiente actividad se cambiará el orden para aprovechar mejor la caché de capas de Docker.
+
+
+## Actividad 3 — Orden correcto de capas
+
+Se reorganizó el Dockerfile para copiar primero los archivos que definen las dependencias:
+
+```dockerfile
+COPY pyproject.toml uv.lock README.md ./
+RUN uv sync --frozen --extra dev --no-install-project
+```
+
+Después se copia el código fuente:
+
+```dockerfile
+COPY src ./src
+COPY tests ./tests
+```
+
+De esta forma, cambiar una línea de código no invalida la capa donde se instalan las dependencias.
+
+### Resultados
+
+| Escenario | Orden malo | Orden bueno |
+|---|---:|---:|
+| Build limpio | 12.262 s | 6.800 s |
+| Rebuild tras cambiar código | 7.052 s | 1.034 s |
+
+En el rebuild con orden correcto, Docker reutilizó la caché de:
+
+```text
+RUN pip install --no-cache-dir uv
+COPY pyproject.toml uv.lock README.md ./
+RUN uv sync --frozen --extra dev --no-install-project
+```
+
+Por tanto, `uv sync` no volvió a ejecutarse.
+
+El rebuild pasó de 7.052 s a 1.034 s, una reducción aproximada del 85.3%.
+
+Esto demuestra que colocar las dependencias antes del código fuente permite aprovechar correctamente la caché de capas de Docker.
