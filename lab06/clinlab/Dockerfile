@@ -16,11 +16,18 @@ RUN uv pip install --python .venv/bin/python --no-deps .
 
 FROM python:3.11-slim AS runtime
 
+RUN groupadd --gid 10001 clinlab \
+    && useradd --uid 10001 --gid clinlab --no-create-home --shell /usr/sbin/nologin clinlab
+
 WORKDIR /app
 
-COPY --from=builder /app/.venv /app/.venv
-COPY tests ./tests
+RUN chown clinlab:clinlab /app
+
+COPY --from=builder --chown=clinlab:clinlab /app/.venv /app/.venv
+COPY --chown=clinlab:clinlab tests ./tests
 
 ENV PATH="/app/.venv/bin:$PATH"
+
+USER clinlab
 
 CMD ["pytest"]
