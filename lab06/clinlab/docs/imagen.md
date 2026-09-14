@@ -300,7 +300,9 @@ ghcr.io/luisebh1919/clinlab
 
 El workflow debe vivir en `.github/workflows/` de la raíz del repositorio y usar `lab06/clinlab` como contexto de Docker. Debe ejecutar las pruebas antes de publicar y producir las etiquetas `0.1.0` y el SHA del commit usando `GITHUB_TOKEN`, con permisos mínimos `contents: read` y `packages: write`.
 
-La raíz Git está fuera del directorio `lab06/clinlab/` autorizado para cambios en esta tarea. Por ello, el workflow queda **PENDIENTE DE AUTORIZACIÓN** para escribir en la carpeta `.github/workflows/` de la raíz. No se afirma que CI o la publicación hayan ejecutado correctamente.
+Se creó `.github/workflows/lab06-ghcr.yml` en la raíz del repositorio. El workflow usa `actions/checkout@v7`, `docker/setup-buildx-action@v4`, `docker/login-action@v4`, `docker/metadata-action@v6` y `docker/build-push-action@v7`. Primero construye `clinlab:ci-test` y ejecuta `docker run --rm clinlab:ci-test pytest`; solamente si esa prueba pasa inicia sesión en GHCR y publica `ghcr.io/luisebh1919/clinlab` con las etiquetas `0.1.0` y el SHA completo del commit.
+
+El YAML se analizó correctamente, `actionlint` terminó sin hallazgos y se validaron mediante aserciones el trigger `push` a `main`, los permisos, las acciones, el contexto, las etiquetas y el orden prueba→publicación. Al momento de documentarlo, el workflow todavía no había corrido y GHCR todavía no se había verificado; por tanto, la publicación permanece **PENDIENTE DE EJECUCIÓN EN GITHUB ACTIONS**.
 
 Puede ser necesario configurar la visibilidad del paquete en GitHub y permitir que el repositorio administre el paquete desde la sección de Packages. El workflow usa `GITHUB_TOKEN`; no deben agregarse tokens personales al YAML.
 
