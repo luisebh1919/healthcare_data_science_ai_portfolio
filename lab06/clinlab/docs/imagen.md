@@ -171,3 +171,35 @@ Después del cambio:
 
 Esto demuestra que una imagen que construye correctamente no necesariamente contiene todo lo necesario para ejecutar la aplicación en runtime.
 
+
+## Actividad 5 — `.dockerignore` y contexto de build
+
+Para medir el efecto de `.dockerignore` se realizó un experimento controlado con un Dockerfile temporal que utilizaba:
+
+```dockerfile
+COPY . .
+```
+
+### Resultado
+
+| Escenario | Contexto enviado |
+|---|---:|
+| Sin `.dockerignore` | 15.60 MB |
+| Con `.dockerignore` | 986 B |
+
+La reducción del contexto fue superior al 99.99%.
+
+El archivo `.dockerignore` excluye cachés, entornos virtuales, archivos de cobertura, notebooks, documentación, secretos `.env` y otros archivos que no deben formar parte de la imagen.
+
+El Dockerfile final además usa instrucciones `COPY` específicas, por lo que su contexto efectivo fue solamente:
+
+```text
+612 B
+```
+
+Después de agregar `.dockerignore`, la imagen siguió construyéndose correctamente y la suite dentro del contenedor produjo:
+
+```text
+32 passed in 0.69 s
+```
+
