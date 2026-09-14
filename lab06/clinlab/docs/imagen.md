@@ -302,22 +302,34 @@ El workflow debe vivir en `.github/workflows/` de la raíz del repositorio y usa
 
 Se creó `.github/workflows/lab06-ghcr.yml` en la raíz del repositorio. El workflow usa `actions/checkout@v7`, `docker/setup-buildx-action@v4`, `docker/login-action@v4`, `docker/metadata-action@v6` y `docker/build-push-action@v7`. Primero construye `clinlab:ci-test` y ejecuta `docker run --rm clinlab:ci-test pytest`; solamente si esa prueba pasa inicia sesión en GHCR y publica `ghcr.io/luisebh1919/clinlab` con las etiquetas `0.1.0` y el SHA completo del commit.
 
-El YAML se analizó correctamente, `actionlint` terminó sin hallazgos y se validaron mediante aserciones el trigger `push` a `main`, los permisos, las acciones, el contexto, las etiquetas y el orden prueba→publicación. Al momento de documentarlo, el workflow todavía no había corrido y GHCR todavía no se había verificado; por tanto, la publicación permanece **PENDIENTE DE EJECUCIÓN EN GITHUB ACTIONS**.
+El YAML se analizó correctamente, `actionlint` terminó sin hallazgos y se validaron mediante aserciones el trigger `push` a `main`, los permisos, las acciones, el contexto, las etiquetas y el orden prueba→publicación. Para el commit `bc1d840`, el workflow **Build, test, and publish Lab 06 image** terminó con estado `SUCCESS`: construyó la imagen, ejecutó correctamente las pruebas y publicó `ghcr.io/luisebh1919/clinlab:0.1.0` en GHCR.
+
+La imagen publicada se verificó con:
+
+```bash
+docker pull ghcr.io/luisebh1919/clinlab:0.1.0
+docker run --rm ghcr.io/luisebh1919/clinlab:0.1.0 pytest
+```
+
+El resultado fue `32 passed in 0.72 s`. El digest observado fue:
+
+```text
+sha256:abc9081eb23700d0b86d395346aed6c92b66040022c06d9b9f3bc37ce6ba0a4c
+```
 
 Puede ser necesario configurar la visibilidad del paquete en GitHub y permitir que el repositorio administre el paquete desde la sección de Packages. El workflow usa `GITHUB_TOKEN`; no deben agregarse tokens personales al YAML.
 
 
 ## Verificación por otra persona
 
-**PENDING MANUAL VERIFICATION**
+**COMPLETADA**
 
-Después de una publicación exitosa y de configurar la visibilidad apropiada, otra persona debe ejecutar:
+Otra persona ejecutó la imagen publicada y obtuvo 32 tests aprobados. Los comandos utilizados quedan como evidencia reproducible:
 
 ```bash
+docker pull ghcr.io/luisebh1919/clinlab:0.1.0
 docker run --rm ghcr.io/luisebh1919/clinlab:0.1.0 pytest
 ```
-
-El resultado de terceros no se considera completado hasta recibir evidencia de esa ejecución.
 
 
 

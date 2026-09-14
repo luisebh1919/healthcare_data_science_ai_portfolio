@@ -2,7 +2,7 @@
 
 `clinlab` is a small Python package for clinical data quality control, validation, and reproducible testing with `pandas`.
 
-The goal of Lab 05 is to transform logic that originally lived inside exploratory notebooks into reusable, installable, and automatically tested Python functions.
+Lab 06 packages the project into a reproducible Docker image, validates it with automated tests, and publishes the tested image through GitHub Actions and GHCR.
 
 ---
 
@@ -310,7 +310,7 @@ Example:
 
 Instead of writing three nearly identical test functions, pytest runs the same test once for each input.
 
-The Lab 05 suite also tests values:
+The test suite also tests values:
 
 - exactly at thresholds;
 - immediately below thresholds;
@@ -382,7 +382,7 @@ Separating these components helps prevent notebook logic, test code, and package
 
 ## Installation
 
-From `lab05/clinlab/`:
+From `lab06/clinlab/`:
 
 ```bash
 python -m pip install -e ".[dev]"
@@ -402,7 +402,7 @@ mypy src/
 ruff check .
 ```
 
-Current Lab 05 status:
+Current status:
 
 ```text
 32 tests passed
