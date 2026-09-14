@@ -203,3 +203,116 @@ Después de agregar `.dockerignore`, la imagen siguió construyéndose correctam
 32 passed in 0.69 s
 ```
 
+
+
+## Experimento Alpine
+
+Se creó temporalmente una variante multi-stage basada en `python:3.11-alpine` y se construyó desde cero con:
+
+```bash
+docker build --pull --no-cache --progress=plain \
+  -f Dockerfile.alpine-experiment \
+  -t clinlab:alpine-experiment .
+```
+
+En esta máquina el build **sí terminó correctamente**. La imagen ejecutó Python 3.11.16 sobre musl libc 1.2.6, importó NumPy 2.4.6 y pandas 3.0.5, y no contenía GCC (`gcc-not-installed`). El lockfile incluía wheels `cp311-cp311-musllinux_1_2_x86_64` para ambas dependencias, por lo que no fue necesario compilarlas desde código fuente. La construcción local de `clinlab` sí generó su wheel, pero es un paquete Python puro.
+
+Resultados medidos:
+
+| Imagen experimental | Tamaño | Pruebas |
+|---|---:|---:|
+| `clinlab:alpine-experiment` | 269 MB (269,254,226 bytes) | 32 passed in 0.26 s |
+
+Alpine usa musl libc, mientras que muchas distribuciones binarias del ecosistema científico se publican principalmente como wheels manylinux para glibc. En proyectos o versiones sin wheels musllinux compatibles, NumPy o pandas pueden requerir compiladores, cabeceras y bibliotecas del sistema, haciendo el build más lento y complejo. En las versiones bloqueadas actuales sí hubo wheels compatibles. Aunque la imagen experimental fue 61 MB menor que la imagen Debian slim, se mantiene `python:3.11-slim` como base final por su compatibilidad más amplia y por ser la variante ya validada durante el laboratorio. El Dockerfile temporal fue retirado después de medirlo.
+
+
+## Actividad 6 — Usuario no-root
+
+La etapa runtime crea el usuario y grupo dedicados `clinlab` con UID/GID 10001 y termina con `USER clinlab`.
+
+Verificación real:
+
+```bash
+docker run --rm clinlab:0.1.0 id
+```
+
+```text
+uid=10001(clinlab) gid=10001(clinlab) groups=10001(clinlab)
+```
+
+El entorno virtual, las pruebas y `/app` pertenecen a `clinlab`. Dar propiedad sobre `/app` fue necesario para que pytest pudiera crear `.pytest_cache` sin advertencias de permisos. El usuario no tiene directorio home ni shell de login.
+
+Ejecutar como usuario no-root reduce el impacto de una vulnerabilidad: un proceso comprometido no obtiene automáticamente privilegios administrativos dentro del contenedor. Esto no elimina otros controles necesarios, pero aplica el principio de mínimo privilegio.
+
+
+## Actividad 8 — Escaneo de vulnerabilidades
+
+Docker Scout no estaba disponible (`docker: unknown command: docker scout`). Se utilizó la imagen oficial `aquasec/trivy:latest`, sin instalar software globalmente, contra la imagen final `clinlab:0.1.0`.
+
+El escaneo del 13 de septiembre de 2026 (14 de septiembre en el registro UTC de Trivy) detectó Debian 13.6 y produjo:
+
+| Severidad | Cantidad |
+|---|---:|
+| CRITICAL | 3 |
+| HIGH | 55 |
+
+Trivy reportó 56 hallazgos del sistema operativo y 2 de paquetes Python; en conjunto son 58 hallazgos HIGH/CRITICAL. Los paquetes Python instalados por el entorno virtual de `clinlab`, incluidos NumPy y pandas, no tuvieron hallazgos; los dos hallazgos Python procedieron de metadatos vendorizados en las herramientas de empaquetado de la imagen base.
+
+### Hallazgos y decisiones
+
+| Paquete | CVE | Severidad | Instalada | Corregida | Decisión |
+|---|---|---|---|---|---|
+| `perl-base` | CVE-2026-13221 | CRITICAL | 5.40.1-6 | 5.40.1-6+deb13u1 | Reconstruir cuando la imagen oficial `python:3.11-slim` incorpore la actualización Debian; para una publicación inmediata, evaluar actualizar paquetes del runtime y volver a escanear. |
+| `gzip` | CVE-2026-41992 | HIGH | 1.13-1 | 1.13-1+deb13u1 | Aplicar la actualización Debian mediante una nueva imagen base/rebuild; no se atribuye explotabilidad a `clinlab` sin análisis adicional. |
+| `jaraco.context` (metadatos vendorizados) | CVE-2026-23949 | HIGH | 5.3.0 | 6.1.0 | Actualizar las herramientas de empaquetado de la base o eliminarlas del runtime si dejan de ser necesarias; volver a escanear después. |
+| `bsdutils` | CVE-2026-78408 | HIGH | 1:2.41.5-0+deb13u1 | Sin fix reportado | Aceptar temporalmente y vigilar Debian; el runtime no concede privilegios root a la aplicación, pero eso no demuestra que el hallazgo sea inexplotable. |
+
+Los otros dos hallazgos CRITICAL fueron CVE-2026-42496 y CVE-2026-8376 en `perl-base`, ambos con la misma versión corregida `5.40.1-6+deb13u1`. Los conteos representan el estado de la base y de la base de datos de Trivy en el momento del escaneo; pueden cambiar al reconstruir o actualizar el scanner.
+
+
+## Actividad 9 — Pruebas dentro del contenedor
+
+La imagen final se verificó formalmente con:
+
+```bash
+docker run --rm clinlab:0.1.0 pytest
+```
+
+Resultado real:
+
+```text
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0
+collected 32 items
+tests/test_data_quality.py ................................ [100%]
+32 passed in 0.70 s
+```
+
+La imagen final mide 330 MB (329,545,088 bytes) y su ID al verificarla fue `sha256:019054a90d9ed4d2a6c027af7d85b010d01d104c01a18e5db448cf4fb24b125b`.
+
+
+## Actividad 10 — GitHub Actions y GHCR
+
+El remoto del repositorio es `https://github.com/luisebh1919/healthcare_data_science_ai_portfolio.git`, por lo que el nombre previsto para publicación es:
+
+```text
+ghcr.io/luisebh1919/clinlab
+```
+
+El workflow debe vivir en `.github/workflows/` de la raíz del repositorio y usar `lab06/clinlab` como contexto de Docker. Debe ejecutar las pruebas antes de publicar y producir las etiquetas `0.1.0` y el SHA del commit usando `GITHUB_TOKEN`, con permisos mínimos `contents: read` y `packages: write`.
+
+La raíz Git está fuera del directorio `lab06/clinlab/` autorizado para cambios en esta tarea. Por ello, el workflow queda **PENDIENTE DE AUTORIZACIÓN** para escribir en la carpeta `.github/workflows/` de la raíz. No se afirma que CI o la publicación hayan ejecutado correctamente.
+
+Puede ser necesario configurar la visibilidad del paquete en GitHub y permitir que el repositorio administre el paquete desde la sección de Packages. El workflow usa `GITHUB_TOKEN`; no deben agregarse tokens personales al YAML.
+
+
+## Verificación por otra persona
+
+**PENDING MANUAL VERIFICATION**
+
+Después de una publicación exitosa y de configurar la visibilidad apropiada, otra persona debe ejecutar:
+
+```bash
+docker run --rm ghcr.io/luisebh1919/clinlab:0.1.0 pytest
+```
+
+El resultado de terceros no se considera completado hasta recibir evidencia de esa ejecución.

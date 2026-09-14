@@ -437,6 +437,27 @@ These checks run before accepting a commit and help prevent avoidable style and 
 
 ---
 
+## Lab 06 container
+
+From `lab06/clinlab/`, build and test the final non-root image with:
+
+```bash
+docker build -t clinlab:0.1.0 .
+docker run --rm clinlab:0.1.0
+docker run --rm clinlab:0.1.0 id
+```
+
+After the GHCR workflow has published version 0.1.0, pull and test it with:
+
+```bash
+docker pull ghcr.io/luisebh1919/clinlab:0.1.0
+docker run --rm ghcr.io/luisebh1919/clinlab:0.1.0 pytest
+```
+
+Build measurements, the Alpine experiment, non-root evidence, vulnerability decisions, and publication status are recorded in [`docs/imagen.md`](docs/imagen.md).
+
+---
+
 ## References
 
 1. American Heart Association. **Target Heart Rates Chart / resting heart rate guidance.**  
