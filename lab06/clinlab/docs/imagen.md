@@ -318,3 +318,47 @@ docker run --rm ghcr.io/luisebh1919/clinlab:0.1.0 pytest
 ```
 
 El resultado de terceros no se considera completado hasta recibir evidencia de esa ejecución.
+
+
+
+## Actividad 7 — Secretos en capas de Docker
+
+Se realizó una demostración controlada usando un secreto falso:
+
+```text
+FAKE_API_KEY=super-fake-secret-12345
+```
+
+El archivo `.env` se copió dentro de una imagen y posteriormente se eliminó en una capa siguiente:
+
+```dockerfile
+COPY .env /app/.env
+RUN rm /app/.env
+```
+
+Al ejecutar el contenedor final, el archivo ya no estaba presente en `/app`.
+
+Sin embargo, `docker history --no-trunc` mostró que una capa anterior había ejecutado:
+
+```text
+COPY .env /app/.env
+```
+
+La imagen se exportó con `docker save`, se extrajeron sus capas y el secreto pudo recuperarse desde:
+
+```text
+extracted/blobs/sha256/b24e41d5a5beda7e8abe6196b3686afeec4d27121bae59865d2580a460a5f32d
+```
+
+El contenido recuperado fue:
+
+```text
+FAKE_API_KEY=super-fake-secret-12345
+```
+
+Esto demuestra que eliminar un secreto en una capa posterior no lo elimina de las capas anteriores de la imagen.
+
+La práctica correcta es no copiar secretos durante el build. Los secretos deben proporcionarse en tiempo de ejecución mediante variables de entorno, mecanismos de secretos del entorno de despliegue o soluciones equivalentes.
+
+El `.dockerignore` final del proyecto excluye `.env`, evitando que este tipo de archivo entre accidentalmente al contexto de construcción.
+
