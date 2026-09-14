@@ -116,3 +116,58 @@ Por tanto, `uv sync` no volvió a ejecutarse.
 El rebuild pasó de 7.052 s a 1.034 s, una reducción aproximada del 85.3%.
 
 Esto demuestra que colocar las dependencias antes del código fuente permite aprovechar correctamente la caché de capas de Docker.
+
+
+## Actividad 4 — Multi-stage build
+
+La imagen de una sola etapa `clinlab:good-order` tenía un tamaño de:
+
+```text
+395 MB
+```
+
+Se creó un Dockerfile multi-stage con una etapa `builder` y una etapa final `runtime`.
+
+La etapa final copia únicamente el entorno virtual y los archivos necesarios para ejecutar las pruebas.
+
+### Resultado
+
+| Imagen | Tamaño |
+|---|---:|
+| Single-stage | 395 MB |
+| Multi-stage | 330 MB |
+
+La reducción fue aproximadamente del 16.5%.
+
+La imagen final queda por debajo del objetivo de 500 MB.
+
+### Hallazgo durante la construcción
+
+Inicialmente el paquete se instaló en modo editable:
+
+```dockerfile
+RUN uv pip install --python .venv/bin/python --no-deps -e .
+```
+
+La imagen se construyó correctamente, pero al ejecutar pytest apareció:
+
+```text
+ModuleNotFoundError: No module named 'clinlab'
+```
+
+El entorno virtual contenía una referencia al código fuente del builder, pero ese árbol no existía en la etapa runtime.
+
+Se cambió a una instalación normal:
+
+```dockerfile
+RUN uv pip install --python .venv/bin/python --no-deps .
+```
+
+Después del cambio:
+
+```text
+32 passed in 0.68 s
+```
+
+Esto demuestra que una imagen que construye correctamente no necesariamente contiene todo lo necesario para ejecutar la aplicación en runtime.
+
