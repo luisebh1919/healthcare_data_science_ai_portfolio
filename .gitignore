@@ -1,0 +1,4 @@
+lab10/data/
+
+__pycache__/
+*.pyc
