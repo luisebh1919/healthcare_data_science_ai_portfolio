@@ -1,0 +1,56 @@
+EXPLAIN ANALYZE -- consulta original con NOT EXISTS
+
+Total Time: 0.0246s
+
+UNGROUPED_AGGREGATE
+  Aggregates: count_star()
+  1 row
+  |
+RIGHT_DELIM_JOIN
+  Join Type: RIGHT_ANTI
+  Condition: patient_id IS NOT DISTINCT FROM patient_id
+  |
+  +-- HASH_GROUP_BY
+  |     Groups: patient_id
+  |     1,671 rows
+  |     |
+  |   PROJECTION
+  |     patient_id
+  |     1,671 rows
+  |     |
+  |   TABLE_SCAN
+  |     Table: clinical.main.conditions
+  |     Type: Sequential Scan
+  |     Projection: patient_id
+  |     Filter: code='44054006'
+  |     1,671 rows
+  |
+  +-- HASH_JOIN
+        Join Type: RIGHT_ANTI
+        Condition: patient_id IS NOT DISTINCT FROM patient_id
+        0 rows
+        |
+        PROJECTION
+          patient_id
+          66,440 rows
+          |
+        HASH_JOIN
+          Join Type: INNER
+          Condition: patient_id = patient_id
+          66,440 rows
+          |
+          +-- TABLE_SCAN
+          |     Table: clinical.main.observations
+          |     Type: Sequential Scan
+          |     Projection: patient_id
+          |     Filter: code='4548-4'
+          |     Dynamic filters on patient_id
+          |     66,746 rows
+          |
+          +-- DELIM_SCAN
+
+Resultado de la consulta sin EXPLAIN ANALYZE: 0 pacientes.
+
+Nota: este plan se volvió a capturar para guardar el árbol de operadores. El
+tiempo de referencia del experimento manual documentado en README.md fue
+0.0245 s; pequeñas variaciones entre ejecuciones son esperables.

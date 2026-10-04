@@ -1,0 +1,64 @@
+name: Build, test, and publish Lab 06 image
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: write
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ghcr.io/${{ github.repository_owner }}/clinlab
+
+jobs:
+  publish:
+    name: Test and publish to GHCR
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v7
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v4
+
+      - name: Build image for tests
+        uses: docker/build-push-action@v7
+        with:
+          context: ./lab06/clinlab
+          load: true
+          push: false
+          tags: clinlab:ci-test
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Run container tests
+        run: docker run --rm clinlab:ci-test pytest
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v4
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate image metadata
+        id: metadata
+        uses: docker/metadata-action@v6
+        with:
+          images: ${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=0.1.0
+            type=raw,value=${{ github.sha }}
+
+      - name: Publish image
+        uses: docker/build-push-action@v7
+        with:
+          context: ./lab06/clinlab
+          push: true
+          tags: ${{ steps.metadata.outputs.tags }}
+          labels: ${{ steps.metadata.outputs.labels }}
+          cache-from: type=gha
