@@ -12,11 +12,7 @@ WITH inpatient AS (
 adults AS (
     SELECT *
     FROM inpatient
-    WHERE DATE_DIFF(
-        'year',
-        CAST(birth_datetime AS DATE),
-        visit_start_date
-    ) >= 18
+    WHERE CAST(birth_datetime AS DATE) <= visit_start_date - INTERVAL 18 YEAR
 ),
 
 cancer_before_index AS (
