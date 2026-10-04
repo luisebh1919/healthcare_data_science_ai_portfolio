@@ -1,0 +1,14 @@
+data/
+.env
+*.csv
+*.parquet
+*.db
+*.sqlite
+__pycache__/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+*.egg-info/
+
+data/*.duckdb
