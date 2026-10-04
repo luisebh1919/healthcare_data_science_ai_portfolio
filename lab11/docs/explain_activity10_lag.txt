@@ -1,0 +1,180 @@
+┌─────────────────────────────────────┐
+│┌───────────────────────────────────┐│
+││    Query Profiling Information    ││
+│└───────────────────────────────────┘│
+└─────────────────────────────────────┘
+EXPLAIN ANALYZE WITH selected_patients AS (     SELECT DISTINCT patient_id FROM encounters     ORDER BY patient_id LIMIT 100 ), selected_visits AS (     SELECT e.patient_id, e.id, e.start_at     FROM encounters AS e     JOIN selected_patients AS p ON e.patient_id = p.patient_id ), lag_previous_visits AS (     SELECT patient_id, id, start_at,            LAG(start_at) OVER (PARTITION BY patient_id ORDER BY start_at, id) AS previous_visit     FROM selected_visits ) SELECT COUNT(*) AS total_visits,        COUNT(*) FILTER (WHERE previous_visit IS NULL) AS first_visits,        MEDIAN(DATE_DIFF('day', previous_visit, start_at)) AS median_days FROM lag_previous_visits; 
+┌────────────────────────────────────────────────┐
+│┌──────────────────────────────────────────────┐│
+││              Total Time: 0.0114s             ││
+│└──────────────────────────────────────────────┘│
+└────────────────────────────────────────────────┘
+┌───────────────────────────┐
+│           QUERY           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│      EXPLAIN_ANALYZE      │
+│    ────────────────────   │
+│                           │
+│           0 rows          │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│    UNGROUPED_AGGREGATE    │
+│    ────────────────────   │
+│        Aggregates:        │
+│        count_star()       │
+│ count_star() FILTER (WHERE│
+│       #0) Filter: #0      │
+│         median(#1)        │
+│                           │
+│                           │
+│                           │
+│           1 row           │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│         PROJECTION        │
+│    ────────────────────   │
+│  (previous_visit IS NULL) │
+│      date_diff('day',     │
+│  previous_visit, start_at)│
+│                           │
+│                           │
+│                           │
+│         6,079 rows        │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│         PROJECTION        │
+│    ────────────────────   │
+│          start_at         │
+│       previous_visit      │
+│                           │
+│                           │
+│                           │
+│         6,079 rows        │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│         PROJECTION        │
+│    ────────────────────   │
+│             #0            │
+│             #1            │
+│             #2            │
+│             #3            │
+│                           │
+│                           │
+│                           │
+│         6,079 rows        │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│           WINDOW          │
+│    ────────────────────   │
+│        Projections:       │
+│    LAG(start_at) OVER     │
+│  (PARTITION BY patient_id │
+│    ORDER BY start_at ASC  │
+│  NULLS LAST, id ASC NULLS │
+│            LAST)          │
+│                           │
+│                           │
+│                           │
+│         6,079 rows        │
+│           0.01s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│         PROJECTION        │
+│    ────────────────────   │
+│         patient_id        │
+│             id            │
+│          start_at         │
+│                           │
+│                           │
+│                           │
+│         6,079 rows        │
+│           0.00s           │
+└─────────────┬─────────────┘
+┌─────────────┴─────────────┐
+│         HASH_JOIN         │
+│    ────────────────────   │
+│      Join Type: INNER     │
+│                           │
+│        Conditions:        │
+│  patient_id = patient_id  ├──────────────┐
+│                           │              │
+│                           │              │
+│                           │              │
+│         6,079 rows        │              │
+│           0.00s           │              │
+└─────────────┬─────────────┘              │
+┌─────────────┴─────────────┐┌─────────────┴─────────────┐
+│         TABLE_SCAN        ││           TOP_N           │
+│    ────────────────────   ││    ────────────────────   │
+│           Table:          ││          Top: 100         │
+│  clinical.main.encounters ││                           │
+│                           ││         Order By:         │
+│   Type: Sequential Scan   ││  clinical.main.encounters │
+│                           ││      .patient_id ASC      │
+│        Projections:       ││                           │
+│         patient_id        ││                           │
+│             id            ││                           │
+│          start_at         ││                           │
+│                           ││           0.00s           │
+│      Dynamic Filters:     ││                           │
+│   optional: patient_id>=  ││                           │
+│  '00020f43-a3fc-7bec-32a0 ││                           │
+│  -90ff989da641'::UUID AND ││                           │
+│   optional: patient_id<=  ││                           │
+│  '01361e50-e68e-c912-654a ││                           │
+│  -fa900931470d'::UUID AND ││                           │
+│   optional: patient_id IN ││                           │
+│       BF(patient_id)      ││                           │
+│                           ││                           │
+│                           ││                           │
+│                           ││                           │
+│         6,079 rows        ││          100 rows         │
+│           0.01s           ││          (0.00s)          │
+└───────────────────────────┘└─────────────┬─────────────┘
+                             ┌─────────────┴─────────────┐
+                             │       HASH_GROUP_BY       │
+                             │    ────────────────────   │
+                             │         Groups: #0        │
+                             │                           │
+                             │                           │
+                             │                           │
+                             │        22,851 rows        │
+                             │           0.05s           │
+                             └─────────────┬─────────────┘
+                             ┌─────────────┴─────────────┐
+                             │         PROJECTION        │
+                             │    ────────────────────   │
+                             │         patient_id        │
+                             │                           │
+                             │                           │
+                             │                           │
+                             │       1,353,311 rows      │
+                             │           0.00s           │
+                             └─────────────┬─────────────┘
+                             ┌─────────────┴─────────────┐
+                             │         TABLE_SCAN        │
+                             │    ────────────────────   │
+                             │           Table:          │
+                             │  clinical.main.encounters │
+                             │                           │
+                             │   Type: Sequential Scan   │
+                             │                           │
+                             │        Projections:       │
+                             │         patient_id        │
+                             │                           │
+                             │          Filters:         │
+                             │ optional: Dynamic Filter  │
+                             │        (patient_id)       │
+                             │                           │
+                             │                           │
+                             │                           │
+                             │       1,353,311 rows      │
+                             │           0.01s           │
+                             └───────────────────────────┘
+
