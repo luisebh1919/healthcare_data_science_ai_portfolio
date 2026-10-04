@@ -17,7 +17,7 @@ WITH eligible_visits AS (
     JOIN omop.observation_period op
       ON op.person_id = v.person_id
     WHERE
-        DATE_DIFF('year', CAST(p.birth_datetime AS DATE), v.visit_start_date) >= 18
+        CAST(p.birth_datetime AS DATE) <= v.visit_start_date - INTERVAL 18 YEAR
         AND op.observation_period_start_date <= v.visit_start_date - INTERVAL 180 DAY
         AND op.observation_period_end_date >= v.visit_end_date + INTERVAL 30 DAY
         AND NOT EXISTS (

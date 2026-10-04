@@ -29,7 +29,7 @@ They are represented in the minimal OMOP layer with `visit_concept_id = 9201`.
 | Step | Criterion | Patients |
 |---|---|---:|
 | 1 | Inpatient hospitalization | 7,816 |
-| 2 | Adults age >= 18 | 7,382 |
+| 2 | Adults age >= 18 | 7,380 |
 | 3 | Confirmed cancer before/on admission | 839 |
 | 4 | At least 180 observable days before admission | 839 |
 | 5 | Alive at index discharge | 836 |
