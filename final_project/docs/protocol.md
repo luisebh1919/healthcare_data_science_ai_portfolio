@@ -2,48 +2,103 @@
 
 ## Clinical question
 
-Among adult patients with cancer discharged from an inpatient hospitalization, does longitudinal clinical history during the previous 180 days improve prediction of 30-day hospital readmission compared with age and sex alone?
+Among adult patients with cancer discharged from an inpatient hospitalization, does longitudinal clinical history during the previous 180 days improve prediction of 30-day hospital readmission beyond prior hospital use?
 
 ## Study design
 
-This project will define a retrospective prediction study using Synthea data converted to the OMOP Common Data Model. The unit of analysis will be one row per patient, anchored on the first eligible inpatient hospitalization. No analyses, model training, or performance results are included in this protocol phase.
+This project will define a retrospective prediction study using Synthea data transformed to the OMOP Common Data Model. The unit of analysis will be one row per patient, anchored on the first eligible inpatient hospitalization.
 
 ## Population
 
-The cohort will include adults aged 18 years or older with a cancer diagnosis recorded before or on the index date. Eligible patients must have a first eligible inpatient hospitalization, be alive at discharge, have at least 180 days of observable history before discharge, and have at least 30 days of observation after discharge.
+The cohort will include adults aged 18 years or older with a cancer diagnosis recorded before or on the start of the index hospitalization. Patients must be alive at discharge and have sufficient observable history to cover the 180-day predictor window and the 30-day outcome window.
 
-## Index date
+Each patient will contribute only the first eligible inpatient hospitalization.
 
-The index date will be the discharge date of the first eligible inpatient hospitalization for each patient. Each patient will contribute only one index date and one analytical row.
+## Index hospitalization and temporal anchors
+
+The index hospitalization will have two relevant timestamps:
+
+- `index_admission`: start of the first eligible inpatient hospitalization.
+- `index_discharge`: discharge from that hospitalization.
+
+Predictors will use only information occurring before `index_admission`.
+
+The readmission outcome will begin after `index_discharge`.
 
 ## Outcome
 
-The outcome will be a new inpatient hospitalization occurring after discharge from the index hospitalization and within 30 days after the index date.
+The outcome will be a new inpatient hospitalization that begins after the index discharge and within the following 30 days.
 
 ## Lookback window
 
-Predictors will be measured during the 180 days before the index date. The lookback window will include events with timestamps on or before the index date only. No predictor will use information recorded after the index date.
+Predictors will be constructed from the 180 days before `index_admission`:
+
+`[index_admission - 180 days, index_admission)`
+
+The index hospitalization itself will not contribute predictor information.
 
 ## Predictors
 
-The initial predictor set will include no more than six variables: age, sex, number of previous hospitalizations, number of distinct diagnoses, number of distinct medications, and number of clinical measurements. Age and sex will define the baseline model.
+The predictor set will contain six variables:
+
+1. age
+2. sex
+3. previous inpatient hospitalizations
+4. distinct diagnoses
+5. distinct medications
+6. clinical measurement count
+
+All longitudinal predictors will be calculated within the 180-day lookback window.
 
 ## Models
 
-Three models are planned: M0, a logistic regression model using age and sex; M1, a logistic regression model using all six predictors; and M2, an XGBoost model using all six predictors.
+Three models will be compared:
+
+- **M0 — Logistic regression:** age, sex, and previous hospitalizations.
+- **M1 — Logistic regression:** all six predictors.
+- **M2 — XGBoost:** the same six predictors used by M1.
+
+M1 and M2 use the same information so that their comparison reflects model form rather than access to different predictor sets.
 
 ## Evaluation
 
-Model performance will be evaluated using AUROC, AUPRC, Brier score, and calibration plots. Evaluation will compare whether adding longitudinal 180-day clinical history improves prediction relative to age and sex alone.
+Models will be evaluated using:
+
+- AUROC
+- AUPRC
+- Brier score
+- calibration
+
+Because readmission is expected to be imbalanced, AUPRC and calibration will be interpreted alongside AUROC.
+
+## Model interpretation
+
+The final XGBoost model will be interpreted using global SHAP values. Feature importance will be summarized using mean absolute SHAP values and a SHAP summary plot.
+
+SHAP values will be interpreted as explanations of model predictions, not as causal effects.
 
 ## Leakage prevention
 
-All predictors must satisfy `feature_timestamp <= index_date`. Information after discharge from the index hospitalization must not be used for feature construction. The 30-day readmission outcome will be defined separately from the predictor window and must not influence any predictor.
+No predictor may use information recorded at or after `index_admission`.
+
+The index hospitalization is excluded from feature construction.
+
+The outcome window begins only after `index_discharge`.
+
+Feature construction and outcome construction will therefore be implemented separately.
 
 ## Expected deliverable
 
-The expected deliverable is a small, reproducible final project that defines the cohort, constructs the planned predictors, trains the specified models, evaluates discrimination and calibration, and documents the findings without claiming clinical validity beyond the synthetic dataset.
+The expected deliverable is a small, reproducible project that defines the OMOP cohort, constructs the six planned predictors, trains three prespecified models, evaluates discrimination and calibration, and interprets the XGBoost model with SHAP.
+
+The repository will include SQL cohort definitions, tests, documentation, containerization, continuous integration, a data dictionary, limitations, and a declaration of AI-assistant use.
 
 ## Limitations
 
-The data will be synthetic. Predictive performance will not imply real clinical utility. There will be no external validation in real patients. The cancer definition will depend on the OMOP concept set used.
+The data are synthetic and predictive performance will not establish real clinical utility.
+
+There will be no external validation in real patients.
+
+The cancer definition will depend on the OMOP concept set used.
+
+The limited number of predictors and models is intentional to preserve interpretability and project scope.
