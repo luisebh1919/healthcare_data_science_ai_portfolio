@@ -2,3 +2,7 @@ lab10/data/
 
 __pycache__/
 *.pyc
+
+# Local notebook environment and Jupyter checkpoints
+/.venv/
+.ipynb_checkpoints/

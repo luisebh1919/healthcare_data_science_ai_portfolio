@@ -8,7 +8,7 @@ Among adult patients with cancer discharged from an inpatient hospitalization, d
 
 This is a small final project focused on cohort definition, feature construction, and prediction of 30-day hospital readmission. The planned work is intentionally limited to one cohort, six predictors, and three models.
 
-SQL cohort definitions are implemented in `sql/`, with a final cohort of 824 patients. Feature extraction and model training remain planned.
+SQL cohort, outcome, and feature definitions are implemented in `sql/`. The existing analytical dataset contains 824 patients and 85 readmission events. `notebooks/02_readmission_modeling.ipynb` implements validation, feature summaries, and the M0/M1 logistic regression comparison. M2, Optuna, calibration plots, and SHAP remain pending.
 
 ## Data
 
@@ -22,7 +22,7 @@ The cohort includes adults aged 18 years or older at index admission with a canc
 
 ## Features
 
-The predictor window is `[index_admission - 180 days, index_admission)`. Planned predictors are:
+The predictor window is `[index_admission - 180 days, index_admission)`. The stored predictors are:
 
 - age;
 - sex;
@@ -35,7 +35,7 @@ All longitudinal predictors use the 180-day window. Features end strictly before
 
 ## Models
 
-Three models are planned:
+The prespecified models are (M0 and M1 implemented; M2 pending):
 
 - M0: logistic regression with age, sex, and previous hospitalizations;
 - M1: logistic regression with all six predictors;
@@ -47,7 +47,51 @@ Models will be evaluated using AUROC, AUPRC, Brier score, and calibration plots.
 
 ## Reproducibility
 
-The project will keep cohort definitions, feature logic, modeling code, and tests in version-controlled files. Data files and local databases are ignored because they are generated or environment-specific.
+Cohort definitions, feature logic, and modeling code are version controlled. Data files and local databases are ignored because they are generated or environment-specific.
+
+### Python environment and kernel
+
+Run these commands from the repository root using Python 3.13 (tested with 3.13.5). Use the root `.venv`, which is independent of the environment in `lab02`:
+
+```bash
+python3 -m venv .venv
+.venv/bin/python -m pip install -r final_project/requirements.txt
+.venv/bin/python -m ipykernel install --user --name healthcare-readmission --display-name "Healthcare Readmission (.venv)"
+```
+
+`requirements.txt` records the seven direct dependencies (DuckDB, NumPy, pandas, scikit-learn, ipykernel, nbclient, and nbformat) and their transitive dependencies at the versions used for execution. It does not install XGBoost, Optuna, or SHAP.
+
+Open `notebooks/02_readmission_modeling.ipynb`, select **Healthcare Readmission (.venv)** in VS Code/Jupyter, then restart the kernel and **Run All**. If VS Code asks for a Python environment, select the repository's `.venv/bin/python`.
+
+The local database must already exist at `final_project/data/omop_minimal.duckdb` and contain `results.analytic_dataset`. The notebook opens it read-only and does not rebuild or change the cohort, outcome, or features. It works from the repository root, `final_project/`, or `final_project/notebooks/`.
+
+### Modeling choices
+
+The table is ordered by `person_id` before one stratified 80/20 split with `random_state=42`. M0 and M1 share the same training and test patients. Numeric scaling and sex encoding are fitted separately for each model on training data only. Both use fixed L2-regularized logistic regression (`C=1`, `solver="lbfgs"`, `max_iter=2000`, `tol=1e-8`) without class weighting or tuning.
+
+The notebook reports test AUROC, AUPRC computed as average precision, Brier score, and M1-minus-M0 differences. Higher AUROC/AUPRC and lower Brier are better. Test prevalence and the Brier score of a constant training-prevalence prediction provide context. These results describe one split of synthetic data and do not demonstrate clinical utility.
+
+To execute and save the notebook without a browser, run this from the repository root:
+
+```bash
+.venv/bin/python - <<'PYTHON'
+from pathlib import Path
+import nbformat
+from nbclient import NotebookClient
+
+path = Path("final_project/notebooks/02_readmission_modeling.ipynb").resolve()
+notebook = nbformat.read(path, as_version=4)
+NotebookClient(
+    notebook,
+    kernel_name="healthcare-readmission",
+    timeout=120,
+    allow_errors=False,
+    record_timing=False,
+    resources={"metadata": {"path": str(path.parent)}},
+).execute()
+nbformat.write(notebook, path)
+PYTHON
+```
 
 ## Tests
 
