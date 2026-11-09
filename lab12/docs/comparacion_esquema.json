@@ -1,0 +1,26 @@
+{
+  "person": {
+    "faltantes": [],
+    "adicionales": []
+  },
+  "observation_period": {
+    "faltantes": [],
+    "adicionales": []
+  },
+  "visit_occurrence": {
+    "faltantes": [],
+    "adicionales": []
+  },
+  "condition_occurrence": {
+    "faltantes": [],
+    "adicionales": []
+  },
+  "observation": {
+    "faltantes": [],
+    "adicionales": []
+  },
+  "measurement": {
+    "faltantes": [],
+    "adicionales": []
+  }
+}

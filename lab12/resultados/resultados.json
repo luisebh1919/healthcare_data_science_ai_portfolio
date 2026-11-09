@@ -1,0 +1,2512 @@
+{
+  "run_id": "c5f4d42e-004f-4fb1-ab25-c056bd999276",
+  "created_at": "2026-11-09T02:23:24.866967+00:00",
+  "estado": "lab12_validado_listo_revision_academica_con_limitaciones",
+  "python": "3.13.5",
+  "duckdb": "1.5.6",
+  "source": {
+    "patients": {
+      "sha256": "086903c146304a02dbaf77a9aae3f7372e9490f1e9370e0a5b55fcabc875f475",
+      "bytes": 6852800,
+      "rows": 22851
+    },
+    "encounters": {
+      "sha256": "f64d12e48ba0f2adbc6ec81e9aff888c7e18dbfef5c0ebea53a922d2b3476490",
+      "bytes": 451963552,
+      "rows": 1353311
+    },
+    "conditions": {
+      "sha256": "ef0dc18adacc40db3f2a2a57fb712b9b3ad59fb24cd1a145f4c2cfc16a2c8ba7",
+      "bytes": 119874114,
+      "rows": 830799
+    }
+  },
+  "vocab_files": {
+    "concept": {
+      "sha256": "a4b1e57189bb1e1f1fa20d656033616e87c1a14cf8db8cb9b792f21053a4c164",
+      "bytes": 271373292
+    },
+    "concept_relationship": {
+      "sha256": "7399a8926d9189fda2a48f97a01b5c918d5dcd11501e497584788a53bc627142",
+      "bytes": 660933034
+    },
+    "concept_ancestor": {
+      "sha256": "4ccdd8fc789de46b8e76b41efef010cb0c0b35cc8cb874145ce6290842a5f7ea",
+      "bytes": 251270120
+    },
+    "vocabulary": {
+      "sha256": "e73c9a493bdabca902f9306610ee4423637958cbbbe3c4258d9fc3ef502bd97c",
+      "bytes": 3846
+    },
+    "domain": {
+      "sha256": "eb3560dc0bbb79526f3207e66e636f011d2358d771fad7415bcdd73663066a0e",
+      "bytes": 1745
+    },
+    "relationship": {
+      "sha256": "cfccb60584a1e38717104d8918082ca462c662c43315a0e3f31a2bdbcd161368",
+      "bytes": 53838
+    },
+    "concept_class": {
+      "sha256": "abae2e0e37df656440773413151d4135f735dbf50b5e0c00bde01ddc9d2ea6e1",
+      "bytes": 18593
+    },
+    "concept_synonym": {
+      "sha256": "d0ab3c3077ad970c9e519e3609261389d3ef1598769055770cc07a0528f77e6f",
+      "bytes": 185753182
+    },
+    "drug_strength": {
+      "sha256": "1a1206a6a83e11fd5b53eaaa6a54f1e30d8eabac8f0e57922927801993047504",
+      "bytes": 10605223
+    },
+    "pack_content": {
+      "sha256": "45567cb0f0b4530bd21b149ec773c3cb3675afc932a7fc7a722a165b4690c0a3",
+      "bytes": 68336
+    },
+    "concept_metadata": {
+      "sha256": "2bf5bc1b6e718857d592edd86a2b624263dce8b3f57571ea9fe60e0ff6e3fdc5",
+      "bytes": 1405913
+    },
+    "concept_relationship_metadata": {
+      "sha256": "03b5b25d433028863097e943748b983fbd9a4528bc9ece349e3524bf7fb73a8b",
+      "bytes": 3176916
+    }
+  },
+  "auxiliary_tables": [
+    "vocabulary",
+    "domain",
+    "relationship",
+    "concept_class",
+    "concept_synonym",
+    "drug_strength",
+    "pack_content",
+    "concept_metadata",
+    "concept_relationship_metadata"
+  ],
+  "athena_packages": {
+    "packages": [
+      {
+        "file": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751.zip",
+        "sha256": "bc842e8bc88dfe463b93b05dbf86b4ced0b9c58780af003e38353d09f54a7bcc"
+      },
+      {
+        "file": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454.zip",
+        "sha256": "f0ffe2fcd7d0c7a4e66668578ad9dbcb51d1432950655ed3b54d9f75591e2363"
+      }
+    ],
+    "tables": {
+      "concept_ancestor": 12073517,
+      "concept_relationship": 13945404,
+      "concept_synonym": 2503953,
+      "drug_strength": 209849,
+      "relationship": 724,
+      "vocabulary": 43,
+      "concept_class": 433,
+      "concept_metadata": 122645,
+      "concept_relationship_metadata": 51966,
+      "concept": 2042798,
+      "domain": 50,
+      "pack_content": 3332
+    },
+    "vocabularies": [
+      {
+        "vocabulary_id": "ATC",
+        "vocabulary_version": "ATC 2026-02-01"
+      },
+      {
+        "vocabulary_id": "CDM",
+        "vocabulary_version": "CDM v6.0.0"
+      },
+      {
+        "vocabulary_id": "Cohort Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Concept Class",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Condition Status",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Condition Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Cost",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Cost Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Death Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Device Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Domain",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Drug Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Episode",
+        "vocabulary_version": "Episode 20201014"
+      },
+      {
+        "vocabulary_id": "ICD10",
+        "vocabulary_version": "2021 Release"
+      },
+      {
+        "vocabulary_id": "ICD10CM",
+        "vocabulary_version": "ICD10CM FY2027 code descriptions"
+      },
+      {
+        "vocabulary_id": "Korean Revenue Code",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "LOINC",
+        "vocabulary_version": "LOINC 2.82"
+      },
+      {
+        "vocabulary_id": "Language",
+        "vocabulary_version": "Language 20221030"
+      },
+      {
+        "vocabulary_id": "Meas Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Metadata",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "None",
+        "vocabulary_version": "v5.0 29-AUG-26"
+      },
+      {
+        "vocabulary_id": "Note Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "OSM",
+        "vocabulary_version": "OSM Release 2019-02-21"
+      },
+      {
+        "vocabulary_id": "Obs Period Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Observation Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Plan",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Plan Stop Reason",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Procedure Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Relationship",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "RxNorm",
+        "vocabulary_version": "RxNorm 20260601"
+      },
+      {
+        "vocabulary_id": "SNOMED",
+        "vocabulary_version": "2026-02-01 SNOMED CT International Edition; 2026-03-01 SNOMED CT US Edition; 2026-04-08 SNOMED CT UK Edition"
+      },
+      {
+        "vocabulary_id": "SOPT",
+        "vocabulary_version": "SOPT Version 9.2"
+      },
+      {
+        "vocabulary_id": "Sponsor",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Type Concept",
+        "vocabulary_version": "Type Concept 20260202"
+      },
+      {
+        "vocabulary_id": "UB04 Point of Origin",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "UB04 Pri Typ of Adm",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "UB04 Pt dis status",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "UB04 Typ bill",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "UCUM",
+        "vocabulary_version": "Version 1.8.2"
+      },
+      {
+        "vocabulary_id": "US Census",
+        "vocabulary_version": "US Census 2017 Release"
+      },
+      {
+        "vocabulary_id": "Visit",
+        "vocabulary_version": "Visit 20211216"
+      },
+      {
+        "vocabulary_id": "Visit Type",
+        "vocabulary_version": null
+      },
+      {
+        "vocabulary_id": "Vocabulary",
+        "vocabulary_version": null
+      }
+    ]
+  },
+  "parent_run_id": "e74b80a5-64be-42b8-ac97-8cf8c0f45203",
+  "migrated_at": "2026-11-09T02:38:18.720612+00:00",
+  "migration": {
+    "script_sha256": "b4302cb6f5c2ab0ba2b6142b36303428a1540a20980114a5181d1e2f7603d169",
+    "gender_reference_url": "https://github.com/OHDSI/EunomiaDatasets/blob/main/datasets/GiBleed/GiBleed_5.3.zip",
+    "gender_reference_sha256": "081b82e84c90e2904e02c26546e46412b01cce566071c77e0c4a355c2d0612f9",
+    "before": {
+      "counts": {
+        "person": 22851,
+        "visit_occurrence": 1353311,
+        "condition_occurrence": 399864,
+        "observation_period": 22851,
+        "concept": 2042798,
+        "concept_relationship": 13945404,
+        "concept_ancestor": 12073517,
+        "rejected_domain": 430935
+      },
+      "ceros": [
+        {
+          "dominio": "Condition",
+          "eventos": 399864,
+          "sin_mapear": 11435,
+          "porcentaje": 2.8597223055838987
+        },
+        {
+          "dominio": "Visit",
+          "eventos": 1353311,
+          "sin_mapear": 77229,
+          "porcentaje": 5.706670528799367
+        },
+        {
+          "dominio": "Gender",
+          "eventos": 22851,
+          "sin_mapear": 22851,
+          "porcentaje": 100.0
+        }
+      ]
+    },
+    "checks": {
+      "observation_pk": 0,
+      "observation_person_fk": 0,
+      "observation_visit_fk": 0,
+      "observation_domain": 0,
+      "observation_source_count": 0,
+      "observation_lineage": 0,
+      "observation_maps_to": 0,
+      "measurement_pk": 0,
+      "measurement_person_fk": 0,
+      "measurement_visit_fk": 0,
+      "measurement_domain": 0,
+      "measurement_source_count": 0,
+      "measurement_lineage": 0,
+      "measurement_maps_to": 0,
+      "source_without_clinical_trace": 0,
+      "lineage_without_source": 0,
+      "duplicate_lineage": 0,
+      "gender_mapping": 0,
+      "gender_standard": 0,
+      "measurement_without_numeric_invention": 0
+    },
+    "relocation": {
+      "script_sha256": "8ac0285e789c197581b1faedc5a802d5250c67b13fc7ce8731ea54d7fdeb73fa",
+      "rows": 8938
+    }
+  },
+  "visit_migration": {
+    "date_utc": "2026-11-09T02:55:55.268233+00:00",
+    "script_sha256": "019c53292303c5d2378902eed4e4d470718380f7882d33768033a68ede17991a",
+    "before": [
+      {
+        "dominio": "Condition",
+        "eventos": 390926,
+        "sin_mapear": 2497,
+        "porcentaje": 0.6387398126499645
+      },
+      {
+        "dominio": "Visit",
+        "eventos": 1353311,
+        "sin_mapear": 77229,
+        "porcentaje": 5.706670528799367
+      },
+      {
+        "dominio": "Gender",
+        "eventos": 22851,
+        "sin_mapear": 0,
+        "porcentaje": 0.0
+      },
+      {
+        "dominio": "Observation",
+        "eventos": 439868,
+        "sin_mapear": 8938,
+        "porcentaje": 2.031973228332136
+      },
+      {
+        "dominio": "Measurement",
+        "eventos": 5,
+        "sin_mapear": 0,
+        "porcentaje": 0.0
+      }
+    ],
+    "ohdsi_commit": "9ee6eb1b933c70af7b80711332aa92327af1f7c5",
+    "source_url": "https://github.com/OHDSI/ETL-Synthea/blob/9ee6eb1b933c70af7b80711332aa92327af1f7c5/inst/sql/sql_server/cdm_version/v540/insert_visit_occurrence.sql"
+  },
+  "queried_at": "2026-11-09T03:14:49.707351+00:00",
+  "sql_sha256": {
+    "consultas_omop.sql": "b058f0a0060afb833f9cefe1e0aa913e13c95baed59ba89e3f65be404430117b",
+    "calidad_vocabularios.sql": "fb5c314b4ab1ba72b5499a8ce31396332d41b699ee7da7b3fe62aab85aa2932d",
+    "consultas_ampliadas.sql": "5f19334991f2d8beca2d4dc54abdc6d637f6b6284ab2bdc43e0edf9b43b2c053",
+    "auditoria_final.sql": "f5d8be6db937d1382dd5558c824e18df9acbcb9f3f8ca342e5d76ed252c9c73b"
+  },
+  "counts": {
+    "person": 22851,
+    "visit_occurrence": 1353311,
+    "condition_occurrence": 390926,
+    "observation_period": 22851,
+    "concept": 2042800,
+    "concept_relationship": 13945404,
+    "concept_ancestor": 12073517,
+    "rejected_domain": 430935,
+    "observation": 439868,
+    "measurement": 5
+  },
+  "missing_source": {
+    "condition_code": 0,
+    "condition_patient": 0
+  },
+  "validation": {
+    "person_pk": 0,
+    "visit_occurrence_pk": 0,
+    "visit_occurrence_person_fk": 0,
+    "condition_occurrence_pk": 0,
+    "condition_occurrence_person_fk": 0,
+    "observation_period_pk": 0,
+    "observation_period_person_fk": 0,
+    "condition_visit_fk": 0,
+    "periodos_invertidos": 0,
+    "periodos_solapados": 0,
+    "conceptos_condition_invalidos": 0,
+    "person_concept_fk": 0,
+    "visit_occurrence_concept_fk": 0,
+    "person_count": 0,
+    "visit_count": 0,
+    "condition_reconciliation": 0,
+    "clinical_population": 0,
+    "clinical_window": 0,
+    "observation_pk": 0,
+    "observation_person_fk": 0,
+    "observation_visit_fk": 0,
+    "observation_domain": 0,
+    "observation_source_count": 0,
+    "observation_lineage": 0,
+    "observation_maps_to": 0,
+    "measurement_pk": 0,
+    "measurement_person_fk": 0,
+    "measurement_visit_fk": 0,
+    "measurement_domain": 0,
+    "measurement_source_count": 0,
+    "measurement_lineage": 0,
+    "measurement_maps_to": 0,
+    "source_without_clinical_trace": 0,
+    "lineage_without_source": 0,
+    "duplicate_lineage": 0,
+    "gender_mapping": 0,
+    "gender_standard": 0,
+    "measurement_without_numeric_invention": 0,
+    "visit_standard_domain": 0,
+    "visit_rule_concordance": 0,
+    "visitas_antes_nacimiento": 0,
+    "visitas_invertidas": 0,
+    "fuente_clinica_antes_nacimiento": 0,
+    "periodo_no_reproduce_limites_visitas": 0,
+    "eventos_clinicos_fin_antes_inicio": 0,
+    "grupos_duplicados_fuente_exactos": 0,
+    "eventos_sin_traza": 0,
+    "trazas_sin_evento": 0,
+    "traza_cambia_persona": 0,
+    "concept_vocabulary_fk": 0,
+    "concept_domain_fk": 0,
+    "concept_class_fk": 0,
+    "concept_synonym.concept_id_fk": 0,
+    "concept_synonym.language_concept_id_fk": 0,
+    "drug_strength.drug_concept_id_fk": 0,
+    "drug_strength.ingredient_concept_id_fk": 0,
+    "drug_strength.amount_unit_concept_id_fk": 0,
+    "drug_strength.numerator_unit_concept_id_fk": 0,
+    "drug_strength.denominator_unit_concept_id_fk": 0,
+    "pack_content.pack_concept_id_fk": 0,
+    "pack_content.drug_concept_id_fk": 0,
+    "concept_metadata.concept_id_fk": 0,
+    "concept_relationship_metadata.concept_id_1_fk": 0,
+    "concept_relationship_metadata.concept_id_2_fk": 0,
+    "vocabulary.vocabulary_concept_id_fk": 0,
+    "domain.domain_concept_id_fk": 0,
+    "concept_class.concept_class_concept_id_fk": 0,
+    "relationship.relationship_concept_id_fk": 0,
+    "concept_pk": 0
+  },
+  "mapping_audit": {
+    "inventario": [
+      {
+        "vocabulary_id": "ATC",
+        "conceptos": 7327,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "CDM",
+        "conceptos": 1109,
+        "estandar": 1109
+      },
+      {
+        "vocabulary_id": "Concept Class",
+        "conceptos": 433,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Condition Status",
+        "conceptos": 22,
+        "estandar": 22
+      },
+      {
+        "vocabulary_id": "Condition Type",
+        "conceptos": 118,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Cost",
+        "conceptos": 51,
+        "estandar": 51
+      },
+      {
+        "vocabulary_id": "Cost Type",
+        "conceptos": 8,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Death Type",
+        "conceptos": 14,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Device Type",
+        "conceptos": 4,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Domain",
+        "conceptos": 65,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Drug Type",
+        "conceptos": 16,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Episode",
+        "conceptos": 20,
+        "estandar": 16
+      },
+      {
+        "vocabulary_id": "Gender",
+        "conceptos": 2,
+        "estandar": 2
+      },
+      {
+        "vocabulary_id": "ICD10",
+        "conceptos": 16638,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "ICD10CM",
+        "conceptos": 100273,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Korean Revenue Code",
+        "conceptos": 7,
+        "estandar": 7
+      },
+      {
+        "vocabulary_id": "LOINC",
+        "conceptos": 287814,
+        "estandar": 125586
+      },
+      {
+        "vocabulary_id": "Language",
+        "conceptos": 1,
+        "estandar": 1
+      },
+      {
+        "vocabulary_id": "Meas Type",
+        "conceptos": 12,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Metadata",
+        "conceptos": 2,
+        "estandar": 1
+      },
+      {
+        "vocabulary_id": "None",
+        "conceptos": 1,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Note Type",
+        "conceptos": 10,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "OSM",
+        "conceptos": 203339,
+        "estandar": 203339
+      },
+      {
+        "vocabulary_id": "Obs Period Type",
+        "conceptos": 6,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Observation Type",
+        "conceptos": 29,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Plan",
+        "conceptos": 11,
+        "estandar": 11
+      },
+      {
+        "vocabulary_id": "Plan Stop Reason",
+        "conceptos": 13,
+        "estandar": 13
+      },
+      {
+        "vocabulary_id": "Procedure Type",
+        "conceptos": 97,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Relationship",
+        "conceptos": 746,
+        "estandar": 14
+      },
+      {
+        "vocabulary_id": "RxNorm",
+        "conceptos": 316330,
+        "estandar": 158086
+      },
+      {
+        "vocabulary_id": "SNOMED",
+        "conceptos": 1106309,
+        "estandar": 356613
+      },
+      {
+        "vocabulary_id": "SOPT",
+        "conceptos": 168,
+        "estandar": 162
+      },
+      {
+        "vocabulary_id": "Sponsor",
+        "conceptos": 6,
+        "estandar": 6
+      },
+      {
+        "vocabulary_id": "Type Concept",
+        "conceptos": 81,
+        "estandar": 81
+      },
+      {
+        "vocabulary_id": "UB04 Point of Origin",
+        "conceptos": 23,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "UB04 Pri Typ of Adm",
+        "conceptos": 6,
+        "estandar": 6
+      },
+      {
+        "vocabulary_id": "UB04 Pt dis status",
+        "conceptos": 55,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "UB04 Typ bill",
+        "conceptos": 298,
+        "estandar": 4
+      },
+      {
+        "vocabulary_id": "UCUM",
+        "conceptos": 1130,
+        "estandar": 1041
+      },
+      {
+        "vocabulary_id": "US Census",
+        "conceptos": 13,
+        "estandar": 13
+      },
+      {
+        "vocabulary_id": "Visit",
+        "conceptos": 20,
+        "estandar": 20
+      },
+      {
+        "vocabulary_id": "Visit Type",
+        "conceptos": 18,
+        "estandar": 0
+      },
+      {
+        "vocabulary_id": "Vocabulary",
+        "conceptos": 155,
+        "estandar": 0
+      }
+    ],
+    "fuera_condition": [
+      {
+        "dominio_destino": "Measurement",
+        "filas": 5,
+        "registros_fuente": 5
+      },
+      {
+        "dominio_destino": "Observation",
+        "filas": 430930,
+        "registros_fuente": 430930
+      }
+    ],
+    "cobertura_otros_dominios": [
+      {
+        "dominio_destino": "Measurement",
+        "eventos": 5,
+        "mapeados_validos": 5,
+        "porcentaje_sin_mapeo": 0.0,
+        "porcentaje_fuera_tabla_clinica": 0.0
+      },
+      {
+        "dominio_destino": "Observation",
+        "eventos": 430930,
+        "mapeados_validos": 430930,
+        "porcentaje_sin_mapeo": 0.0,
+        "porcentaje_fuera_tabla_clinica": 0.0
+      }
+    ],
+    "no_mapeados": [
+      {
+        "motivo": "concepto_invalido_D",
+        "eventos": 2393,
+        "personas": 2309
+      },
+      {
+        "motivo": "concepto_vigente_sin_destino_condition",
+        "eventos": 104,
+        "personas": 104
+      }
+    ],
+    "detalle_no_mapeados": [
+      {
+        "condition_source_value": "62106007",
+        "eventos": 1321,
+        "personas": 1285,
+        "concept_id": 378001,
+        "concept_name": "Concussion with no loss of consciousness",
+        "domain_id": "Condition",
+        "standard_concept": null,
+        "invalid_reason": "D",
+        "destinos_estandar_vigentes": 0,
+        "maps_to_invalidos": 0,
+        "reemplazos_vigentes": 0
+      },
+      {
+        "condition_source_value": "6525002",
+        "eventos": 1072,
+        "personas": 1072,
+        "concept_id": 4275756,
+        "concept_name": "Dependent drug abuse",
+        "domain_id": "Condition",
+        "standard_concept": null,
+        "invalid_reason": "D",
+        "destinos_estandar_vigentes": 0,
+        "maps_to_invalidos": 0,
+        "reemplazos_vigentes": 0
+      },
+      {
+        "condition_source_value": "94503003",
+        "eventos": 62,
+        "personas": 62,
+        "concept_id": 4314337,
+        "concept_name": "Metastatic malignant neoplasm to prostate",
+        "domain_id": "Condition",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "destinos_estandar_vigentes": 0,
+        "maps_to_invalidos": 0,
+        "reemplazos_vigentes": 0
+      },
+      {
+        "condition_source_value": "94260004",
+        "eventos": 42,
+        "personas": 42,
+        "concept_id": 4311765,
+        "concept_name": "Metastatic malignant neoplasm to colon",
+        "domain_id": "Condition",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "destinos_estandar_vigentes": 0,
+        "maps_to_invalidos": 0,
+        "reemplazos_vigentes": 0
+      }
+    ],
+    "visitas_no_mapeadas": [
+      {
+        "clase_fuente": "hospice",
+        "eventos": 3166
+      }
+    ],
+    "codigos_del_estandar": [
+      {
+        "condition_concept_id": 4281516,
+        "concept_name": "Gingivitis",
+        "condition_source_value": "66383009",
+        "personas": 18512
+      }
+    ],
+    "detalle_exclusiones": [
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "314529007",
+        "descripcion_fuente": "Medication review due (situation)",
+        "concept_id": 4199788,
+        "concept_name": "Medication review due",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 163616,
+        "registros_fuente": 163616,
+        "personas": 22851
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "73595000",
+        "descripcion_fuente": "Stress (finding)",
+        "concept_id": 4251306,
+        "concept_name": "Stress",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 64815,
+        "registros_fuente": 64815,
+        "personas": 18045
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "160903007",
+        "descripcion_fuente": "Full-time employment (finding)",
+        "concept_id": 4053118,
+        "concept_name": "Full-time employment",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 59985,
+        "registros_fuente": 59985,
+        "personas": 18042
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "160904001",
+        "descripcion_fuente": "Part-time employment (finding)",
+        "concept_id": 4059634,
+        "concept_name": "Part-time employment",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 37497,
+        "registros_fuente": 37497,
+        "personas": 14601
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "741062008",
+        "descripcion_fuente": "Not in labor force (finding)",
+        "concept_id": 42538208,
+        "concept_name": "Not in labor force",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 20839,
+        "registros_fuente": 20839,
+        "personas": 10780
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "706893006",
+        "descripcion_fuente": "Victim of intimate partner abuse (finding)",
+        "concept_id": 45768458,
+        "concept_name": "Victim of intimate partner abuse",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 14994,
+        "registros_fuente": 14994,
+        "personas": 9835
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "424393004",
+        "descripcion_fuente": "Reports of violence in the environment (finding)",
+        "concept_id": 4313322,
+        "concept_name": "Reports of violence in the environment",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 12206,
+        "registros_fuente": 12206,
+        "personas": 7583
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "224299000",
+        "descripcion_fuente": "Received higher education (finding)",
+        "concept_id": 4076230,
+        "concept_name": "Received higher education",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 10866,
+        "registros_fuente": 10866,
+        "personas": 10866
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "73438004",
+        "descripcion_fuente": "Unemployed (finding)",
+        "concept_id": 4251171,
+        "concept_name": "Unemployed",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 8440,
+        "registros_fuente": 8440,
+        "personas": 6891
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "473461003",
+        "descripcion_fuente": "Educated to high school level (finding)",
+        "concept_id": 43021808,
+        "concept_name": "Educated to high school level",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 5432,
+        "registros_fuente": 5432,
+        "personas": 5432
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "266948004",
+        "descripcion_fuente": "Has a criminal record (finding)",
+        "concept_id": 4145802,
+        "concept_name": "Has a criminal record",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 4434,
+        "registros_fuente": 4434,
+        "personas": 4434
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "161744009",
+        "descripcion_fuente": "Past pregnancy history of miscarriage (situation)",
+        "concept_id": 4060188,
+        "concept_name": "Past pregnancy history of miscarriage",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 4306,
+        "registros_fuente": 4306,
+        "personas": 4306
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "10939881000119105",
+        "descripcion_fuente": "Unhealthy alcohol drinking behavior (finding)",
+        "concept_id": 36712761,
+        "concept_name": "Unhealthy alcohol drinking behavior",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 3806,
+        "registros_fuente": 3806,
+        "personas": 3380
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "384709000",
+        "descripcion_fuente": "Sprain (morphologic abnormality)",
+        "concept_id": 4298490,
+        "concept_name": "Sprain",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 3276,
+        "registros_fuente": 3276,
+        "personas": 3062
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "105531004",
+        "descripcion_fuente": "Housing unsatisfactory (finding)",
+        "concept_id": 4022661,
+        "concept_name": "Housing problem",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 2784,
+        "registros_fuente": 2784,
+        "personas": 2784
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "266934004",
+        "descripcion_fuente": "Transport problem (finding)",
+        "concept_id": 4141789,
+        "concept_name": "Transport problem",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 2220,
+        "registros_fuente": 2220,
+        "personas": 2220
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "713458007",
+        "descripcion_fuente": "Lack of access to transportation (finding)",
+        "concept_id": 37017222,
+        "concept_name": "Lack of access to transportation",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 2210,
+        "registros_fuente": 2210,
+        "personas": 2210
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "224295006",
+        "descripcion_fuente": "Only received primary school education (finding)",
+        "concept_id": 4072733,
+        "concept_name": "Only received primary school education",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 2111,
+        "registros_fuente": 2111,
+        "personas": 2111
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "840544004",
+        "descripcion_fuente": "Suspected disease caused by Severe acute respiratory coronavirus 2 (situation)",
+        "concept_id": 37311060,
+        "concept_name": "Suspected COVID-19",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 1932,
+        "registros_fuente": 1932,
+        "personas": 1932
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "1187604002",
+        "descripcion_fuente": "Serving in military service (finding)",
+        "concept_id": 37162400,
+        "concept_name": "Serving in military service",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 1029,
+        "registros_fuente": 1029,
+        "personas": 1029
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "48333001",
+        "descripcion_fuente": "Burn injury (morphologic abnormality)",
+        "concept_id": 4168004,
+        "concept_name": "Burn injury",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 875,
+        "registros_fuente": 875,
+        "personas": 859
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "698306007",
+        "descripcion_fuente": "Awaiting transplantation of kidney (situation)",
+        "concept_id": 44784262,
+        "concept_name": "Awaiting transplantation of kidney",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 775,
+        "registros_fuente": 775,
+        "personas": 774
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "248595008",
+        "descripcion_fuente": "Sputum finding (finding)",
+        "concept_id": 4089228,
+        "concept_name": "Sputum finding",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 663,
+        "registros_fuente": 663,
+        "personas": 663
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "183996000",
+        "descripcion_fuente": "Sterilization requested (situation)",
+        "concept_id": 4086788,
+        "concept_name": "Sterilization requested",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 579,
+        "registros_fuente": 579,
+        "personas": 579
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "32911000",
+        "descripcion_fuente": "Homeless (finding)",
+        "concept_id": 4139934,
+        "concept_name": "Homeless",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 416,
+        "registros_fuente": 416,
+        "personas": 399
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "315268008",
+        "descripcion_fuente": "Suspected prostate cancer (situation)",
+        "concept_id": 4197714,
+        "concept_name": "Malignant neoplasm of prostate suspected",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 382,
+        "registros_fuente": 382,
+        "personas": 293
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "162573006",
+        "descripcion_fuente": "Suspected lung cancer (situation)",
+        "concept_id": 4038238,
+        "concept_name": "Malignant neoplasm of lung suspected",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 217,
+        "registros_fuente": 217,
+        "personas": 217
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "876882001",
+        "descripcion_fuente": "Died in hospice (finding)",
+        "concept_id": 618845,
+        "concept_name": "Died in hospice",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 154,
+        "registros_fuente": 154,
+        "personas": 154
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "698303004",
+        "descripcion_fuente": "Awaiting transplantation of bone marrow (situation)",
+        "concept_id": 44782657,
+        "concept_name": "Awaiting transplantation of bone marrow",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 55,
+        "registros_fuente": 55,
+        "personas": 54
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "160701002",
+        "descripcion_fuente": "Social migrant (finding)",
+        "concept_id": 4053080,
+        "concept_name": "Social migrant",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 13,
+        "registros_fuente": 13,
+        "personas": 13
+      },
+      {
+        "dominio_destino": "Measurement",
+        "codigo_fuente": "428915008",
+        "descripcion_fuente": "Toxoplasma gondii antibody detected (finding)",
+        "concept_id": 4178483,
+        "concept_name": "Toxoplasma gondii antibody detected",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 5,
+        "registros_fuente": 5,
+        "personas": 5
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "1003755004",
+        "descripcion_fuente": "Allergy to Hevea brasiliensis latex protein (finding)",
+        "concept_id": 43530807,
+        "concept_name": "Allergic disposition",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 2,
+        "registros_fuente": 2,
+        "personas": 2
+      },
+      {
+        "dominio_destino": "Observation",
+        "codigo_fuente": "287185009",
+        "descripcion_fuente": "Attempted suicide by cutting or stabbing",
+        "concept_id": 443279,
+        "concept_name": "Attempted suicide by cutting or stabbing",
+        "standard_concept": "S",
+        "invalid_reason": null,
+        "eventos": 1,
+        "registros_fuente": 1,
+        "personas": 1
+      }
+    ],
+    "reconciliacion": [
+      {
+        "fuente": 830799,
+        "fuente_en_condition": 390926,
+        "fuente_otro_dominio": 430935,
+        "fuente_sin_traza": 0
+      }
+    ],
+    "dependencias": [
+      {
+        "relacion": "concept_relationship.origen",
+        "huerfanos": 0
+      },
+      {
+        "relacion": "concept_relationship.destino",
+        "huerfanos": 0
+      },
+      {
+        "relacion": "concept_ancestor.ancestro",
+        "huerfanos": 0
+      },
+      {
+        "relacion": "concept_ancestor.descendiente",
+        "huerfanos": 0
+      }
+    ],
+    "sexo_fuente": [
+      {
+        "sexo_fuente": "F",
+        "registros": 11446
+      },
+      {
+        "sexo_fuente": "M",
+        "registros": 11405
+      }
+    ],
+    "relaciones_top": [
+      {
+        "source_concept_id": 4281516,
+        "source_concept_name": "Gingivitis",
+        "concept_code": "66383009",
+        "relationship_id": "Maps to",
+        "valid_start_date": "1970-01-01",
+        "valid_end_date": "2099-12-31",
+        "invalid_reason": null,
+        "concept_id": 4281516,
+        "concept_name": "Gingivitis",
+        "domain_id": "Condition",
+        "standard_concept": "S"
+      },
+      {
+        "source_concept_id": 4309238,
+        "source_concept_name": "Social isolation",
+        "concept_code": "422650009",
+        "relationship_id": "Maps to",
+        "valid_start_date": "1970-01-01",
+        "valid_end_date": "2099-12-31",
+        "invalid_reason": null,
+        "concept_id": 4309238,
+        "concept_name": "Social isolation",
+        "domain_id": "Condition",
+        "standard_concept": "S"
+      },
+      {
+        "source_concept_id": 40481087,
+        "source_concept_name": "Viral sinusitis",
+        "concept_code": "444814009",
+        "relationship_id": "Maps to",
+        "valid_start_date": "2010-07-31",
+        "valid_end_date": "2099-12-31",
+        "invalid_reason": null,
+        "concept_id": 40481087,
+        "concept_name": "Viral sinusitis",
+        "domain_id": "Condition",
+        "standard_concept": "S"
+      }
+    ],
+    "mapeos_condition_sin_relacion": [
+      {
+        "eventos_sin_maps_to_valido": 0
+      }
+    ],
+    "dominio_fuente_sin_mapeo": [
+      {
+        "dominio_fuente": "Condition",
+        "registros": 390926,
+        "sin_destino_estandar": 2497,
+        "porcentaje": 0.6387398126499645
+      },
+      {
+        "dominio_fuente": "Measurement",
+        "registros": 5,
+        "sin_destino_estandar": 0,
+        "porcentaje": 0.0
+      },
+      {
+        "dominio_fuente": "Observation",
+        "registros": 439868,
+        "sin_destino_estandar": 8938,
+        "porcentaje": 2.031973228332136
+      }
+    ]
+  },
+  "corrections": {
+    "ceros_nuevos": [
+      {
+        "dominio": "Observation",
+        "eventos": 439868,
+        "sin_mapear": 8938,
+        "porcentaje": 2.031973228332136
+      },
+      {
+        "dominio": "Measurement",
+        "eventos": 5,
+        "sin_mapear": 0,
+        "porcentaje": 0.0
+      }
+    ],
+    "reconciliacion_clinica": [
+      {
+        "fuente": 830799,
+        "condition": 390926,
+        "observation": 439868,
+        "measurement": 5,
+        "fuentes_con_destino": 830799,
+        "destinos": 830799,
+        "sin_destino": 0,
+        "pendientes_otro_dominio": 0
+      }
+    ],
+    "gingivitis": [
+      {
+        "concept_id": 4281516,
+        "concept_name": "Gingivitis",
+        "eventos_fuente": 61993,
+        "personas_fuente_sin_ventana": 18515,
+        "eventos_transformados": 61993,
+        "eventos_en_ventana": 61962,
+        "personas_en_ventana": 18512,
+        "denominador_personas": 22851,
+        "porcentaje_personas": 81.0117719137018,
+        "exceso_por_expansion_mapeo": 0,
+        "grupos_duplicados_exactos_fuente": 0,
+        "grupos_duplicados_destino": 0
+      }
+    ],
+    "gingivitis_temporal": [
+      {
+        "grupos_mismo_inicio": 0,
+        "grupos_mismo_encuentro": 0,
+        "eventos_con_solapamiento_estricto": 0,
+        "personas_con_solapamiento": 0
+      }
+    ],
+    "mediciones_categoricas": [
+      {
+        "measurement_concept_id": 4178483,
+        "concept_name": "Toxoplasma gondii antibody detected",
+        "eventos": 5,
+        "sin_valor_numerico": 5,
+        "sin_unidad": 5,
+        "personas": 5
+      }
+    ],
+    "observation_sin_correspondencia": [
+      {
+        "observation_source_value": "267020005",
+        "source_concept_id": 4149855,
+        "source_concept_name": "H/O: tubal ligation",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 2418,
+        "personas": 2418,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "399261000",
+        "source_concept_id": 4163883,
+        "source_concept_name": "History of coronary artery bypass grafting",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 1592,
+        "personas": 1592,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "428251008",
+        "source_concept_id": 4323208,
+        "source_concept_name": "History of appendectomy",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 1035,
+        "personas": 1035,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "399211009",
+        "source_concept_id": 4163874,
+        "source_concept_name": "History of myocardial infarction",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 988,
+        "personas": 988,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "446654005",
+        "source_concept_id": 40488824,
+        "source_concept_name": "Refugee",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 949,
+        "personas": 949,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "1290882004",
+        "source_concept_id": 1246980,
+        "source_concept_name": "History of seizure",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 788,
+        "personas": 788,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "161665007",
+        "source_concept_id": 4059356,
+        "source_concept_name": "History of renal transplant",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 671,
+        "personas": 671,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "449868002",
+        "source_concept_id": 42709996,
+        "source_concept_name": "Smokes tobacco daily",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 194,
+        "personas": 194,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "1231000119100",
+        "source_concept_id": 43530644,
+        "source_concept_name": "History of aortic valve replacement",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 171,
+        "personas": 171,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "108631000119101",
+        "source_concept_id": 46269898,
+        "source_concept_name": "History of autologous bone marrow transplant",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 56,
+        "personas": 56,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "153351000119102",
+        "source_concept_id": 45757492,
+        "source_concept_name": "History of peripheral stem cell transplant",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 33,
+        "personas": 33,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "161679004",
+        "source_concept_id": 4058431,
+        "source_concept_name": "H/O: artificial joint",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 15,
+        "personas": 15,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "152621000119105",
+        "source_concept_id": 46270148,
+        "source_concept_name": "History of allotransplantation of bone marrow",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 12,
+        "personas": 12,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "161622006",
+        "source_concept_id": 4058850,
+        "source_concept_name": "H/O: lower limb amputation",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 7,
+        "personas": 7,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "429280009",
+        "source_concept_id": 4323766,
+        "source_concept_name": "History of amputation of foot",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 6,
+        "personas": 6,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "119481000119105",
+        "source_concept_id": 44782435,
+        "source_concept_name": "History of aortic valve repair",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 1,
+        "personas": 1,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "120991000119102",
+        "source_concept_id": 46270016,
+        "source_concept_name": "History of undergoing in utero procedure while a fetus",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 1,
+        "personas": 1,
+        "tiene_destino_estandar_vigente": false
+      },
+      {
+        "observation_source_value": "161621004",
+        "source_concept_id": 4058421,
+        "source_concept_name": "H/O: upper limb amputation",
+        "domain_id": "Observation",
+        "standard_concept": null,
+        "invalid_reason": null,
+        "eventos": 1,
+        "personas": 1,
+        "tiene_destino_estandar_vigente": false
+      }
+    ]
+  },
+  "final_audit": {
+    "reglas_visita": [
+      {
+        "source_class": "home",
+        "target_concept_id": 581476,
+        "target_concept_name": "Home Visit",
+        "target_concept_code": "OMOP4822459",
+        "evidence": "Correspondencia expl\u00edcita: atenci\u00f3n en domicilio / Home Visit",
+        "changed_rows": 6989
+      },
+      {
+        "source_class": "snf",
+        "target_concept_id": 42898160,
+        "target_concept_name": "Non-hospital institution Visit",
+        "target_concept_code": "LTCP",
+        "evidence": "SNF es instituci\u00f3n de cuidados no hospitalaria; agregaci\u00f3n a tipo m\u00e1s amplio",
+        "changed_rows": 3383
+      },
+      {
+        "source_class": "urgentcare",
+        "target_concept_id": 9203,
+        "target_concept_name": "Emergency Room Visit",
+        "target_concept_code": "ER",
+        "evidence": "Convenci\u00f3n de OHDSI ETL-Synthea v5.4; no equivale a urgencias hospitalarias exclusivamente",
+        "changed_rows": 60319
+      },
+      {
+        "source_class": "virtual",
+        "target_concept_id": 722455,
+        "target_concept_name": "Telehealth",
+        "target_concept_code": "OMOP5556618",
+        "evidence": "Correspondencia expl\u00edcita: visita virtual / Telehealth",
+        "changed_rows": 3372
+      }
+    ],
+    "temporalidad": [
+      {
+        "control": "visitas_antes_nacimiento",
+        "discrepancias": 0
+      },
+      {
+        "control": "visitas_invertidas",
+        "discrepancias": 0
+      },
+      {
+        "control": "fuente_clinica_antes_nacimiento",
+        "discrepancias": 0
+      },
+      {
+        "control": "periodo_no_reproduce_limites_visitas",
+        "discrepancias": 0
+      },
+      {
+        "control": "eventos_clinicos_fin_antes_inicio",
+        "discrepancias": 0
+      }
+    ],
+    "fuera_periodo_por_tabla": [
+      {
+        "dominio": "Condition",
+        "eventos": 390926,
+        "fuera": 1672,
+        "porcentaje_fuera": 0.4277024296158352
+      },
+      {
+        "dominio": "Measurement",
+        "eventos": 5,
+        "fuera": 0,
+        "porcentaje_fuera": 0.0
+      },
+      {
+        "dominio": "Observation",
+        "eventos": 439868,
+        "fuera": 3754,
+        "porcentaje_fuera": 0.8534378495366792
+      }
+    ],
+    "huecos_observacion": [
+      {
+        "denominador_personas": 22851,
+        "personas_hueco_mayor_365": 21165,
+        "mayor_hueco_dias": 20404,
+        "mediana_maximo_hueco": 3252.0
+      }
+    ],
+    "duplicados_y_traza": [
+      {
+        "control": "grupos_duplicados_fuente_exactos",
+        "discrepancias": 0
+      },
+      {
+        "control": "eventos_sin_traza",
+        "discrepancias": 0
+      },
+      {
+        "control": "trazas_sin_evento",
+        "discrepancias": 0
+      },
+      {
+        "control": "traza_cambia_persona",
+        "discrepancias": 0
+      }
+    ],
+    "cobertura_fuente_global": [
+      {
+        "denominador_eventos_fuente": 830799,
+        "sin_destino_estandar": 11435,
+        "porcentaje_sin_destino_estandar": 1.3763858646917004
+      }
+    ],
+    "sistemas_fuente": [
+      {
+        "SYSTEM": "SNOMED-CT",
+        "eventos": 830799
+      }
+    ],
+    "diccionarios": [
+      {
+        "control": "concept_vocabulary_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "concept_domain_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "concept_class_fk",
+        "discrepancias": 0
+      }
+    ],
+    "auxiliary_integrity": [
+      {
+        "control": "concept_synonym.concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "concept_synonym.language_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "drug_strength.drug_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "drug_strength.ingredient_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "drug_strength.amount_unit_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "drug_strength.numerator_unit_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "drug_strength.denominator_unit_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "pack_content.pack_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "pack_content.drug_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "concept_metadata.concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "concept_relationship_metadata.concept_id_1_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "concept_relationship_metadata.concept_id_2_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "vocabulary.vocabulary_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "domain.domain_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "concept_class.concept_class_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "relationship.relationship_concept_id_fk",
+        "discrepancias": 0
+      },
+      {
+        "control": "concept_pk",
+        "discrepancias": 0
+      }
+    ]
+  },
+  "queries": {
+    "personas": [
+      {
+        "personas": 22851
+      }
+    ],
+    "sexo": [
+      {
+        "gender_concept_id": 8507,
+        "concept_name": "MALE",
+        "personas": 11405
+      },
+      {
+        "gender_concept_id": 8532,
+        "concept_name": "FEMALE",
+        "personas": 11446
+      }
+    ],
+    "nacimiento": [
+      {
+        "year_of_birth": 1915,
+        "personas": 17
+      },
+      {
+        "year_of_birth": 1916,
+        "personas": 96
+      },
+      {
+        "year_of_birth": 1917,
+        "personas": 59
+      },
+      {
+        "year_of_birth": 1918,
+        "personas": 90
+      },
+      {
+        "year_of_birth": 1919,
+        "personas": 44
+      },
+      {
+        "year_of_birth": 1920,
+        "personas": 74
+      },
+      {
+        "year_of_birth": 1921,
+        "personas": 62
+      },
+      {
+        "year_of_birth": 1922,
+        "personas": 89
+      },
+      {
+        "year_of_birth": 1923,
+        "personas": 83
+      },
+      {
+        "year_of_birth": 1924,
+        "personas": 42
+      },
+      {
+        "year_of_birth": 1925,
+        "personas": 64
+      },
+      {
+        "year_of_birth": 1926,
+        "personas": 17
+      },
+      {
+        "year_of_birth": 1927,
+        "personas": 27
+      },
+      {
+        "year_of_birth": 1928,
+        "personas": 90
+      },
+      {
+        "year_of_birth": 1929,
+        "personas": 51
+      },
+      {
+        "year_of_birth": 1930,
+        "personas": 30
+      },
+      {
+        "year_of_birth": 1931,
+        "personas": 59
+      },
+      {
+        "year_of_birth": 1932,
+        "personas": 68
+      },
+      {
+        "year_of_birth": 1933,
+        "personas": 59
+      },
+      {
+        "year_of_birth": 1934,
+        "personas": 54
+      },
+      {
+        "year_of_birth": 1935,
+        "personas": 41
+      },
+      {
+        "year_of_birth": 1936,
+        "personas": 60
+      },
+      {
+        "year_of_birth": 1937,
+        "personas": 48
+      },
+      {
+        "year_of_birth": 1938,
+        "personas": 30
+      },
+      {
+        "year_of_birth": 1939,
+        "personas": 46
+      },
+      {
+        "year_of_birth": 1940,
+        "personas": 38
+      },
+      {
+        "year_of_birth": 1941,
+        "personas": 62
+      },
+      {
+        "year_of_birth": 1942,
+        "personas": 157
+      },
+      {
+        "year_of_birth": 1943,
+        "personas": 121
+      },
+      {
+        "year_of_birth": 1944,
+        "personas": 123
+      },
+      {
+        "year_of_birth": 1945,
+        "personas": 141
+      },
+      {
+        "year_of_birth": 1946,
+        "personas": 113
+      },
+      {
+        "year_of_birth": 1947,
+        "personas": 140
+      },
+      {
+        "year_of_birth": 1948,
+        "personas": 155
+      },
+      {
+        "year_of_birth": 1949,
+        "personas": 144
+      },
+      {
+        "year_of_birth": 1950,
+        "personas": 158
+      },
+      {
+        "year_of_birth": 1951,
+        "personas": 190
+      },
+      {
+        "year_of_birth": 1952,
+        "personas": 221
+      },
+      {
+        "year_of_birth": 1953,
+        "personas": 181
+      },
+      {
+        "year_of_birth": 1954,
+        "personas": 203
+      },
+      {
+        "year_of_birth": 1955,
+        "personas": 205
+      },
+      {
+        "year_of_birth": 1956,
+        "personas": 203
+      },
+      {
+        "year_of_birth": 1957,
+        "personas": 258
+      },
+      {
+        "year_of_birth": 1958,
+        "personas": 274
+      },
+      {
+        "year_of_birth": 1959,
+        "personas": 258
+      },
+      {
+        "year_of_birth": 1960,
+        "personas": 239
+      },
+      {
+        "year_of_birth": 1961,
+        "personas": 266
+      },
+      {
+        "year_of_birth": 1962,
+        "personas": 309
+      },
+      {
+        "year_of_birth": 1963,
+        "personas": 290
+      },
+      {
+        "year_of_birth": 1964,
+        "personas": 319
+      },
+      {
+        "year_of_birth": 1965,
+        "personas": 274
+      },
+      {
+        "year_of_birth": 1966,
+        "personas": 317
+      },
+      {
+        "year_of_birth": 1967,
+        "personas": 319
+      },
+      {
+        "year_of_birth": 1968,
+        "personas": 310
+      },
+      {
+        "year_of_birth": 1969,
+        "personas": 278
+      },
+      {
+        "year_of_birth": 1970,
+        "personas": 349
+      },
+      {
+        "year_of_birth": 1971,
+        "personas": 332
+      },
+      {
+        "year_of_birth": 1972,
+        "personas": 328
+      },
+      {
+        "year_of_birth": 1973,
+        "personas": 324
+      },
+      {
+        "year_of_birth": 1974,
+        "personas": 290
+      },
+      {
+        "year_of_birth": 1975,
+        "personas": 319
+      },
+      {
+        "year_of_birth": 1976,
+        "personas": 333
+      },
+      {
+        "year_of_birth": 1977,
+        "personas": 290
+      },
+      {
+        "year_of_birth": 1978,
+        "personas": 303
+      },
+      {
+        "year_of_birth": 1979,
+        "personas": 280
+      },
+      {
+        "year_of_birth": 1980,
+        "personas": 318
+      },
+      {
+        "year_of_birth": 1981,
+        "personas": 295
+      },
+      {
+        "year_of_birth": 1982,
+        "personas": 269
+      },
+      {
+        "year_of_birth": 1983,
+        "personas": 270
+      },
+      {
+        "year_of_birth": 1984,
+        "personas": 257
+      },
+      {
+        "year_of_birth": 1985,
+        "personas": 251
+      },
+      {
+        "year_of_birth": 1986,
+        "personas": 243
+      },
+      {
+        "year_of_birth": 1987,
+        "personas": 222
+      },
+      {
+        "year_of_birth": 1988,
+        "personas": 254
+      },
+      {
+        "year_of_birth": 1989,
+        "personas": 282
+      },
+      {
+        "year_of_birth": 1990,
+        "personas": 228
+      },
+      {
+        "year_of_birth": 1991,
+        "personas": 270
+      },
+      {
+        "year_of_birth": 1992,
+        "personas": 290
+      },
+      {
+        "year_of_birth": 1993,
+        "personas": 266
+      },
+      {
+        "year_of_birth": 1994,
+        "personas": 309
+      },
+      {
+        "year_of_birth": 1995,
+        "personas": 265
+      },
+      {
+        "year_of_birth": 1996,
+        "personas": 287
+      },
+      {
+        "year_of_birth": 1997,
+        "personas": 269
+      },
+      {
+        "year_of_birth": 1998,
+        "personas": 283
+      },
+      {
+        "year_of_birth": 1999,
+        "personas": 289
+      },
+      {
+        "year_of_birth": 2000,
+        "personas": 259
+      },
+      {
+        "year_of_birth": 2001,
+        "personas": 311
+      },
+      {
+        "year_of_birth": 2002,
+        "personas": 283
+      },
+      {
+        "year_of_birth": 2003,
+        "personas": 291
+      },
+      {
+        "year_of_birth": 2004,
+        "personas": 313
+      },
+      {
+        "year_of_birth": 2005,
+        "personas": 315
+      },
+      {
+        "year_of_birth": 2006,
+        "personas": 298
+      },
+      {
+        "year_of_birth": 2007,
+        "personas": 257
+      },
+      {
+        "year_of_birth": 2008,
+        "personas": 302
+      },
+      {
+        "year_of_birth": 2009,
+        "personas": 257
+      },
+      {
+        "year_of_birth": 2010,
+        "personas": 264
+      },
+      {
+        "year_of_birth": 2011,
+        "personas": 272
+      },
+      {
+        "year_of_birth": 2012,
+        "personas": 218
+      },
+      {
+        "year_of_birth": 2013,
+        "personas": 235
+      },
+      {
+        "year_of_birth": 2014,
+        "personas": 236
+      },
+      {
+        "year_of_birth": 2015,
+        "personas": 232
+      },
+      {
+        "year_of_birth": 2016,
+        "personas": 220
+      },
+      {
+        "year_of_birth": 2017,
+        "personas": 242
+      },
+      {
+        "year_of_birth": 2018,
+        "personas": 225
+      },
+      {
+        "year_of_birth": 2019,
+        "personas": 217
+      },
+      {
+        "year_of_birth": 2020,
+        "personas": 225
+      },
+      {
+        "year_of_birth": 2021,
+        "personas": 210
+      },
+      {
+        "year_of_birth": 2022,
+        "personas": 199
+      },
+      {
+        "year_of_birth": 2023,
+        "personas": 231
+      },
+      {
+        "year_of_birth": 2024,
+        "personas": 201
+      },
+      {
+        "year_of_birth": 2025,
+        "personas": 184
+      },
+      {
+        "year_of_birth": 2026,
+        "personas": 123
+      }
+    ],
+    "observacion": [
+      {
+        "mediana_dias": 10564.0,
+        "personas_con_periodo": 22851
+      }
+    ],
+    "diagnosticos": [
+      {
+        "condition_concept_id": 4281516,
+        "concept_name": "Gingivitis",
+        "eventos": 61962,
+        "personas": 18512
+      },
+      {
+        "condition_concept_id": 40481087,
+        "concept_name": "Viral sinusitis",
+        "eventos": 23432,
+        "personas": 14634
+      },
+      {
+        "condition_concept_id": 4309238,
+        "concept_name": "Social isolation",
+        "eventos": 23113,
+        "personas": 12223
+      },
+      {
+        "condition_concept_id": 4172829,
+        "concept_name": "Limited social contact",
+        "eventos": 22951,
+        "personas": 12198
+      },
+      {
+        "condition_concept_id": 4060985,
+        "concept_name": "Body mass index 30+ - obesity",
+        "eventos": 11026,
+        "personas": 11026
+      },
+      {
+        "condition_concept_id": 4090111,
+        "concept_name": "Gingival disease",
+        "eventos": 18191,
+        "personas": 10669
+      },
+      {
+        "condition_concept_id": 4112343,
+        "concept_name": "Acute viral pharyngitis",
+        "eventos": 13403,
+        "personas": 10050
+      },
+      {
+        "condition_concept_id": 40274283,
+        "concept_name": "Primary dental caries",
+        "eventos": 13918,
+        "personas": 9537
+      },
+      {
+        "condition_concept_id": 260139,
+        "concept_name": "Acute bronchitis",
+        "eventos": 10984,
+        "personas": 8912
+      },
+      {
+        "condition_concept_id": 37018196,
+        "concept_name": "Prediabetes",
+        "eventos": 8713,
+        "personas": 8713
+      },
+      {
+        "condition_concept_id": 439777,
+        "concept_name": "Anemia",
+        "eventos": 8246,
+        "personas": 8246
+      },
+      {
+        "condition_concept_id": 436096,
+        "concept_name": "Chronic pain",
+        "eventos": 5496,
+        "personas": 5496
+      },
+      {
+        "condition_concept_id": 320128,
+        "concept_name": "Essential hypertension",
+        "eventos": 5182,
+        "personas": 5182
+      },
+      {
+        "condition_concept_id": 4059650,
+        "concept_name": "Risk activity involvement",
+        "eventos": 5512,
+        "personas": 5130
+      },
+      {
+        "condition_concept_id": 257012,
+        "concept_name": "Chronic sinusitis",
+        "eventos": 4430,
+        "personas": 4426
+      },
+      {
+        "condition_concept_id": 4217975,
+        "concept_name": "Normal pregnancy",
+        "eventos": 9580,
+        "personas": 4085
+      },
+      {
+        "condition_concept_id": 4132891,
+        "concept_name": "Chronic low back pain",
+        "eventos": 4081,
+        "personas": 4081
+      },
+      {
+        "condition_concept_id": 435081,
+        "concept_name": "Abnormal findings diagnostic imaging heart+coronary circulat",
+        "eventos": 3801,
+        "personas": 3801
+      },
+      {
+        "condition_concept_id": 4185932,
+        "concept_name": "Ischemic heart disease",
+        "eventos": 3781,
+        "personas": 3781
+      },
+      {
+        "condition_concept_id": 4322737,
+        "concept_name": "Infection of tooth",
+        "eventos": 4085,
+        "personas": 3451
+      }
+    ],
+    "visitas": [
+      {
+        "media_visitas": 59.22327250448558,
+        "personas": 22851
+      }
+    ],
+    "tipos_visita": [
+      {
+        "visit_concept_id": 0,
+        "concept_name": "No matching concept",
+        "visitas": 3166,
+        "personas": 2630,
+        "media_por_persona": 0.13854973524134612
+      },
+      {
+        "visit_concept_id": 9201,
+        "concept_name": "Inpatient Visit",
+        "visitas": 21602,
+        "personas": 7816,
+        "media_por_persona": 0.9453415605443963
+      },
+      {
+        "visit_concept_id": 9202,
+        "concept_name": "Outpatient Visit",
+        "visitas": 1203843,
+        "personas": 22851,
+        "media_por_persona": 52.68228961533412
+      },
+      {
+        "visit_concept_id": 9203,
+        "concept_name": "Emergency Room Visit",
+        "visitas": 110956,
+        "personas": 17826,
+        "media_por_persona": 4.85562995054921
+      },
+      {
+        "visit_concept_id": 581476,
+        "concept_name": "Home Visit",
+        "visitas": 6989,
+        "personas": 411,
+        "media_por_persona": 0.3058509474421251
+      },
+      {
+        "visit_concept_id": 722455,
+        "concept_name": "Telehealth",
+        "visitas": 3372,
+        "personas": 1590,
+        "media_por_persona": 0.147564658001838
+      },
+      {
+        "visit_concept_id": 42898160,
+        "concept_name": "Non-hospital institution Visit",
+        "visitas": 3383,
+        "personas": 3094,
+        "media_por_persona": 0.14804603737254388
+      }
+    ],
+    "vocabularios": [
+      {
+        "conceptos": 2042800,
+        "estandar": 846204
+      }
+    ],
+    "ceros": [
+      {
+        "dominio": "Condition",
+        "eventos": 390926,
+        "sin_mapear": 2497,
+        "porcentaje": 0.6387398126499645
+      },
+      {
+        "dominio": "Visit",
+        "eventos": 1353311,
+        "sin_mapear": 3166,
+        "porcentaje": 0.2339447473640575
+      },
+      {
+        "dominio": "Gender",
+        "eventos": 22851,
+        "sin_mapear": 0,
+        "porcentaje": 0.0
+      },
+      {
+        "dominio": "Observation",
+        "eventos": 439868,
+        "sin_mapear": 8938,
+        "porcentaje": 2.031973228332136
+      },
+      {
+        "dominio": "Measurement",
+        "eventos": 5,
+        "sin_mapear": 0,
+        "porcentaje": 0.0
+      }
+    ],
+    "estandar_origen": [
+      {
+        "codigo": "66383009",
+        "personas_origen": 18512,
+        "condition_concept_id": 4281516,
+        "concept_name": "Gingivitis",
+        "personas_estandar": 18512
+      }
+    ],
+    "ventana": [
+      {
+        "todos": 390926,
+        "dentro": 389254,
+        "porcentaje_fuera": 0.4277024296158352
+      }
+    ],
+    "athena": [
+      {
+        "condition_concept_id": 4281516,
+        "concept_name": "Gingivitis",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "standard_concept": "S",
+        "hijos_directos": 35,
+        "descendientes": 76,
+        "codigo_origen": "66383009"
+      },
+      {
+        "condition_concept_id": 40481087,
+        "concept_name": "Viral sinusitis",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "standard_concept": "S",
+        "hijos_directos": 1,
+        "descendientes": 1,
+        "codigo_origen": "444814009"
+      },
+      {
+        "condition_concept_id": 4309238,
+        "concept_name": "Social isolation",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "standard_concept": "S",
+        "hijos_directos": 6,
+        "descendientes": 6,
+        "codigo_origen": "422650009"
+      }
+    ]
+  }
+}

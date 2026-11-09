@@ -1,0 +1,354 @@
+{
+  "dataset": "OHDSI/EunomiaDatasets Synthea27NjParquet_5.4",
+  "sha256": "456cbf60024dddab17a2ff68f4001872200cf3a24c32cb5ce2db79b52ef20a48",
+  "sql_sha256": "b058f0a0060afb833f9cefe1e0aa913e13c95baed59ba89e3f65be404430117b",
+  "duckdb": "1.5.6",
+  "queries": {
+    "personas": [
+      {
+        "personas": 28
+      }
+    ],
+    "sexo": [
+      {
+        "gender_concept_id": 8507,
+        "concept_name": "MALE",
+        "personas": 15
+      },
+      {
+        "gender_concept_id": 8532,
+        "concept_name": "FEMALE",
+        "personas": 13
+      }
+    ],
+    "nacimiento": [
+      {
+        "year_of_birth": 1938,
+        "personas": 2
+      },
+      {
+        "year_of_birth": 1953,
+        "personas": 2
+      },
+      {
+        "year_of_birth": 1964,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1967,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1968,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1970,
+        "personas": 2
+      },
+      {
+        "year_of_birth": 1971,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1978,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1979,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1980,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1983,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1986,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1987,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1988,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1996,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1997,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 1998,
+        "personas": 2
+      },
+      {
+        "year_of_birth": 2000,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 2003,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 2011,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 2014,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 2015,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 2019,
+        "personas": 1
+      },
+      {
+        "year_of_birth": 2022,
+        "personas": 1
+      }
+    ],
+    "observacion": [
+      {
+        "mediana_dias": 8700.0,
+        "personas_con_periodo": 28
+      }
+    ],
+    "diagnosticos": [
+      {
+        "condition_concept_id": 40481087,
+        "concept_name": "Viral sinusitis",
+        "eventos": 61,
+        "personas": 23
+      },
+      {
+        "condition_concept_id": 4251306,
+        "concept_name": "Stress",
+        "eventos": 113,
+        "personas": 22
+      },
+      {
+        "condition_concept_id": 4172829,
+        "concept_name": "Limited social contact",
+        "eventos": 35,
+        "personas": 19
+      },
+      {
+        "condition_concept_id": 4309238,
+        "concept_name": "Social isolation",
+        "eventos": 40,
+        "personas": 17
+      },
+      {
+        "condition_concept_id": 4112343,
+        "concept_name": "Acute viral pharyngitis",
+        "eventos": 29,
+        "personas": 16
+      },
+      {
+        "condition_concept_id": 45768458,
+        "concept_name": "Victim of intimate partner abuse",
+        "eventos": 16,
+        "personas": 12
+      },
+      {
+        "condition_concept_id": 260139,
+        "concept_name": "Acute bronchitis",
+        "eventos": 19,
+        "personas": 10
+      },
+      {
+        "condition_concept_id": 372328,
+        "concept_name": "Otitis media",
+        "eventos": 13,
+        "personas": 9
+      },
+      {
+        "condition_concept_id": 439777,
+        "concept_name": "Anemia",
+        "eventos": 8,
+        "personas": 8
+      },
+      {
+        "condition_concept_id": 4059650,
+        "concept_name": "Risk activity involvement",
+        "eventos": 9,
+        "personas": 7
+      },
+      {
+        "condition_concept_id": 28060,
+        "concept_name": "Streptococcal sore throat",
+        "eventos": 6,
+        "personas": 6
+      },
+      {
+        "condition_concept_id": 4217975,
+        "concept_name": "Normal pregnancy",
+        "eventos": 12,
+        "personas": 6
+      },
+      {
+        "condition_concept_id": 257012,
+        "concept_name": "Chronic sinusitis",
+        "eventos": 5,
+        "personas": 5
+      },
+      {
+        "condition_concept_id": 320128,
+        "concept_name": "Essential hypertension",
+        "eventos": 5,
+        "personas": 5
+      },
+      {
+        "condition_concept_id": 4078393,
+        "concept_name": "Miscarriage in first trimester",
+        "eventos": 5,
+        "personas": 5
+      },
+      {
+        "condition_concept_id": 4132891,
+        "concept_name": "Chronic low back pain",
+        "eventos": 5,
+        "personas": 5
+      },
+      {
+        "condition_concept_id": 4214746,
+        "concept_name": "Severe anxiety (panic)",
+        "eventos": 5,
+        "personas": 4
+      },
+      {
+        "condition_concept_id": 43530622,
+        "concept_name": "Chronic neck pain",
+        "eventos": 4,
+        "personas": 4
+      },
+      {
+        "condition_concept_id": 81151,
+        "concept_name": "Sprain of ankle",
+        "eventos": 3,
+        "personas": 3
+      },
+      {
+        "condition_concept_id": 254761,
+        "concept_name": "Cough",
+        "eventos": 3,
+        "personas": 3
+      }
+    ],
+    "visitas": [
+      {
+        "media_visitas": 63.964285714285715,
+        "personas": 28
+      }
+    ],
+    "tipos_visita": [
+      {
+        "visit_concept_id": 9201,
+        "concept_name": "Inpatient Visit",
+        "visitas": 13,
+        "personas": 7,
+        "media_por_persona": 0.4642857142857143
+      },
+      {
+        "visit_concept_id": 9202,
+        "concept_name": "Outpatient Visit",
+        "visitas": 1722,
+        "personas": 28,
+        "media_por_persona": 61.5
+      },
+      {
+        "visit_concept_id": 9203,
+        "concept_name": "Emergency Room Visit",
+        "visitas": 56,
+        "personas": 21,
+        "media_por_persona": 2.0
+      }
+    ],
+    "vocabularios": [
+      {
+        "conceptos": 2294,
+        "estandar": 2178
+      }
+    ],
+    "ceros": [
+      {
+        "dominio": "Condition",
+        "eventos": 470,
+        "sin_mapear": 0,
+        "porcentaje": 0.0
+      },
+      {
+        "dominio": "Visit",
+        "eventos": 1791,
+        "sin_mapear": 0,
+        "porcentaje": 0.0
+      },
+      {
+        "dominio": "Gender",
+        "eventos": 28,
+        "sin_mapear": 0,
+        "porcentaje": 0.0
+      }
+    ],
+    "estandar_origen": [
+      {
+        "codigo": "444814009.0",
+        "personas_origen": 23,
+        "condition_concept_id": 40481087,
+        "concept_name": "Viral sinusitis",
+        "personas_estandar": 23
+      }
+    ],
+    "ventana": [
+      {
+        "todos": 470,
+        "dentro": 469,
+        "porcentaje_fuera": 0.2127659574468085
+      }
+    ],
+    "athena": [
+      {
+        "condition_concept_id": 40481087,
+        "concept_name": "Viral sinusitis",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "standard_concept": "S",
+        "hijos_directos": 0,
+        "descendientes": 0,
+        "codigo_origen": "444814009.0"
+      },
+      {
+        "condition_concept_id": 4251306,
+        "concept_name": "Stress",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "standard_concept": "S",
+        "hijos_directos": 0,
+        "descendientes": 0,
+        "codigo_origen": "73595000.0"
+      },
+      {
+        "condition_concept_id": 4172829,
+        "concept_name": "Limited social contact",
+        "vocabulary_id": "SNOMED",
+        "domain_id": "Condition",
+        "standard_concept": "S",
+        "hijos_directos": 0,
+        "descendientes": 0,
+        "codigo_origen": "423315002.0"
+      }
+    ]
+  }
+}
