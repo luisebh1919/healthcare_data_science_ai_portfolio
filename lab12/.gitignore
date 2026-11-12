@@ -1,0 +1,8 @@
+local/
+__pycache__/
+*.csv
+*.zip
+*.duckdb*
+*.parquet
+*.sqlite*
+vocab*/

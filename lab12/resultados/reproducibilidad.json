@@ -1,0 +1,95 @@
+{
+  "run_id": "c5f4d42e-004f-4fb1-ab25-c056bd999276",
+  "duckdb": "1.5.6",
+  "repeated_queries_equal": true,
+  "reference_uses_same_sql": true,
+  "logical_results_sha256": "c0f54e10d7c4ef79cd38e1ec3271741ece89689932264dbbb973cdd2d4af2379",
+  "inputs": [
+    {
+      "input": "synthea/patients",
+      "sha256": "086903c146304a02dbaf77a9aae3f7372e9490f1e9370e0a5b55fcabc875f475",
+      "matches": true
+    },
+    {
+      "input": "synthea/encounters",
+      "sha256": "f64d12e48ba0f2adbc6ec81e9aff888c7e18dbfef5c0ebea53a922d2b3476490",
+      "matches": true
+    },
+    {
+      "input": "synthea/conditions",
+      "sha256": "ef0dc18adacc40db3f2a2a57fb712b9b3ad59fb24cd1a145f4c2cfc16a2c8ba7",
+      "matches": true
+    },
+    {
+      "input": "athena/concept",
+      "sha256": "a4b1e57189bb1e1f1fa20d656033616e87c1a14cf8db8cb9b792f21053a4c164",
+      "matches": true
+    },
+    {
+      "input": "athena/concept_relationship",
+      "sha256": "7399a8926d9189fda2a48f97a01b5c918d5dcd11501e497584788a53bc627142",
+      "matches": true
+    },
+    {
+      "input": "athena/concept_ancestor",
+      "sha256": "4ccdd8fc789de46b8e76b41efef010cb0c0b35cc8cb874145ce6290842a5f7ea",
+      "matches": true
+    },
+    {
+      "input": "athena/vocabulary",
+      "sha256": "e73c9a493bdabca902f9306610ee4423637958cbbbe3c4258d9fc3ef502bd97c",
+      "matches": true
+    },
+    {
+      "input": "athena/domain",
+      "sha256": "eb3560dc0bbb79526f3207e66e636f011d2358d771fad7415bcdd73663066a0e",
+      "matches": true
+    },
+    {
+      "input": "athena/relationship",
+      "sha256": "cfccb60584a1e38717104d8918082ca462c662c43315a0e3f31a2bdbcd161368",
+      "matches": true
+    },
+    {
+      "input": "athena/concept_class",
+      "sha256": "abae2e0e37df656440773413151d4135f735dbf50b5e0c00bde01ddc9d2ea6e1",
+      "matches": true
+    },
+    {
+      "input": "athena/concept_synonym",
+      "sha256": "d0ab3c3077ad970c9e519e3609261389d3ef1598769055770cc07a0528f77e6f",
+      "matches": true
+    },
+    {
+      "input": "athena/drug_strength",
+      "sha256": "1a1206a6a83e11fd5b53eaaa6a54f1e30d8eabac8f0e57922927801993047504",
+      "matches": true
+    },
+    {
+      "input": "athena/pack_content",
+      "sha256": "45567cb0f0b4530bd21b149ec773c3cb3675afc932a7fc7a722a165b4690c0a3",
+      "matches": true
+    },
+    {
+      "input": "athena/concept_metadata",
+      "sha256": "2bf5bc1b6e718857d592edd86a2b624263dce8b3f57571ea9fe60e0ff6e3fdc5",
+      "matches": true
+    },
+    {
+      "input": "athena/concept_relationship_metadata",
+      "sha256": "03b5b25d433028863097e943748b983fbd9a4528bc9ece349e3524bf7fb73a8b",
+      "matches": true
+    },
+    {
+      "input": "suplemento_gender",
+      "sha256": "081b82e84c90e2904e02c26546e46412b01cce566071c77e0c4a355c2d0612f9",
+      "matches": true
+    },
+    {
+      "input": "referencia_eunomia",
+      "sha256": "456cbf60024dddab17a2ff68f4001872200cf3a24c32cb5ce2db79b52ef20a48",
+      "matches": true
+    }
+  ],
+  "scope": "Repetici\u00f3n de consultas en conexiones independientes e identidad de insumos; no se repiti\u00f3 el ETL completo."
+}

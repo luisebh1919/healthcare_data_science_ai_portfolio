@@ -1,0 +1,188 @@
+{
+  "jar_sha256": "7fdbc2951d305eebac1fa46b1027347efb7380e93053e39ca2ee86613beb84f9",
+  "limitacion": "No se demostró que este JAR y sus parámetros/semilla generaran los CSV disponibles.",
+  "modules": {
+    "modules/wellness_encounters.json": {
+      "sha256": "39c20f855bcbc37abc08def63187de9a0500e699989cd9ab8d5f23f1a50e7334",
+      "states": {
+        "Dental Referral?": {
+          "type": "Simple",
+          "conditional_transition": [
+            {
+              "transition": "Pediatric Dentist",
+              "condition": {
+                "condition_type": "Age",
+                "operator": "<=",
+                "quantity": 6,
+                "unit": "years",
+                "value": 0
+              }
+            },
+            {
+              "transition": "Refer to Dentist"
+            }
+          ]
+        },
+        "Gingivitis": {
+          "type": "ConditionOnset",
+          "codes": [
+            {
+              "system": "SNOMED-CT",
+              "code": "66383009",
+              "display": "Gingivitis (disorder)"
+            }
+          ],
+          "direct_transition": "Patient referral for dental care",
+          "assign_to_attribute": "dental_referral"
+        },
+        "Refer to Dentist": {
+          "type": "Simple",
+          "distributed_transition": [
+            {
+              "transition": "Gingivitis",
+              "distribution": 0.25
+            },
+            {
+              "transition": "Go see a Dentist",
+              "distribution": 0.25
+            },
+            {
+              "transition": "End_Of_Wellness_Encounter",
+              "distribution": 0.5
+            }
+          ]
+        }
+      }
+    },
+    "modules/dental_and_oral_examination.json": {
+      "sha256": "e679db6506b938ee39893b1e9465e87c319d0eac344cda3d8c03a1f961115b0d",
+      "states": {
+        "Infection?": {
+          "type": "Simple",
+          "complex_transition": [
+            {
+              "condition": {
+                "condition_type": "Attribute",
+                "attribute": "tooth_infection",
+                "operator": "==",
+                "value": true
+              },
+              "distributions": [],
+              "transition": "Infection of tooth"
+            },
+            {
+              "distributions": [
+                {
+                  "transition": "Infection of tooth",
+                  "distribution": 0.0325
+                },
+                {
+                  "transition": "Gingivitis?",
+                  "distribution": 0.9675
+                }
+              ]
+            }
+          ]
+        },
+        "Examination of gingivae": {
+          "type": "Procedure",
+          "codes": [
+            {
+              "system": "SNOMED-CT",
+              "code": "274788003",
+              "display": "Examination of gingivae (procedure)"
+            }
+          ],
+          "distribution": {
+            "kind": "UNIFORM",
+            "parameters": {
+              "high": 60,
+              "low": 30
+            }
+          },
+          "unit": "minutes",
+          "reason": "dental_referral",
+          "complex_transition": [
+            {
+              "condition": {
+                "condition_type": "Active Condition",
+                "codes": [
+                  {
+                    "system": "SNOMED-CT",
+                    "code": "66383009",
+                    "display": "Gingivitis (disorder)"
+                  }
+                ]
+              },
+              "distributions": [
+                {
+                  "distribution": 0.2,
+                  "transition": "Gingival disease"
+                },
+                {
+                  "transition": "End Gingivitis from Wellness",
+                  "distribution": 0.8
+                }
+              ]
+            },
+            {
+              "distributions": [
+                {
+                  "transition": "Gingival disease",
+                  "distribution": 0.09
+                },
+                {
+                  "transition": "End Gingivitis from Wellness",
+                  "distribution": 0.91
+                }
+              ]
+            }
+          ]
+        },
+        "Postoperative_care_for_dental_procedure_2": {
+          "type": "Procedure",
+          "codes": [
+            {
+              "system": "SNOMED-CT",
+              "code": 456191000124101,
+              "display": "Postoperative care for dental procedure (regime/therapy)"
+            },
+            {
+              "system": "SNOMED-CT",
+              "code": "133899007",
+              "display": "Postoperative care (regime/therapy)"
+            }
+          ],
+          "distribution": {
+            "kind": "GAUSSIAN",
+            "parameters": {
+              "min": 5,
+              "mean": 60,
+              "standardDeviation": 15
+            }
+          },
+          "unit": "minutes",
+          "direct_transition": "End Gingivitis from Wellness",
+          "reason": "Gingival disease"
+        },
+        "End Gingivitis from Wellness": {
+          "type": "ConditionEnd",
+          "direct_transition": "Require Filling?",
+          "codes": [
+            {
+              "system": "SNOMED-CT",
+              "code": "66383009",
+              "display": "Gingivitis (disorder)"
+            }
+          ]
+        },
+        "Increase Missing Teeth": {
+          "type": "Counter",
+          "attribute": "missing_teeth",
+          "action": "increment",
+          "direct_transition": "Gingivitis?"
+        }
+      }
+    }
+  }
+}
