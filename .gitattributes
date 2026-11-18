@@ -1,0 +1,3 @@
+# Especificaciones oficiales vendorizadas: conservar sus bytes y hashes OHDSI.
+omop_cdm/sql/vendor/* -text
+omop_cdm/sql/vendor/OMOP_CDMv5.4_Field_Level.csv whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

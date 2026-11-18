@@ -1,0 +1,801 @@
+{
+  "scope": "read_only_source_mapping_and_persisted_comparison",
+  "as_of": "2026-11-15",
+  "population_deltas": {
+    "training": {
+      "patients": 655,
+      "changed_patients": 418,
+      "original_code_counts_sum": 2449,
+      "standard_code_counts_sum": 1472,
+      "removed_patient_code_pairs": 977,
+      "removed_source_records": 1205
+    },
+    "cohort": {
+      "patients": 824,
+      "changed_patients": 515,
+      "original_code_counts_sum": 3075,
+      "standard_code_counts_sum": 1900,
+      "removed_patient_code_pairs": 1175,
+      "removed_source_records": 1447
+    }
+  },
+  "delta_histogram_training": [
+    {
+      "removed_distinct_codes": 0,
+      "patients": 237
+    },
+    {
+      "removed_distinct_codes": 1,
+      "patients": 164
+    },
+    {
+      "removed_distinct_codes": 2,
+      "patients": 90
+    },
+    {
+      "removed_distinct_codes": 3,
+      "patients": 86
+    },
+    {
+      "removed_distinct_codes": 4,
+      "patients": 40
+    },
+    {
+      "removed_distinct_codes": 5,
+      "patients": 22
+    },
+    {
+      "removed_distinct_codes": 6,
+      "patients": 8
+    },
+    {
+      "removed_distinct_codes": 7,
+      "patients": 7
+    },
+    {
+      "removed_distinct_codes": 8,
+      "patients": 1
+    }
+  ],
+  "codes": [
+    {
+      "source_code": "1003755004",
+      "source_descriptions": [
+        "Allergy to Hevea brasiliensis latex protein (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 604826,
+          "target_concept_id": 43530807,
+          "domain": "Observation",
+          "concept_name": "Allergic disposition",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 2,
+      "source_patients": 2,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "105531004",
+      "source_descriptions": [
+        "Housing unsatisfactory (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4022661,
+          "target_concept_id": 4022661,
+          "domain": "Observation",
+          "concept_name": "Housing problem",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 2784,
+      "source_patients": 2784,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "10939881000119105",
+      "source_descriptions": [
+        "Unhealthy alcohol drinking behavior (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 36712761,
+          "target_concept_id": 36712761,
+          "domain": "Observation",
+          "concept_name": "Unhealthy alcohol drinking behavior",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 3806,
+      "source_patients": 3380,
+      "training_records": 7,
+      "training_patients": 7,
+      "cohort_records": 8,
+      "cohort_patients": 8
+    },
+    {
+      "source_code": "1187604002",
+      "source_descriptions": [
+        "Serving in military service (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 37162400,
+          "target_concept_id": 37162400,
+          "domain": "Observation",
+          "concept_name": "Serving in military service",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 1029,
+      "source_patients": 1029,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "160701002",
+      "source_descriptions": [
+        "Social migrant (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4053080,
+          "target_concept_id": 4053080,
+          "domain": "Observation",
+          "concept_name": "Social migrant",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 13,
+      "source_patients": 13,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "160903007",
+      "source_descriptions": [
+        "Full-time employment (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4053118,
+          "target_concept_id": 4053118,
+          "domain": "Observation",
+          "concept_name": "Full-time employment",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 59985,
+      "source_patients": 18042,
+      "training_records": 152,
+      "training_patients": 130,
+      "cohort_records": 184,
+      "cohort_patients": 158
+    },
+    {
+      "source_code": "160904001",
+      "source_descriptions": [
+        "Part-time employment (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4059634,
+          "target_concept_id": 4059634,
+          "domain": "Observation",
+          "concept_name": "Part-time employment",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 37497,
+      "source_patients": 14601,
+      "training_records": 99,
+      "training_patients": 90,
+      "cohort_records": 127,
+      "cohort_patients": 116
+    },
+    {
+      "source_code": "161744009",
+      "source_descriptions": [
+        "Past pregnancy history of miscarriage (situation)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4060188,
+          "target_concept_id": 4060188,
+          "domain": "Observation",
+          "concept_name": "Past pregnancy history of miscarriage",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 4306,
+      "source_patients": 4306,
+      "training_records": 1,
+      "training_patients": 1,
+      "cohort_records": 1,
+      "cohort_patients": 1
+    },
+    {
+      "source_code": "162573006",
+      "source_descriptions": [
+        "Suspected lung cancer (situation)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4038238,
+          "target_concept_id": 4038238,
+          "domain": "Observation",
+          "concept_name": "Malignant neoplasm of lung suspected",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 217,
+      "source_patients": 217,
+      "training_records": 192,
+      "training_patients": 192,
+      "cohort_records": 206,
+      "cohort_patients": 206
+    },
+    {
+      "source_code": "183996000",
+      "source_descriptions": [
+        "Sterilization requested (situation)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4086788,
+          "target_concept_id": 4086788,
+          "domain": "Observation",
+          "concept_name": "Sterilization requested",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 579,
+      "source_patients": 579,
+      "training_records": 1,
+      "training_patients": 1,
+      "cohort_records": 1,
+      "cohort_patients": 1
+    },
+    {
+      "source_code": "224295006",
+      "source_descriptions": [
+        "Only received primary school education (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4072733,
+          "target_concept_id": 4072733,
+          "domain": "Observation",
+          "concept_name": "Only received primary school education",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 2111,
+      "source_patients": 2111,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "224299000",
+      "source_descriptions": [
+        "Received higher education (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4076230,
+          "target_concept_id": 4076230,
+          "domain": "Observation",
+          "concept_name": "Received higher education",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 10866,
+      "source_patients": 10866,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "248595008",
+      "source_descriptions": [
+        "Sputum finding (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4089228,
+          "target_concept_id": 4089228,
+          "domain": "Observation",
+          "concept_name": "Sputum finding",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 663,
+      "source_patients": 663,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "266934004",
+      "source_descriptions": [
+        "Transport problem (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4141789,
+          "target_concept_id": 4141789,
+          "domain": "Observation",
+          "concept_name": "Transport problem",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 2220,
+      "source_patients": 2220,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "266948004",
+      "source_descriptions": [
+        "Has a criminal record (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4145802,
+          "target_concept_id": 4145802,
+          "domain": "Observation",
+          "concept_name": "Has a criminal record",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 4434,
+      "source_patients": 4434,
+      "training_records": 2,
+      "training_patients": 2,
+      "cohort_records": 2,
+      "cohort_patients": 2
+    },
+    {
+      "source_code": "287185009",
+      "source_descriptions": [
+        "Attempted suicide by cutting or stabbing"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 443279,
+          "target_concept_id": 443279,
+          "domain": "Observation",
+          "concept_name": "Attempted suicide by cutting or stabbing",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 1,
+      "source_patients": 1,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "314529007",
+      "source_descriptions": [
+        "Medication review due (situation)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4199788,
+          "target_concept_id": 4199788,
+          "domain": "Observation",
+          "concept_name": "Medication review due",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 163616,
+      "source_patients": 22851,
+      "training_records": 388,
+      "training_patients": 223,
+      "cohort_records": 478,
+      "cohort_patients": 279
+    },
+    {
+      "source_code": "315268008",
+      "source_descriptions": [
+        "Suspected prostate cancer (situation)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4197714,
+          "target_concept_id": 4197714,
+          "domain": "Observation",
+          "concept_name": "Malignant neoplasm of prostate suspected",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 382,
+      "source_patients": 293,
+      "training_records": 9,
+      "training_patients": 9,
+      "cohort_records": 9,
+      "cohort_patients": 9
+    },
+    {
+      "source_code": "32911000",
+      "source_descriptions": [
+        "Homeless (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4139934,
+          "target_concept_id": 4139934,
+          "domain": "Observation",
+          "concept_name": "Homeless",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 416,
+      "source_patients": 399,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 1,
+      "cohort_patients": 1
+    },
+    {
+      "source_code": "384709000",
+      "source_descriptions": [
+        "Sprain (morphologic abnormality)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4298490,
+          "target_concept_id": 4298490,
+          "domain": "Observation",
+          "concept_name": "Sprain",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 3276,
+      "source_patients": 3062,
+      "training_records": 8,
+      "training_patients": 8,
+      "cohort_records": 11,
+      "cohort_patients": 11
+    },
+    {
+      "source_code": "424393004",
+      "source_descriptions": [
+        "Reports of violence in the environment (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4313322,
+          "target_concept_id": 4313322,
+          "domain": "Observation",
+          "concept_name": "Reports of violence in the environment",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 12206,
+      "source_patients": 7583,
+      "training_records": 35,
+      "training_patients": 34,
+      "cohort_records": 42,
+      "cohort_patients": 41
+    },
+    {
+      "source_code": "428915008",
+      "source_descriptions": [
+        "Toxoplasma gondii antibody detected (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4178483,
+          "target_concept_id": 4178483,
+          "domain": "Measurement",
+          "concept_name": "Toxoplasma gondii antibody detected",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 5,
+      "source_patients": 5,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "473461003",
+      "source_descriptions": [
+        "Educated to high school level (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 43021808,
+          "target_concept_id": 43021808,
+          "domain": "Observation",
+          "concept_name": "Educated to high school level",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 5432,
+      "source_patients": 5432,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "48333001",
+      "source_descriptions": [
+        "Burn injury (morphologic abnormality)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4168004,
+          "target_concept_id": 4168004,
+          "domain": "Observation",
+          "concept_name": "Burn injury",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 875,
+      "source_patients": 859,
+      "training_records": 1,
+      "training_patients": 1,
+      "cohort_records": 3,
+      "cohort_patients": 3
+    },
+    {
+      "source_code": "698303004",
+      "source_descriptions": [
+        "Awaiting transplantation of bone marrow (situation)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 44782657,
+          "target_concept_id": 44782657,
+          "domain": "Observation",
+          "concept_name": "Awaiting transplantation of bone marrow",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 55,
+      "source_patients": 54,
+      "training_records": 3,
+      "training_patients": 3,
+      "cohort_records": 4,
+      "cohort_patients": 4
+    },
+    {
+      "source_code": "698306007",
+      "source_descriptions": [
+        "Awaiting transplantation of kidney (situation)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 44784262,
+          "target_concept_id": 44784262,
+          "domain": "Observation",
+          "concept_name": "Awaiting transplantation of kidney",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 775,
+      "source_patients": 774,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "706893006",
+      "source_descriptions": [
+        "Victim of intimate partner abuse (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 45768458,
+          "target_concept_id": 45768458,
+          "domain": "Observation",
+          "concept_name": "Victim of intimate partner abuse",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 14994,
+      "source_patients": 9835,
+      "training_records": 37,
+      "training_patients": 36,
+      "cohort_records": 44,
+      "cohort_patients": 43
+    },
+    {
+      "source_code": "713458007",
+      "source_descriptions": [
+        "Lack of access to transportation (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 37017222,
+          "target_concept_id": 37017222,
+          "domain": "Observation",
+          "concept_name": "Lack of access to transportation",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 2210,
+      "source_patients": 2210,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    },
+    {
+      "source_code": "73438004",
+      "source_descriptions": [
+        "Unemployed (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4251171,
+          "target_concept_id": 4251171,
+          "domain": "Observation",
+          "concept_name": "Unemployed",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 8440,
+      "source_patients": 6891,
+      "training_records": 32,
+      "training_patients": 32,
+      "cohort_records": 37,
+      "cohort_patients": 37
+    },
+    {
+      "source_code": "73595000",
+      "source_descriptions": [
+        "Stress (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 4251306,
+          "target_concept_id": 4251306,
+          "domain": "Observation",
+          "concept_name": "Stress",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 64815,
+      "source_patients": 18045,
+      "training_records": 169,
+      "training_patients": 145,
+      "cohort_records": 211,
+      "cohort_patients": 184
+    },
+    {
+      "source_code": "741062008",
+      "source_descriptions": [
+        "Not in labor force (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 42538208,
+          "target_concept_id": 42538208,
+          "domain": "Observation",
+          "concept_name": "Not in labor force",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 20839,
+      "source_patients": 10780,
+      "training_records": 65,
+      "training_patients": 59,
+      "cohort_records": 74,
+      "cohort_patients": 67
+    },
+    {
+      "source_code": "840544004",
+      "source_descriptions": [
+        "Suspected disease caused by Severe acute respiratory coronavirus 2 (situation)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 37311060,
+          "target_concept_id": 37311060,
+          "domain": "Observation",
+          "concept_name": "Suspected COVID-19",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 1932,
+      "source_patients": 1932,
+      "training_records": 4,
+      "training_patients": 4,
+      "cohort_records": 4,
+      "cohort_patients": 4
+    },
+    {
+      "source_code": "876882001",
+      "source_descriptions": [
+        "Died in hospice (finding)"
+      ],
+      "targets": [
+        {
+          "source_concept_id": 618845,
+          "target_concept_id": 618845,
+          "domain": "Observation",
+          "concept_name": "Died in hospice",
+          "evidence": "Maps to"
+        }
+      ],
+      "source_records": 154,
+      "source_patients": 154,
+      "training_records": 0,
+      "training_patients": 0,
+      "cohort_records": 0,
+      "cohort_patients": 0
+    }
+  ],
+  "mapping_conclusions": {
+    "targets_are_official_current_standard_concepts": true,
+    "condition_mappings_omitted_by_exclusion_rule": 0,
+    "ambiguous_multi_target_codes": 0,
+    "mapping_error_demonstrated_for_excluded_codes": false,
+    "clinical_validity_certified": false
+  },
+  "persisted_training_counts_match_sql": {
+    "original": 0,
+    "standard": 0
+  },
+  "original_counts": {
+    "cohort": 824,
+    "events": 85,
+    "training": 655,
+    "temporal_test": 165,
+    "overlap_excluded": 4
+  },
+  "base_value_mismatches_all": {
+    "age": 0,
+    "sex": 0,
+    "prior_inpatient_hospitalizations_180d": 0,
+    "distinct_diagnoses_180d": 0,
+    "distinct_medications_180d": 0,
+    "measurement_count_180d": 0
+  },
+  "base_value_mismatches_test": {
+    "age": 0,
+    "sex": 0,
+    "prior_inpatient_hospitalizations_180d": 0,
+    "distinct_diagnoses_180d": 0,
+    "distinct_medications_180d": 0,
+    "measurement_count_180d": 0
+  },
+  "temporal_test_membership_differences_both_directions": [
+    0,
+    0
+  ],
+  "fe_mismatches_training": {
+    "dx_cardiovascular": 0,
+    "med_antihipertensivos": 0,
+    "distinct_nononcological_diagnoses_180d": 0
+  },
+  "fe_temporal_test": "not_compared_no_original_fe_test_matrix; no_test_selection_performed",
+  "models_fitted": false,
+  "predictive_metrics_computed": false
+}

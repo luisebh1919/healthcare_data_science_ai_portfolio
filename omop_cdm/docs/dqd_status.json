@@ -1,0 +1,27 @@
+{
+  "official_cdm_54_supported": true,
+  "official_duckdb_tests_documented": true,
+  "prerequisite_check_executed": true,
+  "available_r_packages": {
+    "DataQualityDashboard": false,
+    "DatabaseConnector": false,
+    "SqlRender": false,
+    "duckdb": false
+  },
+  "execution_attempted": false,
+  "status": "not_run",
+  "checks_total": null,
+  "checks_passed": null,
+  "checks_failed": null,
+  "warnings": null,
+  "blockers": [
+    "missing_R_packages",
+    "empty_persistent_CDM_including_CDM_SOURCE",
+    "insufficient_disk_space",
+    "unverified_initial_notebook_24"
+  ],
+  "sources": [
+    "https://ohdsi.github.io/DataQualityDashboard/reference/executeDqChecks.html",
+    "https://github.com/OHDSI/DataQualityDashboard/blob/main/NEWS.md"
+  ]
+}

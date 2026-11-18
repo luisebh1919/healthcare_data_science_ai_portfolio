@@ -1,0 +1,12 @@
+{
+  "OMOP_CDMv5.4_Field_Level.csv": {
+    "sha256": "94006d0fac2a3911b5665ce421468fa99af23fb51a633148e5fe6045916ad950",
+    "bytes": 130164,
+    "url": "https://raw.githubusercontent.com/OHDSI/CommonDataModel/v5.4.2/inst/csv/OMOP_CDMv5.4_Field_Level.csv"
+  },
+  "OMOPCDM_postgresql_5.4_ddl.sql": {
+    "sha256": "ae99be6e79edfad5f17ef71edda176281b45e3aa9e400e7a9f829103f5ec4771",
+    "bytes": 19554,
+    "url": "https://raw.githubusercontent.com/OHDSI/CommonDataModel/v5.4.2/inst/ddl/5.4/postgresql/OMOPCDM_postgresql_5.4_ddl.sql"
+  }
+}

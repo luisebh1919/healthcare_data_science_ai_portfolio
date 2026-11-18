@@ -1,0 +1,573 @@
+{
+  "total_bytes": 308494532608,
+  "used_bytes": 292654718976,
+  "free_bytes": 94396416,
+  "original_bases": {
+    "lab10/data/clinical.duckdb": "33f0cf6c58f8bed29733711c9ab7cf0f05159b9e424b76ed6ca8e80a1271ab35",
+    "final_project/data/omop_minimal.duckdb": "011dd863a2ca24d12f175fb4eba0ca59716c9537ccb3ee4226c8a1020af5090c"
+  },
+  "original_base_bytes": {
+    "lab10/data/clinical.duckdb": 539504640,
+    "final_project/data/omop_minimal.duckdb": 12070912
+  },
+  "full_pipeline_estimate": {
+    "source_bytes": 4798776434,
+    "vocab_bytes": 1463865540,
+    "free_bytes": 94396416,
+    "required_free_bytes_estimate": 22122836816,
+    "enough_space": false
+  },
+  "files": [
+    {
+      "path": "omop_cdm/sql/vendor/OMOP_CDMv5.4_Field_Level.csv",
+      "bytes": 130164
+    },
+    {
+      "path": "omop_cdm/local/cohort_comparison.duckdb",
+      "bytes": 2371584
+    },
+    {
+      "path": "omop_cdm/local/omop54_schema_only.duckdb",
+      "bytes": 1585152
+    },
+    {
+      "path": "omop_cdm/results/diagnosis_count_deltas_training.csv",
+      "bytes": 7601
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/omop_corregido.duckdb",
+      "bytes": 809775104
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/omop_athena.duckdb",
+      "bytes": 809775104
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/omop.duckdb",
+      "bytes": 219164672
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/CONCEPT_METADATA.csv",
+      "bytes": 1405913
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/CONCEPT_RELATIONSHIP_METADATA.csv",
+      "bytes": 3176916
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/CONCEPT_SYNONYM.csv",
+      "bytes": 185753182
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/VOCABULARY.csv",
+      "bytes": 3846
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/DRUG_STRENGTH.csv",
+      "bytes": 10605223
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/PACK_CONTENT.csv",
+      "bytes": 68336
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/CONCEPT.csv",
+      "bytes": 271373292
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/CONCEPT_RELATIONSHIP.csv",
+      "bytes": 660933034
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/CONCEPT_CLASS.csv",
+      "bytes": 18593
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/CONCEPT_ANCESTOR.csv",
+      "bytes": 251270120
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/RELATIONSHIP.csv",
+      "bytes": 53838
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/DOMAIN.csv",
+      "bytes": 1745
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/merge.duckdb",
+      "bytes": 505688064
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_ANCESTOR.CSV",
+      "bytes": 251270120
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/PACK_CONTENT.CSV",
+      "bytes": 68336
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/DOMAIN.CSV",
+      "bytes": 1745
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_METADATA.CSV",
+      "bytes": 1405913
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_CLASS.CSV",
+      "bytes": 18593
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/DRUG_STRENGTH.CSV",
+      "bytes": 10605223
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/VOCABULARY.CSV",
+      "bytes": 3664
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_RELATIONSHIP.CSV",
+      "bytes": 636296542
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT.CSV",
+      "bytes": 256658053
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/RELATIONSHIP.CSV",
+      "bytes": 53838
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_SYNONYM.CSV",
+      "bytes": 181693982
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_RELATIONSHIP_METADATA.CSV",
+      "bytes": 3167002
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_ANCESTOR.CSV",
+      "bytes": 24855191
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/PACK_CONTENT.CSV",
+      "bytes": 48
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/DOMAIN.CSV",
+      "bytes": 1745
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_METADATA.CSV",
+      "bytes": 26410
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_CLASS.CSV",
+      "bytes": 18593
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/DRUG_STRENGTH.CSV",
+      "bytes": 218
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/VOCABULARY.CSV",
+      "bytes": 3072
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_RELATIONSHIP.CSV",
+      "bytes": 62635929
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT.CSV",
+      "bytes": 30350866
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/RELATIONSHIP.CSV",
+      "bytes": 53838
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_SYNONYM.CSV",
+      "bytes": 4666563
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_RELATIONSHIP_METADATA.CSV",
+      "bytes": 10056
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/note.parquet",
+      "bytes": 441
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/death.parquet",
+      "bytes": 1052
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/vocabulary.parquet",
+      "bytes": 1013
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/concept_synonym.parquet",
+      "bytes": 125
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/source_to_concept_map.parquet",
+      "bytes": 282
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/payer_plan_period.parquet",
+      "bytes": 554
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/metadata.parquet",
+      "bytes": 288
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/episode_event.parquet",
+      "bytes": 124
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/drug_strength.parquet",
+      "bytes": 399
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/care_site.parquet",
+      "bytes": 218
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/cohort.parquet",
+      "bytes": 147
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/concept.parquet",
+      "bytes": 66332
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/concept_relationship.parquet",
+      "bytes": 2655107
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/relationship.parquet",
+      "bytes": 212
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/domain.parquet",
+      "bytes": 113
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/visit_occurrence.parquet",
+      "bytes": 125007
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/measurement.parquet",
+      "bytes": 201182
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/condition_era.parquet",
+      "bytes": 7412
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/dose_era.parquet",
+      "bytes": 220
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/procedure_occurrence.parquet",
+      "bytes": 48792
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/cohort_definition.parquet",
+      "bytes": 273
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/note_nlp.parquet",
+      "bytes": 362
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/location.parquet",
+      "bytes": 304
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/observation_period.parquet",
+      "bytes": 1181
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/visit_detail.parquet",
+      "bytes": 132513
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/specimen.parquet",
+      "bytes": 480
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/fact_relationship.parquet",
+      "bytes": 173
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/cdm_source.parquet",
+      "bytes": 2750
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/condition_occurrence.parquet",
+      "bytes": 20670
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/episode.parquet",
+      "bytes": 421
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/concept_class.parquet",
+      "bytes": 134
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/provider.parquet",
+      "bytes": 6468
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/concept_ancestor.parquet",
+      "bytes": 173
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/observation.parquet",
+      "bytes": 92007
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/cost.parquet",
+      "bytes": 756
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/device_exposure.parquet",
+      "bytes": 2683
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/drug_exposure.parquet",
+      "bytes": 34105
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/person.parquet",
+      "bytes": 4369
+    },
+    {
+      "path": "healthcare-lab12-omop-cdm/lab12/local/referencia/drug_era.parquet",
+      "bytes": 210
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_METADATA.csv",
+      "bytes": 1405913
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_RELATIONSHIP_METADATA.csv",
+      "bytes": 3167002
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_SYNONYM.csv",
+      "bytes": 181693982
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/VOCABULARY.csv",
+      "bytes": 3664
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/DRUG_STRENGTH.csv",
+      "bytes": 10605223
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/PACK_CONTENT.csv",
+      "bytes": 68336
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT.csv",
+      "bytes": 256658053
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_RELATIONSHIP.csv",
+      "bytes": 636296542
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_CLASS.csv",
+      "bytes": 18593
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_ANCESTOR.csv",
+      "bytes": 251270120
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/RELATIONSHIP.csv",
+      "bytes": 53838
+    },
+    {
+      "path": "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/DOMAIN.csv",
+      "bytes": 1745
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_METADATA.csv",
+      "bytes": 26410
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_RELATIONSHIP_METADATA.csv",
+      "bytes": 10056
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_SYNONYM.csv",
+      "bytes": 4666563
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/VOCABULARY.csv",
+      "bytes": 3072
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/DRUG_STRENGTH.csv",
+      "bytes": 218
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/PACK_CONTENT.csv",
+      "bytes": 48
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT.csv",
+      "bytes": 30350866
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_RELATIONSHIP.csv",
+      "bytes": 62635929
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_CLASS.csv",
+      "bytes": 18593
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_ANCESTOR.csv",
+      "bytes": 24855191
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/RELATIONSHIP.csv",
+      "bytes": 53838
+    },
+    {
+      "path": "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/DOMAIN.csv",
+      "bytes": 1745
+    }
+  ],
+  "etl_temporary_files": [],
+  "full_load_started": false,
+  "deleted_files": [],
+  "recommended_free_bytes": 32212254720,
+  "verified_duplicate_groups": [
+    {
+      "sha256": "3d83a1022b3338ce4c99af2b805ab68202a439301961953639ba32ea4cc268e9",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_ANCESTOR.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_ANCESTOR.csv"
+      ]
+    },
+    {
+      "sha256": "86fee56d2c7a55b3462ad2739bb49e137eaafd79973824d13267c029038bdc99",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/DOMAIN.CSV",
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/DOMAIN.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/DOMAIN.csv",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/DOMAIN.csv"
+      ]
+    },
+    {
+      "sha256": "c3ce4fd292e29007f89b00a2815120a4d7fbb9603325babb5cfa09922decd750",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_CLASS.CSV",
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_CLASS.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_CLASS.csv",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_CLASS.csv"
+      ]
+    },
+    {
+      "sha256": "a8ec8a5144c7b1ca5fb92d90fec368c95f669e2d7fe850b6e99ad690dd0b9424",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/DRUG_STRENGTH.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/DRUG_STRENGTH.csv"
+      ]
+    },
+    {
+      "sha256": "94572de6dc9df16850194660afd66d026575039ccc06c86049b4331bae692447",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/VOCABULARY.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/VOCABULARY.csv"
+      ]
+    },
+    {
+      "sha256": "59bdd4782533d3a22f39b2fd17f1d9290c60d0f9e3a2e7cd08acb871746a0878",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_RELATIONSHIP.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_RELATIONSHIP.csv"
+      ]
+    },
+    {
+      "sha256": "0900894e6545f6d6f84c2fea4c12fc46194c59214d261fb92b01995e7b509a61",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT.csv"
+      ]
+    },
+    {
+      "sha256": "faf064eadf8b45ab9170c61c28b8f675ea75390437beed548bc560c0d6d4045d",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/RELATIONSHIP.CSV",
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/RELATIONSHIP.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/RELATIONSHIP.csv",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/RELATIONSHIP.csv"
+      ]
+    },
+    {
+      "sha256": "6329ed6e4a0955b9a3291c29f4f57a1c00f10b1d030eed7942fbdeb1468552c0",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/CONCEPT_SYNONYM.CSV",
+        "vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/CONCEPT_SYNONYM.csv"
+      ]
+    },
+    {
+      "sha256": "ac9c3120899c213691cc2d8cf576d44aa82e29902256884b7e5088016c435fc3",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_ANCESTOR.CSV",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_ANCESTOR.csv"
+      ]
+    },
+    {
+      "sha256": "4f196d35bb6c25885194e052b82cefe492f9b9db55f59e914de97cfaf90cb926",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/DRUG_STRENGTH.CSV",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/DRUG_STRENGTH.csv"
+      ]
+    },
+    {
+      "sha256": "b8e57032ec37d27b3e80beff8d57f2d5b2eaee84416bd61a7f23c2690a4aded6",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/VOCABULARY.CSV",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/VOCABULARY.csv"
+      ]
+    },
+    {
+      "sha256": "76ef0cef790e4a075a06c0c6d1cbc5cf954ff592f5497b0c3175fac82650c5a4",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_RELATIONSHIP.CSV",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_RELATIONSHIP.csv"
+      ]
+    },
+    {
+      "sha256": "8f17473a7040d13c3299d64a25cc35c8e00edb0420cf9245ec8b1217a486f5f3",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT.CSV",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT.csv"
+      ]
+    },
+    {
+      "sha256": "d6ac4cd83ca38cb57be0faea2c6067bdcc37afbc26d7b56e33fe50813672b4bd",
+      "paths": [
+        "healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/CONCEPT_SYNONYM.CSV",
+        "vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/CONCEPT_SYNONYM.csv"
+      ]
+    }
+  ],
+  "tmp_same_filesystem_as_repository": true,
+  "original_databases_match_initial_hashes": {
+    "lab10/data/clinical.duckdb": true,
+    "final_project/data/omop_minimal.duckdb": true
+  },
+  "reference_parquet_person_count": 28
+}

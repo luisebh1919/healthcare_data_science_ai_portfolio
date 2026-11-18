@@ -1,0 +1,1343 @@
+{
+  "scope": "in_memory_core_and_full_source_vocabulary_audit",
+  "persistent_full_etl": "blocked_disk_space",
+  "vocabulary_date": "2026-11-15",
+  "duckdb": "1.5.6",
+  "vocabularies": [
+    {
+      "id": "ATC",
+      "version": "ATC 2026-02-01"
+    },
+    {
+      "id": "CDM",
+      "version": "CDM v6.0.0"
+    },
+    {
+      "id": "Cohort Type",
+      "version": null
+    },
+    {
+      "id": "Concept Class",
+      "version": null
+    },
+    {
+      "id": "Condition Status",
+      "version": null
+    },
+    {
+      "id": "Condition Type",
+      "version": null
+    },
+    {
+      "id": "Cost",
+      "version": null
+    },
+    {
+      "id": "Cost Type",
+      "version": null
+    },
+    {
+      "id": "Death Type",
+      "version": null
+    },
+    {
+      "id": "Device Type",
+      "version": null
+    },
+    {
+      "id": "Domain",
+      "version": null
+    },
+    {
+      "id": "Drug Type",
+      "version": null
+    },
+    {
+      "id": "Episode",
+      "version": "Episode 20201014"
+    },
+    {
+      "id": "ICD10",
+      "version": "2021 Release"
+    },
+    {
+      "id": "ICD10CM",
+      "version": "ICD10CM FY2027 code descriptions"
+    },
+    {
+      "id": "Korean Revenue Code",
+      "version": null
+    },
+    {
+      "id": "LOINC",
+      "version": "LOINC 2.82"
+    },
+    {
+      "id": "Language",
+      "version": "Language 20221030"
+    },
+    {
+      "id": "Meas Type",
+      "version": null
+    },
+    {
+      "id": "Metadata",
+      "version": null
+    },
+    {
+      "id": "None",
+      "version": "v5.0 29-AUG-26"
+    },
+    {
+      "id": "Note Type",
+      "version": null
+    },
+    {
+      "id": "OSM",
+      "version": "OSM Release 2019-02-21"
+    },
+    {
+      "id": "Obs Period Type",
+      "version": null
+    },
+    {
+      "id": "Observation Type",
+      "version": null
+    },
+    {
+      "id": "Plan",
+      "version": null
+    },
+    {
+      "id": "Plan Stop Reason",
+      "version": null
+    },
+    {
+      "id": "Procedure Type",
+      "version": null
+    },
+    {
+      "id": "Relationship",
+      "version": null
+    },
+    {
+      "id": "RxNorm",
+      "version": "RxNorm 20260601"
+    },
+    {
+      "id": "SNOMED",
+      "version": "2026-02-01 SNOMED CT International Edition; 2026-03-01 SNOMED CT US Edition; 2026-04-08 SNOMED CT UK Edition"
+    },
+    {
+      "id": "SOPT",
+      "version": "SOPT Version 9.2"
+    },
+    {
+      "id": "Sponsor",
+      "version": null
+    },
+    {
+      "id": "Type Concept",
+      "version": "Type Concept 20260202"
+    },
+    {
+      "id": "UB04 Point of Origin",
+      "version": null
+    },
+    {
+      "id": "UB04 Pri Typ of Adm",
+      "version": null
+    },
+    {
+      "id": "UB04 Pt dis status",
+      "version": null
+    },
+    {
+      "id": "UB04 Typ bill",
+      "version": null
+    },
+    {
+      "id": "UCUM",
+      "version": "Version 1.8.2"
+    },
+    {
+      "id": "US Census",
+      "version": "US Census 2017 Release"
+    },
+    {
+      "id": "Visit",
+      "version": "Visit 20211216"
+    },
+    {
+      "id": "Visit Type",
+      "version": null
+    },
+    {
+      "id": "Vocabulary",
+      "version": null
+    }
+  ],
+  "vocabulary_counts": {
+    "concept": 2042798,
+    "concept_relationship": 13945404,
+    "concept_ancestor": 12073517
+  },
+  "core_validation": {
+    "schema": {
+      "tables": 39,
+      "fields": 432,
+      "errors": []
+    },
+    "errors": {
+      "person.person_id.unique": 0,
+      "person.gender_concept_id.fk": 0,
+      "person.race_concept_id.fk": 0,
+      "person.ethnicity_concept_id.fk": 0,
+      "person.location_id.fk": 0,
+      "person.provider_id.fk": 0,
+      "person.care_site_id.fk": 0,
+      "person.gender_source_concept_id.fk": 0,
+      "person.race_source_concept_id.fk": 0,
+      "person.ethnicity_source_concept_id.fk": 0,
+      "observation_period.observation_period_id.unique": 0,
+      "observation_period.person_id.fk": 0,
+      "observation_period.period_type_concept_id.fk": 0,
+      "visit_occurrence.visit_occurrence_id.unique": 0,
+      "visit_occurrence.person_id.fk": 0,
+      "visit_occurrence.visit_concept_id.fk": 0,
+      "visit_occurrence.visit_type_concept_id.fk": 0,
+      "visit_occurrence.provider_id.fk": 0,
+      "visit_occurrence.care_site_id.fk": 0,
+      "visit_occurrence.visit_source_concept_id.fk": 0,
+      "visit_occurrence.admitted_from_concept_id.fk": 0,
+      "visit_occurrence.discharged_to_concept_id.fk": 0,
+      "visit_occurrence.preceding_visit_occurrence_id.fk": 0,
+      "visit_detail.visit_detail_id.unique": 0,
+      "visit_detail.person_id.fk": 0,
+      "visit_detail.visit_detail_concept_id.fk": 0,
+      "visit_detail.visit_detail_type_concept_id.fk": 0,
+      "visit_detail.provider_id.fk": 0,
+      "visit_detail.care_site_id.fk": 0,
+      "visit_detail.visit_detail_source_concept_id.fk": 0,
+      "visit_detail.admitted_from_concept_id.fk": 0,
+      "visit_detail.discharged_to_concept_id.fk": 0,
+      "visit_detail.preceding_visit_detail_id.fk": 0,
+      "visit_detail.parent_visit_detail_id.fk": 0,
+      "visit_detail.visit_occurrence_id.fk": 0,
+      "condition_occurrence.condition_occurrence_id.unique": 0,
+      "condition_occurrence.person_id.fk": 0,
+      "condition_occurrence.condition_concept_id.fk": 0,
+      "condition_occurrence.condition_type_concept_id.fk": 0,
+      "condition_occurrence.condition_status_concept_id.fk": 0,
+      "condition_occurrence.provider_id.fk": 0,
+      "condition_occurrence.visit_occurrence_id.fk": 0,
+      "condition_occurrence.visit_detail_id.fk": 0,
+      "condition_occurrence.condition_source_concept_id.fk": 0,
+      "drug_exposure.drug_exposure_id.unique": 0,
+      "drug_exposure.person_id.fk": 0,
+      "drug_exposure.drug_concept_id.fk": 0,
+      "drug_exposure.drug_type_concept_id.fk": 0,
+      "drug_exposure.route_concept_id.fk": 0,
+      "drug_exposure.provider_id.fk": 0,
+      "drug_exposure.visit_occurrence_id.fk": 0,
+      "drug_exposure.visit_detail_id.fk": 0,
+      "drug_exposure.drug_source_concept_id.fk": 0,
+      "procedure_occurrence.procedure_occurrence_id.unique": 0,
+      "procedure_occurrence.person_id.fk": 0,
+      "procedure_occurrence.procedure_concept_id.fk": 0,
+      "procedure_occurrence.procedure_type_concept_id.fk": 0,
+      "procedure_occurrence.modifier_concept_id.fk": 0,
+      "procedure_occurrence.provider_id.fk": 0,
+      "procedure_occurrence.visit_occurrence_id.fk": 0,
+      "procedure_occurrence.visit_detail_id.fk": 0,
+      "procedure_occurrence.procedure_source_concept_id.fk": 0,
+      "device_exposure.device_exposure_id.unique": 0,
+      "device_exposure.person_id.fk": 0,
+      "device_exposure.device_concept_id.fk": 0,
+      "device_exposure.device_type_concept_id.fk": 0,
+      "device_exposure.provider_id.fk": 0,
+      "device_exposure.visit_occurrence_id.fk": 0,
+      "device_exposure.visit_detail_id.fk": 0,
+      "device_exposure.device_source_concept_id.fk": 0,
+      "device_exposure.unit_concept_id.fk": 0,
+      "device_exposure.unit_source_concept_id.fk": 0,
+      "measurement.measurement_id.unique": 0,
+      "measurement.person_id.fk": 0,
+      "measurement.measurement_concept_id.fk": 0,
+      "measurement.measurement_type_concept_id.fk": 0,
+      "measurement.operator_concept_id.fk": 0,
+      "measurement.value_as_concept_id.fk": 0,
+      "measurement.unit_concept_id.fk": 0,
+      "measurement.provider_id.fk": 0,
+      "measurement.visit_occurrence_id.fk": 0,
+      "measurement.visit_detail_id.fk": 0,
+      "measurement.measurement_source_concept_id.fk": 0,
+      "measurement.unit_source_concept_id.fk": 0,
+      "measurement.meas_event_field_concept_id.fk": 0,
+      "observation.observation_id.unique": 0,
+      "observation.person_id.fk": 0,
+      "observation.observation_concept_id.fk": 0,
+      "observation.observation_type_concept_id.fk": 0,
+      "observation.value_as_concept_id.fk": 0,
+      "observation.qualifier_concept_id.fk": 0,
+      "observation.unit_concept_id.fk": 0,
+      "observation.provider_id.fk": 0,
+      "observation.visit_occurrence_id.fk": 0,
+      "observation.visit_detail_id.fk": 0,
+      "observation.observation_source_concept_id.fk": 0,
+      "observation.obs_event_field_concept_id.fk": 0,
+      "death.person_id.fk": 0,
+      "death.death_type_concept_id.fk": 0,
+      "death.cause_concept_id.fk": 0,
+      "death.cause_source_concept_id.fk": 0,
+      "note.note_id.unique": 0,
+      "note.person_id.fk": 0,
+      "note.note_type_concept_id.fk": 0,
+      "note.note_class_concept_id.fk": 0,
+      "note.encoding_concept_id.fk": 0,
+      "note.language_concept_id.fk": 0,
+      "note.provider_id.fk": 0,
+      "note.visit_occurrence_id.fk": 0,
+      "note.visit_detail_id.fk": 0,
+      "note.note_event_field_concept_id.fk": 0,
+      "note_nlp.note_nlp_id.unique": 0,
+      "note_nlp.section_concept_id.fk": 0,
+      "note_nlp.note_nlp_concept_id.fk": 0,
+      "note_nlp.note_nlp_source_concept_id.fk": 0,
+      "specimen.specimen_id.unique": 0,
+      "specimen.person_id.fk": 0,
+      "specimen.specimen_concept_id.fk": 0,
+      "specimen.specimen_type_concept_id.fk": 0,
+      "specimen.unit_concept_id.fk": 0,
+      "specimen.anatomic_site_concept_id.fk": 0,
+      "specimen.disease_status_concept_id.fk": 0,
+      "fact_relationship.domain_concept_id_1.fk": 0,
+      "fact_relationship.domain_concept_id_2.fk": 0,
+      "fact_relationship.relationship_concept_id.fk": 0,
+      "location.location_id.unique": 0,
+      "location.country_concept_id.fk": 0,
+      "care_site.care_site_id.unique": 0,
+      "care_site.place_of_service_concept_id.fk": 0,
+      "care_site.location_id.fk": 0,
+      "provider.provider_id.unique": 0,
+      "provider.specialty_concept_id.fk": 0,
+      "provider.care_site_id.fk": 0,
+      "provider.gender_concept_id.fk": 0,
+      "provider.specialty_source_concept_id.fk": 0,
+      "provider.gender_source_concept_id.fk": 0,
+      "payer_plan_period.payer_plan_period_id.unique": 0,
+      "payer_plan_period.person_id.fk": 0,
+      "payer_plan_period.payer_concept_id.fk": 0,
+      "payer_plan_period.payer_source_concept_id.fk": 0,
+      "payer_plan_period.plan_concept_id.fk": 0,
+      "payer_plan_period.plan_source_concept_id.fk": 0,
+      "payer_plan_period.sponsor_concept_id.fk": 0,
+      "payer_plan_period.sponsor_source_concept_id.fk": 0,
+      "payer_plan_period.stop_reason_concept_id.fk": 0,
+      "payer_plan_period.stop_reason_source_concept_id.fk": 0,
+      "cost.cost_id.unique": 0,
+      "cost.cost_domain_id.fk": 0,
+      "cost.cost_type_concept_id.fk": 0,
+      "cost.currency_concept_id.fk": 0,
+      "cost.revenue_code_concept_id.fk": 0,
+      "cost.drg_concept_id.fk": 0,
+      "drug_era.drug_era_id.unique": 0,
+      "drug_era.person_id.fk": 0,
+      "drug_era.drug_concept_id.fk": 0,
+      "dose_era.dose_era_id.unique": 0,
+      "dose_era.person_id.fk": 0,
+      "dose_era.drug_concept_id.fk": 0,
+      "dose_era.unit_concept_id.fk": 0,
+      "condition_era.condition_era_id.unique": 0,
+      "condition_era.person_id.fk": 0,
+      "condition_era.condition_concept_id.fk": 0,
+      "episode.episode_id.unique": 0,
+      "episode.person_id.fk": 0,
+      "episode.episode_concept_id.fk": 0,
+      "episode.episode_object_concept_id.fk": 0,
+      "episode.episode_type_concept_id.fk": 0,
+      "episode.episode_source_concept_id.fk": 0,
+      "episode_event.episode_id.fk": 0,
+      "episode_event.episode_event_field_concept_id.fk": 0,
+      "metadata.metadata_id.unique": 0,
+      "metadata.metadata_concept_id.fk": 0,
+      "metadata.metadata_type_concept_id.fk": 0,
+      "metadata.value_as_concept_id.fk": 0,
+      "cdm_source.cdm_version_concept_id.fk": 0,
+      "concept.concept_id.unique": 0,
+      "concept.domain_id.fk": 0,
+      "concept.vocabulary_id.fk": 0,
+      "concept.concept_class_id.fk": 0,
+      "vocabulary.vocabulary_id.unique": 0,
+      "vocabulary.vocabulary_concept_id.fk": 0,
+      "domain.domain_id.unique": 0,
+      "domain.domain_concept_id.fk": 0,
+      "concept_class.concept_class_id.unique": 0,
+      "concept_class.concept_class_concept_id.fk": 0,
+      "concept_relationship.concept_id_1.fk": 0,
+      "concept_relationship.concept_id_2.fk": 0,
+      "concept_relationship.relationship_id.fk": 0,
+      "relationship.relationship_id.unique": 0,
+      "relationship.relationship_concept_id.fk": 0,
+      "concept_synonym.concept_id.fk": 0,
+      "concept_synonym.language_concept_id.fk": 0,
+      "concept_ancestor.ancestor_concept_id.fk": 0,
+      "concept_ancestor.descendant_concept_id.fk": 0,
+      "source_to_concept_map.source_concept_id.fk": 0,
+      "source_to_concept_map.target_concept_id.fk": 0,
+      "source_to_concept_map.target_vocabulary_id.fk": 0,
+      "drug_strength.drug_concept_id.fk": 0,
+      "drug_strength.ingredient_concept_id.fk": 0,
+      "drug_strength.amount_unit_concept_id.fk": 0,
+      "drug_strength.numerator_unit_concept_id.fk": 0,
+      "drug_strength.denominator_unit_concept_id.fk": 0,
+      "cohort_definition.definition_type_concept_id.fk": 0,
+      "cohort_definition.subject_concept_id.fk": 0,
+      "condition_occurrence.standard_domain": 0,
+      "condition_occurrence.visit_patient": 0,
+      "drug_exposure.standard_domain": 0,
+      "drug_exposure.visit_patient": 0,
+      "measurement.standard_domain": 0,
+      "measurement.visit_patient": 0,
+      "observation.standard_domain": 0,
+      "observation.visit_patient": 0,
+      "procedure_occurrence.standard_domain": 0,
+      "procedure_occurrence.visit_patient": 0,
+      "device_exposure.standard_domain": 0,
+      "device_exposure.visit_patient": 0,
+      "conditions.reconciliation": 0,
+      "encounters.reconciliation": 0
+    },
+    "warnings": {
+      "person.person_source_value.length": 0,
+      "person.gender_source_value.length": 0,
+      "person.race_source_value.length": 0,
+      "person.ethnicity_source_value.length": 0,
+      "visit_occurrence.visit_source_value.length": 0,
+      "visit_occurrence.admitted_from_source_value.length": 0,
+      "visit_occurrence.discharged_to_source_value.length": 0,
+      "visit_detail.visit_detail_source_value.length": 0,
+      "visit_detail.admitted_from_source_value.length": 0,
+      "visit_detail.discharged_to_source_value.length": 0,
+      "condition_occurrence.stop_reason.length": 0,
+      "condition_occurrence.condition_source_value.length": 0,
+      "condition_occurrence.condition_status_source_value.length": 0,
+      "drug_exposure.stop_reason.length": 0,
+      "drug_exposure.lot_number.length": 0,
+      "drug_exposure.drug_source_value.length": 0,
+      "drug_exposure.route_source_value.length": 0,
+      "drug_exposure.dose_unit_source_value.length": 0,
+      "procedure_occurrence.procedure_source_value.length": 0,
+      "procedure_occurrence.modifier_source_value.length": 0,
+      "device_exposure.unique_device_id.length": 0,
+      "device_exposure.production_id.length": 0,
+      "device_exposure.device_source_value.length": 0,
+      "device_exposure.unit_source_value.length": 0,
+      "measurement.measurement_time.length": 0,
+      "measurement.measurement_source_value.length": 0,
+      "measurement.unit_source_value.length": 0,
+      "measurement.value_source_value.length": 0,
+      "observation.value_as_string.length": 0,
+      "observation.observation_source_value.length": 0,
+      "observation.unit_source_value.length": 0,
+      "observation.qualifier_source_value.length": 0,
+      "observation.value_source_value.length": 0,
+      "death.cause_source_value.length": 0,
+      "note.note_title.length": 0,
+      "note.note_source_value.length": 0,
+      "note_nlp.snippet.length": 0,
+      "note_nlp.offset.length": 0,
+      "note_nlp.lexical_variant.length": 0,
+      "note_nlp.nlp_system.length": 0,
+      "note_nlp.term_exists.length": 0,
+      "note_nlp.term_temporal.length": 0,
+      "note_nlp.term_modifiers.length": 0,
+      "specimen.specimen_source_id.length": 0,
+      "specimen.specimen_source_value.length": 0,
+      "specimen.unit_source_value.length": 0,
+      "specimen.anatomic_site_source_value.length": 0,
+      "specimen.disease_status_source_value.length": 0,
+      "location.address_1.length": 0,
+      "location.address_2.length": 0,
+      "location.city.length": 0,
+      "location.state.length": 0,
+      "location.zip.length": 0,
+      "location.county.length": 0,
+      "location.location_source_value.length": 0,
+      "location.country_source_value.length": 0,
+      "care_site.care_site_name.length": 0,
+      "care_site.care_site_source_value.length": 0,
+      "care_site.place_of_service_source_value.length": 0,
+      "provider.provider_name.length": 0,
+      "provider.npi.length": 0,
+      "provider.dea.length": 0,
+      "provider.provider_source_value.length": 0,
+      "provider.specialty_source_value.length": 0,
+      "provider.gender_source_value.length": 0,
+      "payer_plan_period.payer_source_value.length": 0,
+      "payer_plan_period.plan_source_value.length": 0,
+      "payer_plan_period.sponsor_source_value.length": 0,
+      "payer_plan_period.family_source_value.length": 0,
+      "payer_plan_period.stop_reason_source_value.length": 0,
+      "cost.cost_domain_id.length": 0,
+      "cost.revenue_code_source_value.length": 0,
+      "cost.drg_source_value.length": 0,
+      "episode.episode_source_value.length": 0,
+      "metadata.name.length": 0,
+      "metadata.value_as_string.length": 0,
+      "cdm_source.cdm_source_name.length": 0,
+      "cdm_source.cdm_source_abbreviation.length": 0,
+      "cdm_source.cdm_holder.length": 0,
+      "cdm_source.source_documentation_reference.length": 0,
+      "cdm_source.cdm_etl_reference.length": 0,
+      "cdm_source.cdm_version.length": 0,
+      "cdm_source.vocabulary_version.length": 0,
+      "concept.concept_name.length": 0,
+      "concept.domain_id.length": 0,
+      "concept.vocabulary_id.length": 0,
+      "concept.concept_class_id.length": 0,
+      "concept.standard_concept.length": 0,
+      "concept.concept_code.length": 0,
+      "concept.invalid_reason.length": 0,
+      "vocabulary.vocabulary_id.length": 0,
+      "vocabulary.vocabulary_name.length": 0,
+      "vocabulary.vocabulary_reference.length": 0,
+      "vocabulary.vocabulary_version.length": 0,
+      "domain.domain_id.length": 0,
+      "domain.domain_name.length": 0,
+      "concept_class.concept_class_id.length": 0,
+      "concept_class.concept_class_name.length": 0,
+      "concept_relationship.relationship_id.length": 0,
+      "concept_relationship.invalid_reason.length": 0,
+      "relationship.relationship_id.length": 0,
+      "relationship.relationship_name.length": 0,
+      "relationship.is_hierarchical.length": 0,
+      "relationship.defines_ancestry.length": 0,
+      "relationship.reverse_relationship_id.length": 0,
+      "concept_synonym.concept_synonym_name.length": 0,
+      "source_to_concept_map.source_code.length": 0,
+      "source_to_concept_map.source_vocabulary_id.length": 0,
+      "source_to_concept_map.source_code_description.length": 0,
+      "source_to_concept_map.target_vocabulary_id.length": 0,
+      "source_to_concept_map.invalid_reason.length": 0,
+      "drug_strength.invalid_reason.length": 0,
+      "cohort_definition.cohort_definition_name.length": 0,
+      "condition_occurrence.outside_visit": 84542,
+      "condition_occurrence.before_birth": 0,
+      "condition_occurrence.outside_observation_period": 1832,
+      "drug_exposure.outside_visit": 0,
+      "drug_exposure.before_birth": 0,
+      "drug_exposure.outside_observation_period": 0,
+      "measurement.outside_visit": 1,
+      "measurement.before_birth": 0,
+      "measurement.outside_observation_period": 0,
+      "observation.outside_visit": 96451,
+      "observation.before_birth": 0,
+      "observation.outside_observation_period": 3594,
+      "procedure_occurrence.outside_visit": 0,
+      "procedure_occurrence.before_birth": 0,
+      "procedure_occurrence.outside_observation_period": 0,
+      "device_exposure.outside_visit": 0,
+      "device_exposure.before_birth": 0,
+      "device_exposure.outside_observation_period": 0,
+      "person.gender_concept_id.unmapped": 22851,
+      "person.race_concept_id.unmapped": 22851,
+      "person.ethnicity_concept_id.unmapped": 22851,
+      "visit_occurrence.visit_concept_id.unmapped": 3166
+    },
+    "counts": {
+      "care_site": 1181,
+      "cdm_source": 0,
+      "cohort": 0,
+      "cohort_definition": 0,
+      "concept": 2042798,
+      "concept_ancestor": 12073517,
+      "concept_class": 433,
+      "concept_relationship": 13945404,
+      "concept_synonym": 2503953,
+      "condition_era": 0,
+      "condition_occurrence": 399864,
+      "cost": 0,
+      "death": 2851,
+      "device_exposure": 0,
+      "domain": 50,
+      "dose_era": 0,
+      "drug_era": 0,
+      "drug_exposure": 0,
+      "drug_strength": 209849,
+      "episode": 0,
+      "episode_event": 0,
+      "fact_relationship": 0,
+      "location": 0,
+      "measurement": 5,
+      "metadata": 0,
+      "note": 0,
+      "note_nlp": 0,
+      "observation": 430930,
+      "observation_period": 22851,
+      "payer_plan_period": 0,
+      "person": 22851,
+      "procedure_occurrence": 0,
+      "provider": 1181,
+      "relationship": 724,
+      "source_to_concept_map": 0,
+      "specimen": 0,
+      "visit_detail": 0,
+      "visit_occurrence": 1353311,
+      "vocabulary": 43
+    },
+    "reconciliation": [
+      {
+        "source": "conditions",
+        "source_rows": 830799,
+        "loaded_source_rows": 830799,
+        "rejected_source_rows": 0
+      }
+    ],
+    "mapping": [
+      {
+        "source": "conditions",
+        "rows": 830799,
+        "mapped_rows": 819364,
+        "percent": 98.6236
+      }
+    ],
+    "dqd": "not_run"
+  },
+  "cohort_comparison": {
+    "standard_domains": {
+      "patients": 824,
+      "events": 85,
+      "missing_patients": 0,
+      "extra_patients": 0,
+      "different_index_visit": 0,
+      "field_mismatches": {
+        "index_admission": 0,
+        "index_discharge": 0,
+        "age": 0,
+        "sex": 0,
+        "prior_inpatient_hospitalizations_180d": 0,
+        "distinct_diagnoses_180d": 515,
+        "distinct_medications_180d": 0,
+        "measurement_count_180d": 0,
+        "readmission_30d": 0
+      }
+    },
+    "original_source_definition": {
+      "patients": 824,
+      "events": 85,
+      "missing_patients": 0,
+      "extra_patients": 0,
+      "different_index_visit": 0,
+      "field_mismatches": {
+        "index_admission": 0,
+        "index_discharge": 0,
+        "age": 0,
+        "sex": 0,
+        "prior_inpatient_hospitalizations_180d": 0,
+        "distinct_diagnoses_180d": 0,
+        "distinct_medications_180d": 0,
+        "measurement_count_180d": 0,
+        "readmission_30d": 0
+      }
+    },
+    "training_24": {
+      "cutoff": "2022-11-27 07:16:42",
+      "notebook_sha256": "c7e863db914575105c4b77a124297473d195c752f49489f9979e0c1c771fc93a",
+      "notebook_executed": false,
+      "counts": {
+        "train_original": {
+          "patients": 655,
+          "events": 76
+        },
+        "train_rebuilt": {
+          "patients": 655,
+          "events": 76
+        },
+        "train_standard": {
+          "patients": 655,
+          "events": 76
+        }
+      },
+      "missing_training_patients": 0,
+      "extra_training_patients": 0,
+      "feature_mismatches_original_definition": {
+        "age": 0,
+        "prior_inpatient_hospitalizations_180d": 0,
+        "distinct_diagnoses_180d": 0,
+        "distinct_medications_180d": 0,
+        "measurement_count_180d": 0,
+        "sex": 0
+      },
+      "feature_mismatches_standard_domains": {
+        "age": 0,
+        "prior_inpatient_hospitalizations_180d": 0,
+        "distinct_diagnoses_180d": 418,
+        "distinct_medications_180d": 0,
+        "measurement_count_180d": 0,
+        "sex": 0
+      },
+      "engineered_feature_mismatches_original_definition": {
+        "dx_cardiovascular": 0,
+        "med_antihipertensivos": 0,
+        "distinct_nononcological_diagnoses_180d": 0
+      },
+      "diagnosis_code_description_differences_both_directions": [
+        0,
+        0
+      ],
+      "base_feature_order": [
+        "age",
+        "prior_inpatient_hospitalizations_180d",
+        "distinct_diagnoses_180d",
+        "distinct_medications_180d",
+        "measurement_count_180d",
+        "sex"
+      ],
+      "engineered_feature_order": [
+        "dx_cardiovascular",
+        "med_antihipertensivos",
+        "distinct_nononcological_diagnoses_180d"
+      ],
+      "fe_presence_totals_original": {
+        "dx_cardiovascular": 37,
+        "med_antihipertensivos": 197,
+        "distinct_nononcological_diagnoses_180d": 698
+      },
+      "old_block_patients": 659,
+      "numeric_person_id_differences": 0,
+      "patient_order_identical": true,
+      "excluded_followup_overlap": 4
+    }
+  },
+  "coverage": [
+    {
+      "source": "conditions",
+      "rows": 830799,
+      "distinct_codes": 313,
+      "mapped_rows": 819364,
+      "mapped_codes": 291,
+      "row_coverage_percent": 98.6236,
+      "mapped_only_to_unsupported_domains_rows": 0,
+      "target_domains": [
+        [
+          "Condition",
+          258
+        ],
+        [
+          "Measurement",
+          1
+        ],
+        [
+          "Observation",
+          32
+        ]
+      ],
+      "unmapped_codes": [
+        {
+          "vocabulary": "SNOMED",
+          "code": "267020005",
+          "rows": 2418,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "399261000",
+          "rows": 1592,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "62106007",
+          "rows": 1321,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "6525002",
+          "rows": 1072,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "428251008",
+          "rows": 1035,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "399211009",
+          "rows": 988,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "446654005",
+          "rows": 949,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "1290882004",
+          "rows": 788,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "161665007",
+          "rows": 671,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "449868002",
+          "rows": 194,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "1231000119100",
+          "rows": 171,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "94503003",
+          "rows": 62,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "108631000119101",
+          "rows": 56,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "94260004",
+          "rows": 42,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "153351000119102",
+          "rows": 33,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "161679004",
+          "rows": 15,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "152621000119105",
+          "rows": 12,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "161622006",
+          "rows": 7,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "429280009",
+          "rows": 6,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "119481000119105",
+          "rows": 1,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "120991000119102",
+          "rows": 1,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "161621004",
+          "rows": 1,
+          "reason": "no_valid_standard_mapping"
+        }
+      ]
+    },
+    {
+      "source": "medications",
+      "rows": 1158763,
+      "distinct_codes": 391,
+      "mapped_rows": 1158763,
+      "mapped_codes": 391,
+      "row_coverage_percent": 100.0,
+      "mapped_only_to_unsupported_domains_rows": 0,
+      "target_domains": [
+        [
+          "Drug",
+          391
+        ]
+      ],
+      "unmapped_codes": []
+    },
+    {
+      "source": "observations",
+      "rows": 17340070,
+      "distinct_codes": 305,
+      "mapped_rows": 16682275,
+      "mapped_codes": 277,
+      "row_coverage_percent": 96.2065,
+      "mapped_only_to_unsupported_domains_rows": 1055,
+      "target_domains": [
+        [
+          "Measurement",
+          195
+        ],
+        [
+          "Note",
+          3
+        ],
+        [
+          "Observation",
+          78
+        ],
+        [
+          "Procedure",
+          1
+        ]
+      ],
+      "unmapped_codes": [
+        {
+          "vocabulary": "LOINC",
+          "code": "DALY",
+          "rows": 208036,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "QALY",
+          "rows": 208036,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "QOLS",
+          "rows": 208036,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "413077008",
+          "rows": 13857,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "413078003",
+          "rows": 13857,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "X9999-1",
+          "rows": 1946,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "X9999-2",
+          "rows": 1946,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "21908-9",
+          "rows": 339,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "21905-5",
+          "rows": 179,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "21907-1",
+          "rows": 179,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "85318-4",
+          "rows": 179,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "85319-2",
+          "rows": 179,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "85337-4",
+          "rows": 179,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "85339-0",
+          "rows": 179,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "271605009",
+          "rows": 81,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "285285000",
+          "rows": 79,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "870537001",
+          "rows": 79,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-1",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-10",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-11",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-2",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-3",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-4",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-5",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-6",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-7",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-8",
+          "rows": 39,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "LOINC",
+          "code": "99999-9",
+          "rows": 39,
+          "reason": "source_code_absent"
+        }
+      ]
+    },
+    {
+      "source": "procedures",
+      "rows": 3729996,
+      "distinct_codes": 421,
+      "mapped_rows": 3705850,
+      "mapped_codes": 418,
+      "row_coverage_percent": 99.3527,
+      "mapped_only_to_unsupported_domains_rows": 0,
+      "target_domains": [
+        [
+          "Condition",
+          5
+        ],
+        [
+          "Device",
+          1
+        ],
+        [
+          "Drug",
+          2
+        ],
+        [
+          "Measurement",
+          73
+        ],
+        [
+          "Observation",
+          83
+        ],
+        [
+          "Procedure",
+          254
+        ]
+      ],
+      "unmapped_codes": [
+        {
+          "vocabulary": "SNOMED",
+          "code": "64544008",
+          "rows": 18191,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "399014008",
+          "rows": 5925,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "165355002",
+          "rows": 30,
+          "reason": "no_valid_standard_mapping"
+        }
+      ]
+    },
+    {
+      "source": "immunizations",
+      "rows": 329742,
+      "distinct_codes": 22,
+      "mapped_rows": 0,
+      "mapped_codes": 0,
+      "row_coverage_percent": 0.0,
+      "mapped_only_to_unsupported_domains_rows": 0,
+      "target_domains": [],
+      "unmapped_codes": [
+        {
+          "vocabulary": "CVX",
+          "code": "140",
+          "rows": 182770,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "113",
+          "rows": 16927,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "208",
+          "rows": 15448,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "207",
+          "rows": 12006,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "20",
+          "rows": 11175,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "133",
+          "rows": 10700,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "10",
+          "rows": 9308,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "114",
+          "rows": 8379,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "62",
+          "rows": 8034,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "49",
+          "rows": 6819,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "08",
+          "rows": 6764,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "121",
+          "rows": 6432,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "52",
+          "rows": 5988,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "43",
+          "rows": 5046,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "03",
+          "rows": 4675,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "21",
+          "rows": 4616,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "83",
+          "rows": 4546,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "119",
+          "rows": 4357,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "115",
+          "rows": 2655,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "33",
+          "rows": 2170,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "212",
+          "rows": 881,
+          "reason": "source_code_absent"
+        },
+        {
+          "vocabulary": "CVX",
+          "code": "187",
+          "rows": 46,
+          "reason": "source_code_absent"
+        }
+      ]
+    },
+    {
+      "source": "devices",
+      "rows": 131652,
+      "distinct_codes": 32,
+      "mapped_rows": 106145,
+      "mapped_codes": 29,
+      "row_coverage_percent": 80.6254,
+      "mapped_only_to_unsupported_domains_rows": 0,
+      "target_domains": [
+        [
+          "Device",
+          29
+        ]
+      ],
+      "unmapped_codes": [
+        {
+          "vocabulary": "SNOMED",
+          "code": "225738002",
+          "rows": 23763,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "91537007",
+          "rows": 1588,
+          "reason": "no_valid_standard_mapping"
+        },
+        {
+          "vocabulary": "SNOMED",
+          "code": "36965003",
+          "rows": 156,
+          "reason": "no_valid_standard_mapping"
+        }
+      ]
+    }
+  ],
+  "source_sha256": {
+    "lab10/data/clinical.duckdb": "33f0cf6c58f8bed29733711c9ab7cf0f05159b9e424b76ed6ca8e80a1271ab35",
+    "final_project/data/omop_minimal.duckdb": "011dd863a2ca24d12f175fb4eba0ca59716c9537ccb3ee4226c8a1020af5090c"
+  },
+  "original_databases_unchanged": true,
+  "clinical_etl_executed_sources": [
+    "patients",
+    "encounters",
+    "conditions",
+    "organizations",
+    "providers"
+  ],
+  "clinical_etl_not_executed_sources": [
+    "medications",
+    "observations",
+    "procedures",
+    "immunizations",
+    "devices"
+  ],
+  "persistent_schema": {
+    "tables": 39,
+    "fields": 432,
+    "errors": []
+  }
+}

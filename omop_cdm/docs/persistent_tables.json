@@ -1,0 +1,245 @@
+{
+  "cohort_comparison.duckdb": {
+    "tables": [
+      {
+        "schema": "results",
+        "table": "audit_report",
+        "rows": 1
+      },
+      {
+        "schema": "results",
+        "table": "cohort_rebuilt",
+        "rows": 824
+      },
+      {
+        "schema": "results",
+        "table": "fe_original",
+        "rows": 655
+      },
+      {
+        "schema": "results",
+        "table": "fe_rebuilt",
+        "rows": 655
+      },
+      {
+        "schema": "results",
+        "table": "train_original",
+        "rows": 655
+      },
+      {
+        "schema": "results",
+        "table": "train_rebuilt",
+        "rows": 655
+      },
+      {
+        "schema": "results",
+        "table": "train_standard",
+        "rows": 655
+      }
+    ]
+  },
+  "omop54_schema_only.duckdb": {
+    "tables": [
+      {
+        "schema": "omop",
+        "table": "care_site",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "cdm_source",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "cohort",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "cohort_definition",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "concept",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "concept_ancestor",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "concept_class",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "concept_relationship",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "concept_synonym",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "condition_era",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "condition_occurrence",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "cost",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "death",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "device_exposure",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "domain",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "dose_era",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "drug_era",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "drug_exposure",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "drug_strength",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "episode",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "episode_event",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "fact_relationship",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "location",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "measurement",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "metadata",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "note",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "note_nlp",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "observation",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "observation_period",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "payer_plan_period",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "person",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "procedure_occurrence",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "provider",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "relationship",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "source_to_concept_map",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "specimen",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "visit_detail",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "visit_occurrence",
+        "rows": 0
+      },
+      {
+        "schema": "omop",
+        "table": "vocabulary",
+        "rows": 0
+      }
+    ],
+    "schema_validation": {
+      "tables": 39,
+      "fields": 432,
+      "errors": []
+    }
+  }
+}

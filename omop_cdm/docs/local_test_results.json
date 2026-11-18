@@ -1,0 +1,7 @@
+{
+  "command": "pytest omop_cdm/tests lab04/tests final_project/tests -q",
+  "passed": 13,
+  "failed": 0,
+  "duration_seconds": 1.94,
+  "official_DQD": false
+}
