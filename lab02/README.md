@@ -1,5 +1,14 @@
 # Lab 02 · Large-Scale Clinical Data Processing
 
+## Organización y ejecución local
+
+El análisis está en [notebooks/analisis_pacientes.ipynb](notebooks/analisis_pacientes.ipynb).
+Usar `lab02/notebooks/` como directorio de trabajo; sus rutas apuntan a
+`../output/csv/`. Los datos y el generador permanecen en sus ubicaciones locales.
+El script local no rastreado `activity8_measure.py` se conserva en `lab02/` y
+mantiene su directorio de ejecución original. No se vuelve a ejecutar el
+benchmark como parte de la reorganización.
+
 **Memory-efficient EHR processing, clinical data-quality validation, and performance benchmarking across pandas, Polars, and PySpark.**
 
 `Python` · `pandas` · `Polars` · `PySpark` · `PyArrow` · `Synthea`
@@ -40,7 +49,7 @@ The lab evaluates:
 
 The complete implementation and methodological discussion are available in:
 
-### [`analisis_pacientes.ipynb`](./analisis_pacientes.ipynb)
+### [`analisis_pacientes.ipynb`](./notebooks/analisis_pacientes.ipynb)
 
 ---
 
@@ -329,7 +338,7 @@ Repository structure:
 
 ```text
 lab02/
-├── analisis_pacientes.ipynb
+├── notebooks/analisis_pacientes.ipynb
 ├── README.md
 └── .gitignore
 ```
@@ -342,7 +351,7 @@ To reproduce the analysis:
    `pandas`, `numpy`, `pyarrow`, `polars`, and `pyspark`.
 2. Generate the Synthea CSV files using the command shown above.
 3. Place the generated files under `output/csv/`.
-4. Open `analisis_pacientes.ipynb`.
+4. Open `notebooks/analisis_pacientes.ipynb`.
 5. Run the notebook from a clean kernel using **Restart & Run All**.
 
 The implementation avoids `iterrows()` and `inplace=True`.

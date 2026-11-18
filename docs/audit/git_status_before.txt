@@ -1,0 +1,40 @@
+## feat/final-project-features...origin/feat/final-project-features
+ M final_project/README.md
+ D final_project/notebooks/02.3_readmission_modeling.ipynb
+ D final_project/notebooks/02_readmission_modeling.ipynb
+ M final_project/requirements.txt
+ M final_project/sql/05_features.sql
+?? AGENTS.md
+?? FInal_proyect/
+?? docs/
+?? final_project/notebooks/02.4_readmission_modeling.ipynb
+?? final_project/notebooks/Otros/
+?? final_project/tests/test_features.py
+?? healthcare-lab12-omop-cdm/
+?? lab02/activity8_measure.py
+?? tools/
+?? vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/
+?? vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/
+!! .mypy_cache/
+!! .pytest_cache/
+!! .ruff_cache/
+!! .venv/
+!! final_project/data/
+!! final_project/tests/__pycache__/
+!! lab02/.venv/
+!! lab02/output/
+!! lab02/synthea-with-dependencies.jar
+!! lab05/clinlab/.mypy_cache/
+!! lab05/clinlab/.pytest_cache/
+!! lab05/clinlab/.ruff_cache/
+!! lab05/clinlab/src/clinlab/__pycache__/
+!! lab05/clinlab/tests/__pycache__/
+!! lab06/clinlab/.mypy_cache/
+!! lab06/clinlab/.pytest_cache/
+!! lab06/clinlab/.ruff_cache/
+!! lab06/clinlab/.venv/
+!! lab06/clinlab/src/clinlab.egg-info/
+!! lab06/clinlab/src/clinlab/__pycache__/
+!! lab06/clinlab/tests/__pycache__/
+!! lab07/stack/.env
+!! lab10/data/

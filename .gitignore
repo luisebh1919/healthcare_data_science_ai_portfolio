@@ -6,3 +6,25 @@ __pycache__/
 # Local notebook environment and Jupyter checkpoints
 /.venv/
 .ipynb_checkpoints/
+
+# Datos locales y vocabularios con sus licencias; nunca publicar bases ni secretos.
+*.duckdb
+*.duckdb.wal
+*.db
+*.sqlite
+*.parquet
+.env
+.env.*
+!.env.example
+/vocabulary_download*/
+/omop_cdm/local/
+/omop_cdm/results/
+/.pytest_cache/
+/.mypy_cache/
+/.ruff_cache/
+# Otro worktree y proyecto local preexistentes: conservar fuera del índice principal.
+/healthcare-lab12-omop-cdm/
+/FInal_proyect/
+
+# Copias temporales locales: se conservan sin publicarlas.
+/final_project/notebooks/Otros/*(Copy).ipynb

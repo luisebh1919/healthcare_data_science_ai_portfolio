@@ -1,5 +1,13 @@
 # Lab 03 — Exploratory Data Analysis of a Type 2 Diabetes Cohort
 
+## Organización y ejecución local
+
+El notebook está en [notebooks/eda_cohorte.ipynb](notebooks/eda_cohorte.ipynb).
+Abrirlo con el directorio de trabajo `lab03/notebooks/`: consume
+`../../lab02/output/csv/` y guarda las figuras en `../figuras/`. Se conservan los
+entregables existentes, las salidas y el análisis; solo se ajustaron las rutas.
+No se trasladaron ni regeneraron datos.
+
 ## Objective
 
 This laboratory performs a complete exploratory data analysis (EDA) of an adult cohort with type 2 diabetes mellitus (T2D) generated with Synthea.

@@ -1,3 +1,6 @@
+# Los notebooks científicos conservan sus celdas y salidas guardadas.
+# Se validan por JSON/AST e integridad de hashes durante la publicación.
+exclude: '\.ipynb$'
 repos:
   - repo: https://github.com/astral-sh/ruff-pre-commit
     rev: v0.9.10

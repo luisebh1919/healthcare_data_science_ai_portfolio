@@ -15,11 +15,12 @@ java -jar synthea-with-dependencies.jar \
   --exporter.fhir.export=false \
   --exporter.baseDirectory=output
 cd ..
-python3 lab10/build_db.py
+python3 lab10/src/build_db.py
 ```
 
-El último comando puede repetirse: elimina y vuelve a crear las cinco tablas,
-imprime sus conteos y deja la base local en `lab10/data/clinical.duckdb`. El
+El último comando construye las cinco tablas únicamente si no existe la base,
+imprime sus conteos y deja el archivo local en `lab10/data/clinical.duckdb`.
+Si la base ya existe, se detiene antes de abrirla y la conserva. El
 notebook de la Actividad 10 puede abrirse después desde
 `lab10/notebooks/sql_vs_pandas.ipynb`.
 
@@ -65,7 +66,7 @@ sin que sea necesario instalar, configurar o administrar un servidor.
 Desde la raíz del repositorio, la carga completa se reproduce con:
 
 ```bash
-python3 lab10/build_db.py
+python3 lab10/src/build_db.py
 ```
 
 El script crea `lab10/data/clinical.duckdb`, cambia internamente a `lab10/` para

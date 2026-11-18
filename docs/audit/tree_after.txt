@@ -1,0 +1,513 @@
+./
+  .gitignore (505 bytes)
+  AGENTS.md (1605 bytes)
+  README.md (3958 bytes)
+.git/ [entorno/caché: contenido omitido]
+.github/
+.github/workflows/
+  lab06-ghcr.yml (1557 bytes)
+.mypy_cache/ [entorno/caché: contenido omitido]
+.pytest_cache/ [entorno/caché: contenido omitido]
+.ruff_cache/ [entorno/caché: contenido omitido]
+.venv/ [entorno/caché: contenido omitido]
+FInal_proyect/
+  README.md (0 bytes)
+FInal_proyect/docs/
+FInal_proyect/figures/
+FInal_proyect/sql/
+FInal_proyect/src/
+FInal_proyect/tests/
+docs/
+  reorganization.md (7934 bytes)
+docs/audit/
+  files_before.json (32847 bytes)
+  git_status_before.txt (1314 bytes)
+  git_tracked_before.txt (2363 bytes)
+  protected_after.json (1391 bytes)
+  protected_before.json (1391 bytes)
+  protection_validation.json (110 bytes)
+  tree_before.txt (16182 bytes)
+  worktrees_before.txt (709 bytes)
+final_project/
+  .gitignore (132 bytes)
+  README.md (8256 bytes)
+  requirements.txt (1276 bytes)
+final_project/data/
+  omop_minimal.duckdb (12070912 bytes)
+final_project/docs/
+  cohort.md (1552 bytes)
+  protocol.md (3851 bytes)
+  style_guide.md (2382 bytes)
+final_project/docs/deliverables/
+  01_Propuesta_Proyecto_Final.pdf (87391 bytes)
+  02_Feasibility_Attrition_Cohort.pdf (227905 bytes)
+final_project/notebooks/
+  01_cohort_design.ipynb (3965 bytes)
+  02.4_readmission_modeling.ipynb (2597958 bytes)
+final_project/notebooks/Otros/
+  02.1_readmission_modeling (Copy).ipynb (585443 bytes)
+  02.2_readmission_modeling (Copy).ipynb (585443 bytes)
+  02.3_readmission_modeling.ipynb (1481895 bytes)
+  02_readmission_modeling.ipynb (407784 bytes)
+final_project/sql/
+  .gitkeep (1 bytes)
+  01_concept_sets.sql (1008 bytes)
+  02_cohort.sql (1666 bytes)
+  03_attrition.sql (1957 bytes)
+  04_outcome.sql (1007 bytes)
+  05_features.sql (3101 bytes)
+  omop.sql (2446 bytes)
+final_project/src/
+  .gitkeep (1 bytes)
+final_project/tests/
+  .gitkeep (1 bytes)
+  test_features.py (2915 bytes)
+final_project/tests/__pycache__/ [entorno/caché: contenido omitido]
+healthcare-lab12-omop-cdm/
+  .git (121 bytes)
+  .gitignore (32 bytes)
+  README.md (5836 bytes)
+healthcare-lab12-omop-cdm/.github/
+healthcare-lab12-omop-cdm/.github/workflows/
+  lab06-ghcr.yml (1557 bytes)
+healthcare-lab12-omop-cdm/.ruff_cache/ [entorno/caché: contenido omitido]
+healthcare-lab12-omop-cdm/final_project/
+  .gitignore (132 bytes)
+  README.md (3554 bytes)
+healthcare-lab12-omop-cdm/final_project/docs/
+  cohort.md (1552 bytes)
+  protocol.md (3851 bytes)
+  style_guide.md (2382 bytes)
+healthcare-lab12-omop-cdm/final_project/docs/deliverables/
+  01_Propuesta_Proyecto_Final.pdf (87391 bytes)
+  02_Feasibility_Attrition_Cohort.pdf (227905 bytes)
+healthcare-lab12-omop-cdm/final_project/notebooks/
+  01_cohort_design.ipynb (3965 bytes)
+  02_readmission_modeling.ipynb (5596 bytes)
+healthcare-lab12-omop-cdm/final_project/sql/
+  .gitkeep (1 bytes)
+  01_concept_sets.sql (1008 bytes)
+  02_cohort.sql (1666 bytes)
+  03_attrition.sql (1957 bytes)
+  04_outcome.sql (1007 bytes)
+  omop.sql (2446 bytes)
+healthcare-lab12-omop-cdm/final_project/src/
+  .gitkeep (1 bytes)
+healthcare-lab12-omop-cdm/final_project/tests/
+  .gitkeep (1 bytes)
+healthcare-lab12-omop-cdm/lab02/
+  .gitignore (78 bytes)
+  README.md (11415 bytes)
+  analisis_pacientes.ipynb (104964 bytes)
+healthcare-lab12-omop-cdm/lab03/
+  README.md (4981 bytes)
+  eda_cohorte.ipynb (1228463 bytes)
+healthcare-lab12-omop-cdm/lab03/figuras/
+  figura_resumen_eda.pdf (47893 bytes)
+  figura_resumen_eda.png (891070 bytes)
+healthcare-lab12-omop-cdm/lab04/
+  README.md (1927 bytes)
+  __init__.py (35 bytes)
+healthcare-lab12-omop-cdm/lab04/__pycache__/ [entorno/caché: contenido omitido]
+healthcare-lab12-omop-cdm/lab04/src/
+  __init__.py (41 bytes)
+  clinical_summary.py (1045 bytes)
+healthcare-lab12-omop-cdm/lab04/src/__pycache__/ [entorno/caché: contenido omitido]
+healthcare-lab12-omop-cdm/lab04/tests/
+  conftest.py (238 bytes)
+  test_clinical_summary.py (1751 bytes)
+healthcare-lab12-omop-cdm/lab04/tests/__pycache__/ [entorno/caché: contenido omitido]
+healthcare-lab12-omop-cdm/lab05/
+healthcare-lab12-omop-cdm/lab05/clinlab/
+  .gitignore (65 bytes)
+  .pre-commit-config.yaml (153 bytes)
+  README.md (10149 bytes)
+  pyproject.toml (602 bytes)
+healthcare-lab12-omop-cdm/lab05/clinlab/src/
+healthcare-lab12-omop-cdm/lab05/clinlab/src/clinlab/
+  __init__.py (23 bytes)
+  data_quality.py (6399 bytes)
+healthcare-lab12-omop-cdm/lab05/clinlab/tests/
+  test_data_quality.py (10985 bytes)
+healthcare-lab12-omop-cdm/lab06/
+healthcare-lab12-omop-cdm/lab06/clinlab/
+  .dockerignore (133 bytes)
+  .gitignore (65 bytes)
+  .pre-commit-config.yaml (153 bytes)
+  Dockerfile (654 bytes)
+  README.md (10698 bytes)
+  pyproject.toml (602 bytes)
+  uv.lock (271547 bytes)
+healthcare-lab12-omop-cdm/lab06/clinlab/docs/
+  dependencias.md (562 bytes)
+  imagen.md (13690 bytes)
+healthcare-lab12-omop-cdm/lab06/clinlab/src/
+healthcare-lab12-omop-cdm/lab06/clinlab/src/clinlab/
+  __init__.py (23 bytes)
+  data_quality.py (6399 bytes)
+healthcare-lab12-omop-cdm/lab06/clinlab/tests/
+  test_data_quality.py (10985 bytes)
+healthcare-lab12-omop-cdm/lab07/
+healthcare-lab12-omop-cdm/lab07/stack/
+  .env.example (212 bytes)
+  .gitignore (5 bytes)
+  README.md (861 bytes)
+  bitacora.md (12263 bytes)
+  compose.yml (1201 bytes)
+healthcare-lab12-omop-cdm/lab07/stack/evidencia/
+  actividad1_adminer.png (74899 bytes)
+healthcare-lab12-omop-cdm/lab07/stack/initdb/
+  01-create-schemas.sql (211 bytes)
+  02-create-test-table.sql (163 bytes)
+healthcare-lab12-omop-cdm/lab10/
+  README.md (18242 bytes)
+  build_db.py (969 bytes)
+healthcare-lab12-omop-cdm/lab10/docs/
+  er_diagram.md (2987 bytes)
+  explain_after.txt (1185 bytes)
+  explain_before.txt (1459 bytes)
+healthcare-lab12-omop-cdm/lab10/notebooks/
+  sql_vs_pandas.ipynb (14920 bytes)
+healthcare-lab12-omop-cdm/lab10/sql/
+  carga.sql (5534 bytes)
+  consultas.sql (10791 bytes)
+healthcare-lab12-omop-cdm/lab11/
+  README.md (29917 bytes)
+healthcare-lab12-omop-cdm/lab11/docs/
+  explain_activity10_lag.txt (11830 bytes)
+  explain_activity10_self_join.txt (17377 bytes)
+healthcare-lab12-omop-cdm/lab11/notebooks/
+  analitica_longitudinal.ipynb (35978 bytes)
+healthcare-lab12-omop-cdm/lab11/sql/
+  analitica_longitudinal.sql (28660 bytes)
+healthcare-lab12-omop-cdm/lab12/
+  .gitignore (70 bytes)
+  README.md (9385 bytes)
+  auditar_generador.py (1311 bytes)
+  comparar_esquema.py (1301 bytes)
+  corregir_dominios.py (10977 bytes)
+  etl_ohdsi.R (1137 bytes)
+  finalizar_visitas.py (4478 bytes)
+  generar_reporte.py (19334 bytes)
+  integridad_auxiliar.py (1797 bytes)
+  pipeline.py (19818 bytes)
+  preparar_vocabularios.py (3531 bytes)
+  referencia.py (1558 bytes)
+  reporte_calidad.md (34805 bytes)
+  requirements.txt (14 bytes)
+  reubicar_no_mapeados.py (3555 bytes)
+  verificar_reproducibilidad.py (3619 bytes)
+healthcare-lab12-omop-cdm/lab12/__pycache__/ [entorno/caché: contenido omitido]
+healthcare-lab12-omop-cdm/lab12/docs/
+  README_historico.md (10961 bytes)
+  athena_revision.md (1691 bytes)
+  auditoria_athena.md (5631 bytes)
+  comparacion_esquema.json (421 bytes)
+  correcciones_dominios.md (7253 bytes)
+  criterios_evaluacion.md (3323 bytes)
+  diagrama_er.md (6027 bytes)
+  gingivitis_generador.json (5499 bytes)
+  reporte_antes_correcciones.md (22720 bytes)
+  reporte_inicial_provisional.md (12498 bytes)
+  validacion.md (2049 bytes)
+  validacion_historica.md (6875 bytes)
+healthcare-lab12-omop-cdm/lab12/local/
+  omop.duckdb (219164672 bytes)
+  omop_athena.duckdb (809775104 bytes)
+  omop_corregido.duckdb (809775104 bytes)
+  pr_body.md (1944 bytes)
+healthcare-lab12-omop-cdm/lab12/local/.venv/ [entorno/caché: contenido omitido]
+healthcare-lab12-omop-cdm/lab12/local/athena_unificado/
+  CONCEPT.csv (271373292 bytes)
+  CONCEPT_ANCESTOR.csv (251270120 bytes)
+  CONCEPT_CLASS.csv (18593 bytes)
+  CONCEPT_METADATA.csv (1405913 bytes)
+  CONCEPT_RELATIONSHIP.csv (660933034 bytes)
+  CONCEPT_RELATIONSHIP_METADATA.csv (3176916 bytes)
+  CONCEPT_SYNONYM.csv (185753182 bytes)
+  DOMAIN.csv (1745 bytes)
+  DRUG_STRENGTH.csv (10605223 bytes)
+  PACK_CONTENT.csv (68336 bytes)
+  RELATIONSHIP.csv (53838 bytes)
+  VOCABULARY.csv (3846 bytes)
+  manifest.json (4677 bytes)
+  merge.duckdb (505688064 bytes)
+healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_0/
+  CONCEPT.CSV (256658053 bytes)
+  CONCEPT_ANCESTOR.CSV (251270120 bytes)
+  CONCEPT_CLASS.CSV (18593 bytes)
+  CONCEPT_METADATA.CSV (1405913 bytes)
+  CONCEPT_RELATIONSHIP.CSV (636296542 bytes)
+  CONCEPT_RELATIONSHIP_METADATA.CSV (3167002 bytes)
+  CONCEPT_SYNONYM.CSV (181693982 bytes)
+  DOMAIN.CSV (1745 bytes)
+  DRUG_STRENGTH.CSV (10605223 bytes)
+  PACK_CONTENT.CSV (68336 bytes)
+  RELATIONSHIP.CSV (53838 bytes)
+  VOCABULARY.CSV (3664 bytes)
+healthcare-lab12-omop-cdm/lab12/local/athena_unificado/package_1/
+  CONCEPT.CSV (30350866 bytes)
+  CONCEPT_ANCESTOR.CSV (24855191 bytes)
+  CONCEPT_CLASS.CSV (18593 bytes)
+  CONCEPT_METADATA.CSV (26410 bytes)
+  CONCEPT_RELATIONSHIP.CSV (62635929 bytes)
+  CONCEPT_RELATIONSHIP_METADATA.CSV (10056 bytes)
+  CONCEPT_SYNONYM.CSV (4666563 bytes)
+  DOMAIN.CSV (1745 bytes)
+  DRUG_STRENGTH.CSV (218 bytes)
+  PACK_CONTENT.CSV (48 bytes)
+  RELATIONSHIP.CSV (53838 bytes)
+  VOCABULARY.CSV (3072 bytes)
+healthcare-lab12-omop-cdm/lab12/local/referencia/
+  care_site.parquet (218 bytes)
+  cdm_source.parquet (2750 bytes)
+  cohort.parquet (147 bytes)
+  cohort_definition.parquet (273 bytes)
+  concept.parquet (66332 bytes)
+  concept_ancestor.parquet (173 bytes)
+  concept_class.parquet (134 bytes)
+  concept_relationship.parquet (2655107 bytes)
+  concept_synonym.parquet (125 bytes)
+  condition_era.parquet (7412 bytes)
+  condition_occurrence.parquet (20670 bytes)
+  cost.parquet (756 bytes)
+  death.parquet (1052 bytes)
+  device_exposure.parquet (2683 bytes)
+  domain.parquet (113 bytes)
+  dose_era.parquet (220 bytes)
+  drug_era.parquet (210 bytes)
+  drug_exposure.parquet (34105 bytes)
+  drug_strength.parquet (399 bytes)
+  episode.parquet (421 bytes)
+  episode_event.parquet (124 bytes)
+  fact_relationship.parquet (173 bytes)
+  location.parquet (304 bytes)
+  measurement.parquet (201182 bytes)
+  metadata.parquet (288 bytes)
+  note.parquet (441 bytes)
+  note_nlp.parquet (362 bytes)
+  observation.parquet (92007 bytes)
+  observation_period.parquet (1181 bytes)
+  payer_plan_period.parquet (554 bytes)
+  person.parquet (4369 bytes)
+  procedure_occurrence.parquet (48792 bytes)
+  provider.parquet (6468 bytes)
+  relationship.parquet (212 bytes)
+  source_to_concept_map.parquet (282 bytes)
+  specimen.parquet (480 bytes)
+  visit_detail.parquet (132513 bytes)
+  visit_occurrence.parquet (125007 bytes)
+  vocabulary.parquet (1013 bytes)
+healthcare-lab12-omop-cdm/lab12/resultados/
+  antes_correcciones.json (54179 bytes)
+  referencia_resultados.json (7828 bytes)
+  reproducibilidad.json (3077 bytes)
+  resultados.json (66358 bytes)
+healthcare-lab12-omop-cdm/lab12/sql/
+  auditoria_final.sql (4737 bytes)
+  calidad_vocabularios.sql (7987 bytes)
+  consultas_ampliadas.sql (4936 bytes)
+  consultas_omop.sql (5820 bytes)
+  dominos_clinicos.sql (1836 bytes)
+healthcare-lab12-omop-cdm/lab12/tests/
+  test_calidad_vocabularios.py (2559 bytes)
+  test_informe.py (6564 bytes)
+  test_migracion.py (7314 bytes)
+  test_validacion.py (2760 bytes)
+healthcare-lab12-omop-cdm/lab12/tests/__pycache__/ [entorno/caché: contenido omitido]
+lab02/
+  .gitignore (78 bytes)
+  README.md (11929 bytes)
+  activity8_measure.py (7740 bytes)
+  synthea-with-dependencies.jar (197024912 bytes)
+lab02/.venv/ [entorno/caché: contenido omitido]
+lab02/notebooks/
+  analisis_pacientes.ipynb (105042 bytes)
+lab02/output/
+lab02/output/csv/
+  allergies.csv (3771344 bytes)
+  careplans.csv (15149092 bytes)
+  claims.csv (967241103 bytes)
+  claims_transactions.csv (9962924884 bytes)
+  conditions.csv (119874114 bytes)
+  devices.csv (29722913 bytes)
+  encounters.csv (451963552 bytes)
+  imaging_studies.csv (667844319 bytes)
+  immunizations.csv (46138845 bytes)
+  medications.csv (304039559 bytes)
+  observations.csv (3055329897 bytes)
+  organizations.csv (186507 bytes)
+  patients.csv (6852800 bytes)
+  payer_transitions.csv (143144895 bytes)
+  payers.csv (1976 bytes)
+  procedures.csv (784445314 bytes)
+  providers.csv (222933 bytes)
+  supplies.csv (83628572 bytes)
+lab02/output/fhir/
+  hospitalInformation1786913600893.json (3701702 bytes)
+  practitionerInformation1786913600893.json (3897750 bytes)
+lab02/output/metadata/
+  2026_08_16T20_53_20Z_20000_Massachusetts_4ea25393_86d5_442d_986b_08e51864010d.json (505 bytes)
+lab03/
+  README.md (5214 bytes)
+lab03/figuras/
+  figura_resumen_eda.pdf (47893 bytes)
+  figura_resumen_eda.png (891070 bytes)
+lab03/notebooks/
+  eda_cohorte.ipynb (1228475 bytes)
+lab04/
+  README.md (1000 bytes)
+  __init__.py (35 bytes)
+lab04/__pycache__/ [entorno/caché: contenido omitido]
+lab04/src/
+  __init__.py (41 bytes)
+  clinical_summary.py (661 bytes)
+lab04/src/__pycache__/ [entorno/caché: contenido omitido]
+lab04/tests/
+  conftest.py (238 bytes)
+  test_clinical_summary.py (992 bytes)
+lab04/tests/__pycache__/ [entorno/caché: contenido omitido]
+lab05/
+  README.md (490 bytes)
+lab05/clinlab/
+  .gitignore (65 bytes)
+  .pre-commit-config.yaml (153 bytes)
+  README.md (10149 bytes)
+  pyproject.toml (602 bytes)
+lab05/clinlab/.mypy_cache/ [entorno/caché: contenido omitido]
+lab05/clinlab/.pytest_cache/ [entorno/caché: contenido omitido]
+lab05/clinlab/.ruff_cache/ [entorno/caché: contenido omitido]
+lab05/clinlab/notebooks/
+lab05/clinlab/src/
+lab05/clinlab/src/clinlab/
+  __init__.py (23 bytes)
+  data_quality.py (6399 bytes)
+lab05/clinlab/src/clinlab/__pycache__/ [entorno/caché: contenido omitido]
+lab05/clinlab/tests/
+  test_data_quality.py (10985 bytes)
+lab05/clinlab/tests/__pycache__/ [entorno/caché: contenido omitido]
+lab06/
+  README.md (433 bytes)
+lab06/clinlab/
+  .dockerignore (133 bytes)
+  .gitignore (65 bytes)
+  .pre-commit-config.yaml (153 bytes)
+  Dockerfile (654 bytes)
+  README.md (10698 bytes)
+  pyproject.toml (602 bytes)
+  uv.lock (271547 bytes)
+lab06/clinlab/.mypy_cache/ [entorno/caché: contenido omitido]
+lab06/clinlab/.pytest_cache/ [entorno/caché: contenido omitido]
+lab06/clinlab/.ruff_cache/ [entorno/caché: contenido omitido]
+lab06/clinlab/.venv/ [entorno/caché: contenido omitido]
+lab06/clinlab/docs/
+  dependencias.md (562 bytes)
+  imagen.md (13690 bytes)
+lab06/clinlab/notebooks/
+lab06/clinlab/src/
+lab06/clinlab/src/clinlab/
+  __init__.py (23 bytes)
+  data_quality.py (6399 bytes)
+lab06/clinlab/src/clinlab/__pycache__/ [entorno/caché: contenido omitido]
+lab06/clinlab/src/clinlab.egg-info/
+  PKG-INFO (11156 bytes)
+  SOURCES.txt (277 bytes)
+  dependency_links.txt (1 bytes)
+  requires.txt (66 bytes)
+  top_level.txt (8 bytes)
+lab06/clinlab/tests/
+  test_data_quality.py (10985 bytes)
+lab06/clinlab/tests/__pycache__/ [entorno/caché: contenido omitido]
+lab07/
+  README.md (355 bytes)
+lab07/stack/
+  .env (178 bytes)
+  .env.example (212 bytes)
+  .gitignore (5 bytes)
+  README.md (861 bytes)
+  bitacora.md (12263 bytes)
+  compose.yml (1201 bytes)
+lab07/stack/evidencia/
+  actividad1_adminer.png (74899 bytes)
+lab07/stack/initdb/
+  01-create-schemas.sql (211 bytes)
+  02-create-test-table.sql (163 bytes)
+lab07/stack/notebooks/
+lab10/
+  README.md (18250 bytes)
+  build_db.py (248 bytes)
+lab10/data/
+  clinical.duckdb (539504640 bytes)
+lab10/docs/
+  er_diagram.md (2987 bytes)
+  explain_after.txt (1185 bytes)
+  explain_before.txt (1459 bytes)
+lab10/notebooks/
+  sql_vs_pandas.ipynb (14924 bytes)
+lab10/sql/
+  carga.sql (5534 bytes)
+  consultas.sql (10791 bytes)
+lab10/src/
+  build_db.py (1127 bytes)
+lab11/
+  README.md (29917 bytes)
+lab11/docs/
+  explain_activity10_lag.txt (11830 bytes)
+  explain_activity10_self_join.txt (17377 bytes)
+lab11/notebooks/
+  analitica_longitudinal.ipynb (35978 bytes)
+lab11/sql/
+  analitica_longitudinal.sql (28660 bytes)
+omop_cdm/
+  README.md (8879 bytes)
+  requirements.txt (28 bytes)
+omop_cdm/docs/
+  data_audit.json (39720 bytes)
+  limitations.md (4248 bytes)
+  official_sources.json (537 bytes)
+  preflight.json (161 bytes)
+  validation.md (7014 bytes)
+omop_cdm/local/
+  cohort_comparison.duckdb (2371584 bytes)
+  omop54_schema_only.duckdb (1585152 bytes)
+omop_cdm/sql/
+omop_cdm/sql/vendor/
+  OMOPCDM_postgresql_5.4_ddl.sql (19554 bytes)
+  OMOP_CDMv5.4_Field_Level.csv (130164 bytes)
+omop_cdm/src/
+  audit_data.py (20533 bytes)
+  etl.py (28352 bytes)
+  run_dqd.R (2220 bytes)
+  schema.py (2046 bytes)
+omop_cdm/src/__pycache__/ [entorno/caché: contenido omitido]
+omop_cdm/tests/
+  test_etl.py (8384 bytes)
+omop_cdm/tests/__pycache__/ [entorno/caché: contenido omitido]
+tools/
+  audit_repository.py (12587 bytes)
+vocabulary_download_v5_{20d4455f-c100-46dc-8821-8bc4895fa5ff}_1794189468751/
+  CONCEPT.csv (256658053 bytes)
+  CONCEPT_ANCESTOR.csv (251270120 bytes)
+  CONCEPT_CLASS.csv (18593 bytes)
+  CONCEPT_METADATA.csv (1405913 bytes)
+  CONCEPT_RELATIONSHIP.csv (636296542 bytes)
+  CONCEPT_RELATIONSHIP_METADATA.csv (3167002 bytes)
+  CONCEPT_SYNONYM.csv (181693982 bytes)
+  DOMAIN.csv (1745 bytes)
+  DRUG_STRENGTH.csv (10605223 bytes)
+  PACK_CONTENT.csv (68336 bytes)
+  RELATIONSHIP.csv (53838 bytes)
+  VOCABULARY.csv (3664 bytes)
+vocabulary_download_v5_{6780bd73-b8a1-4136-ab04-d4d26c9188ca}_1794190792454/
+  CONCEPT.csv (30350866 bytes)
+  CONCEPT_ANCESTOR.csv (24855191 bytes)
+  CONCEPT_CLASS.csv (18593 bytes)
+  CONCEPT_METADATA.csv (26410 bytes)
+  CONCEPT_RELATIONSHIP.csv (62635929 bytes)
+  CONCEPT_RELATIONSHIP_METADATA.csv (10056 bytes)
+  CONCEPT_SYNONYM.csv (4666563 bytes)
+  DOMAIN.csv (1745 bytes)
+  DRUG_STRENGTH.csv (218 bytes)
+  PACK_CONTENT.csv (48 bytes)
+  RELATIONSHIP.csv (53838 bytes)
+  VOCABULARY.csv (3072 bytes)

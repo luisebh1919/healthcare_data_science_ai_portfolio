@@ -1,5 +1,25 @@
 # Healthcare Data Science & AI Engineering Portfolio
 
+## Navegación y reproducibilidad
+
+| Unidad | Contenido y entrada |
+|---|---|
+| [Lab 02](lab02/README.md) | Synthea y analítica; notebook en `notebooks/` y datos locales en `output/` |
+| [Lab 03](lab03/README.md) | EDA; notebook en `notebooks/` y entregables en `figuras/` |
+| [Lab 04](lab04/README.md) | Funciones en `src/` y pruebas en `tests/` |
+| [Lab 05](lab05/README.md) | Paquete académico independiente `clinlab/` |
+| [Lab 06](lab06/README.md) | Paquete `clinlab/`, contenedor y CI |
+| [Lab 07](lab07/README.md) | Servicios y evidencias en `stack/` |
+| [Lab 10](lab10/README.md) | SQL, notebooks y constructor en `src/`; se mantiene la entrada histórica |
+| [Lab 11](lab11/README.md) | SQL longitudinal sobre la base de Lab 10, en solo lectura |
+| [Proyecto final](final_project/README.md) | Estudio original; notebooks 02.3 y 02.4 preservados |
+| [Nueva OMOP](omop_cdm/README.md) | Esquema 5.4.2, ETL independiente y auditoría científica |
+
+La [auditoría y arquitectura](docs/reorganization.md) registra dependencias,
+movimientos, árboles anterior/nuevo y problemas preexistentes. La nueva OMOP está
+separada de los análisis históricos: su carga persistente completa está pendiente
+por falta de espacio y su cumplimiento integral **no está certificado**.
+
 Technical portfolio focused on **clinical analytics, healthcare data engineering, machine learning, clinical informatics, and applied AI**.
 
 ## Scope

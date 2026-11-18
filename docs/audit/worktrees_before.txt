@@ -1,0 +1,20 @@
+worktree /home/luis-enrique/Desktop/Datascience_BIomedicas/Labs - Clase - Tareas
+HEAD a65083c2349b42c50148da39172b21dfca39b4d9
+branch refs/heads/feat/final-project-features
+
+worktree /home/luis-enrique/Desktop/Datascience_BIomedicas/healthcare-lab12-omop-cdm
+HEAD db2304c5a0eeb834c461d4cf55520d5f3530fa83
+branch refs/heads/feat/lab12-omop-cdm
+prunable gitdir file points to non-existent location
+
+worktree /tmp/healthcare-pr4-audit
+HEAD 1d36156c188c2f98abb54bee89727d70e86a1ad7
+detached
+
+worktree /tmp/healthcare-pr4-base
+HEAD be1d2c3c96c145b408ef9f6e293a96e817553183
+detached
+
+worktree /tmp/healthcare-readme-navigation
+HEAD c0e10e48c913808d1e5496808a562eed116e8972
+branch refs/heads/docs/readme-navigation
