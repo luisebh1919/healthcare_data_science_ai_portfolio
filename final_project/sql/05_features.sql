@@ -24,6 +24,7 @@ prior_hospitalizations AS (
     FROM base b
     LEFT JOIN omop.visit_occurrence v
       ON v.person_id = b.person_id
+     AND v.visit_concept_id = 9201
      AND v.visit_start_datetime >= b.lookback_start
      AND v.visit_start_datetime < b.index_admission
     GROUP BY b.person_id

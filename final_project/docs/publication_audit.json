@@ -1,0 +1,32 @@
+{
+  "notebook": "final_project/notebooks/02.4_readmission_modeling.ipynb",
+  "sha256": "3fca2c3a910740c43a7dabac795c17227180247f789db736c95a01eb2dc5c7be",
+  "bytes": 2937411,
+  "cells": 62,
+  "code_cells": 26,
+  "code_cells_with_execution_count": 25,
+  "saved_code_cell_images": 18,
+  "saved_error_outputs": 0,
+  "source_sha256": "d8e6b5a9c63f3a5673e1bb035951aed935d985970ad520b35118826791866c79",
+  "outputs_and_attachments_sha256": "e2a54c0100be5e06d824f89ede7c20d0c13b08626f86fcf9c999babfe1a029d0",
+  "metadata_sha256": "b11b9f0ee7a766f59d0ca94981cca9574897ebd281930ddb0916daa316955465",
+  "notebook_executed_during_publication": false,
+  "notebook_modified_during_publication": false,
+  "omop_persistent_full_load": "pending",
+  "official_dqd": "pending",
+  "reference_note": "Estado actual autorizado para publicación; no sustituye los hashes de las auditorías históricas.",
+  "reorganized_notebook_outputs_preserved": true,
+  "legacy_and_new_lab10_paths_reject_overwrite": true,
+  "data_paths_exist": true,
+  "publication_tests": {
+    "omop_lab04_final_project_passed": 13,
+    "lab05_passed": 32,
+    "lab06_passed": 32,
+    "total_passed": 77,
+    "official_dqd_executed": false
+  },
+  "protected_original_database_sha256": {
+    "lab10/data/clinical.duckdb": "33f0cf6c58f8bed29733711c9ab7cf0f05159b9e424b76ed6ca8e80a1271ab35",
+    "final_project/data/omop_minimal.duckdb": "011dd863a2ca24d12f175fb4eba0ca59716c9537ccb3ee4226c8a1020af5090c"
+  }
+}
